@@ -148,6 +148,14 @@ export const translations = {
     how4_body:  { it: "Il sistema non si monta e si lascia girare. Lo monitoriamo, testiamo e miglioriamo ogni settimana.", en: "The system isn't set and forgotten. We monitor, test and improve it every week." },
     cta_headline: { it: "Pronto a costruire il tuo sistema di acquisizione?", en: "Ready to build your acquisition system?" },
     cta_button:   { it: "Inizia con l'analisi gratuita →", en: "Start with the free analysis →" },
+    group_core:       { it: "Servizi Core", en: "Core Services" },
+    group_integrated: { it: "Servizi Integrati", en: "Integrated Services" },
+    group_ondemand:   { it: "Servizi On-Demand", en: "On-Demand Services" },
+    group_core_desc:       { it: "I pilastri della crescita digitale.", en: "The pillars of digital growth." },
+    group_integrated_desc: { it: "Completano il sistema e amplificano i risultati.", en: "Complete the system and amplify results." },
+    group_ondemand_desc:   { it: "Attivabili su richiesta per esigenze specifiche.", en: "Activatable on request for specific needs." },
+    s10_title: { it: "Funnel & Lead Generation", en: "Funnel & Lead Generation" },
+    s10_body:  { it: "Progettiamo percorsi di acquisizione completi: landing page, sequenze di nurturing e sistemi di qualificazione automatica dei lead. Ogni funnel è costruito per massimizzare il tasso di conversione e ridurre il costo per contatto.", en: "We design complete acquisition paths: landing pages, nurturing sequences and automatic lead qualification systems. Every funnel is built to maximize conversion rate and reduce cost per contact." },
   },
 
   // ─── ABOUT PAGE ───────────────────────────────────────────────────────────
