@@ -15,7 +15,7 @@ export const translations = {
 
   // ─── FOOTER ───────────────────────────────────────────────────────────────
   footer: {
-    tagline:   { it: "Growth Partner", en: "Growth Partner" },
+    tagline:   { it: "GROWTH PARTNER", en: "GROWTH PARTNER" },
     privacy:   { it: "Privacy Policy", en: "Privacy Policy" },
     termini:   { it: "Termini & Condizioni", en: "Terms & Conditions" },
     copyright: { it: "© 2026 BD Media. Tutti i diritti riservati.", en: "© 2026 BD Media. All rights reserved." },
