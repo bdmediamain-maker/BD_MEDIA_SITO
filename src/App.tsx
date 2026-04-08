@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import { Privacy, Rimborsi, Termini } from "./pages/Legal";
+import CaseStudyAeonStudio from "./pages/CaseStudyAeonStudio";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";

@@ -195,13 +195,19 @@ const Index = () => {
                   <span className="font-semibold text-primary">17,16x</span>
                 </div>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-wrap items-center gap-6">
                 <button
                   onClick={() => openContactModal("Lead Generation")}
                   className="btn-primary"
                 >
                   Voglio risultati come Aeon →
                 </button>
+                <a
+                  href="/case-study/aeon-studio"
+                  className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
+                >
+                  Leggi il case study completo →
+                </a>
               </div>
             </div>
           </ScrollReveal>
