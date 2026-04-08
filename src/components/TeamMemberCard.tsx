@@ -54,9 +54,9 @@ const TeamMemberCard = ({ photo, name, role, bio }: TeamMemberCardProps) => {
           <X className="h-5 w-5" />
         </button>
 
-        <div className="flex flex-1 flex-col items-start justify-start px-5 pt-6 pb-4">
+        <div className="flex flex-1 flex-col items-start justify-center px-5 py-5">
           <h3
-            className={`text-xl font-extrabold text-primary transition-all duration-300 delay-75 ${
+            className={`text-lg font-extrabold text-primary transition-all duration-300 delay-75 ${
               open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
           >
@@ -71,13 +71,13 @@ const TeamMemberCard = ({ photo, name, role, bio }: TeamMemberCardProps) => {
           </p>
 
           <div
-            className={`mt-4 h-0.5 w-12 bg-primary transition-all duration-300 delay-150 ${
+            className={`mt-3 h-0.5 w-10 bg-primary transition-all duration-300 delay-150 ${
               open ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
             } origin-left`}
           />
 
           <div
-            className={`mt-3 space-y-2 text-[11px] leading-snug text-muted-foreground transition-all duration-300 delay-200 ${
+            className={`mt-3 space-y-2 text-[12px] leading-relaxed text-muted-foreground transition-all duration-300 delay-200 ${
               open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
