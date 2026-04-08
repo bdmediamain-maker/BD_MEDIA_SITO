@@ -21,7 +21,7 @@ const Footer = () => {
                 loading="lazy"
                 width={683}
                 height={183}
-                className="block h-12 w-auto"
+                className="block h-[53px] w-auto"
               />
             </Link>
           </div>
