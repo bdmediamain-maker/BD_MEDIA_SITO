@@ -54,7 +54,7 @@ const TeamMemberCard = ({ photo, name, role, bio }: TeamMemberCardProps) => {
           <X className="h-5 w-5" />
         </button>
 
-        <div className="flex flex-1 flex-col items-start justify-start overflow-y-auto px-5 pt-6 pb-4">
+        <div className="flex flex-1 flex-col items-start justify-start px-5 pt-6 pb-4">
           <h3
             className={`text-xl font-extrabold text-primary transition-all duration-300 delay-75 ${
               open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
@@ -77,7 +77,7 @@ const TeamMemberCard = ({ photo, name, role, bio }: TeamMemberCardProps) => {
           />
 
           <div
-            className={`mt-4 space-y-3 text-[13px] leading-relaxed text-muted-foreground transition-all duration-300 delay-200 ${
+            className={`mt-3 space-y-2 text-[11px] leading-snug text-muted-foreground transition-all duration-300 delay-200 ${
               open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
