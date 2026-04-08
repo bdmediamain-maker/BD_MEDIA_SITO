@@ -96,7 +96,7 @@ const Index = () => {
           <ScrollReveal delay={100}>
             <h1 className="heading-hero max-w-4xl">
               {t(H.hero.h1_line1)}<br />
-              <span className="text-primary">{t(H.hero.h1_line2)}</span>
+              <span className="mt-2 inline-block text-primary">{t(H.hero.h1_line2)}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
