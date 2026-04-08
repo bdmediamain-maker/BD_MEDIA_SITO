@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useCallback, ReactNode } from "rea
 type ContactModalContextType = {
   isOpen: boolean;
   initialTopic: string;
-  open: (topic?: string) => void;
+  open: (topicOrEvent?: string | React.MouseEvent) => void;
   close: () => void;
 };
 
@@ -20,8 +20,9 @@ export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [initialTopic, setInitialTopic] = useState("");
 
-  const open = useCallback((topic?: string) => {
-    setInitialTopic(topic ?? "");
+  const open = useCallback((topicOrEvent?: string | React.MouseEvent) => {
+    const topic = typeof topicOrEvent === "string" ? topicOrEvent : "";
+    setInitialTopic(topic);
     setIsOpen(true);
   }, []);
   const close = useCallback(() => setIsOpen(false), []);
