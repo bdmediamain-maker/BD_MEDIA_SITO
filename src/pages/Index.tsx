@@ -222,6 +222,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Per chi lavoriamo */}
+      <section className="section-padding">
+        <div className="mx-auto max-w-3xl">
+          <ScrollReveal>
+            <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10">
+              <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Per chi lavoriamo</h2>
+              <p className="mt-4 text-base text-muted-foreground">BD Media è la scelta giusta se:</p>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  Hai un'attività con almeno €10K/mese di fatturato
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  Sei pronto a investire seriamente in advertising
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  Vuoi dati e risultati misurabili, non promesse vaghe
+                </li>
+              </ul>
+              <p className="mt-6 text-sm italic text-muted-foreground">Se cerchi un freelance da €300/mese, non siamo il match giusto.</p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative overflow-hidden px-6 py-12 md:px-12 md:py-16 lg:px-20">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
