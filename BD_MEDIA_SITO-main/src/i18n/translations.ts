@@ -36,9 +36,9 @@ export const translations = {
       title:    { it: "Risultati 2025-2026", en: "Results 2025-2026" },
       stat1_value: { it: "2K+", en: "2K+" },
       stat1_label: { it: "Lead qualificati generati in meno di 12 mesi di attività", en: "Qualified leads generated in less than 12 months of activity" },
-      stat2_value: { it: "1M+", en: "1M+" },
-      stat2_label: { it: "Valore totale dei progetti attivi gestiti per i clienti", en: "Total value of active projects managed for clients" },
-      stat3_value: { it: "9/10", en: "9/10" },
+      stat2_value: { it: "13.5M+", en: "13.5M+" },
+      stat2_label: { it: "Valore del nostro portfolio clienti", en: "Value of our client portfolio" },
+      stat3_value: { it: "10/10", en: "10/10" },
       stat3_label: { it: "Clienti che rinnovano la collaborazione dopo il primo trimestre", en: "Clients who renew after the first quarter" },
     },
     method: {
