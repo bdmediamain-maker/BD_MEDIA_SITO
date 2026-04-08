@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
@@ -6,6 +6,18 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setIsDesktop(mql.matches);
+    mql.addEventListener("change", onChange);
+    setIsDesktop(mql.matches);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+  return isDesktop;
+};
 
 const coreServiceTags = [
   ["Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads", "Funnel Strategy"],
