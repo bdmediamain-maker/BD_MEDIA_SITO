@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useCallback, ReactNode } from "rea
 type ContactModalContextType = {
   isOpen: boolean;
   initialTopic: string;
-  open: (topic?: string) => void;
+  open: (topicOrEvent?: string | React.MouseEvent) => void;
   close: () => void;
 };
 
