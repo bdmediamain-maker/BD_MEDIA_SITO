@@ -210,7 +210,7 @@ const Services = () => {
                         </div>
                       </div>
                     </div>
-                  </button>
+                  </div>
                 </ScrollReveal>
               );
             })}
