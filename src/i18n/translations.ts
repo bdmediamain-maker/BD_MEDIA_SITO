@@ -186,7 +186,7 @@ export const translations = {
       title:    { it: "Il Team", en: "The Team" },
       subtitle: { it: "Le persone dietro la strategia.", en: "The people behind the strategy." },
       body:     { it: "Competenze diverse, un unico obiettivo: costruire crescita misurabile per i nostri clienti.", en: "Different skills, one single goal: build measurable growth for our clients." },
-      note:     { it: "Risposta entro 4 ore lavorative.", en: "Response within 4 business hours." },
+      note:     { it: "Sempre disponibili e operativi… anche nel weekend.", en: "Always available and hands-on… even on weekends." },
       m1_name: { it: "Bedr DIANA",       en: "Bedr DIANA" },
       m1_role: { it: "Ceo & Founder",    en: "Ceo & Founder" },
       m1_bio:  { it: "Sono Bedr, founder di BD Media. Mi occupo di dare una direzione chiara all'agenzia, lavorando su visione, strategie e scelte che fanno la differenza nel tempo. Seguo da vicino posizionamento e sviluppo dei progetti, assicurandomi che ogni decisione abbia un senso preciso.\n\nAll'interno del team sono il punto di riferimento per fare chiarezza, prendere decisioni importanti o cambiare direzione. Il mio obiettivo è far crescere BD Media in modo coerente e solido, costruendo progetti che funzionano oggi e nel lungo periodo.", en: "I'm Bedr, founder of BD Media. I focus on giving the agency a clear direction, working on vision, strategies and choices that truly make a difference over time. I closely follow project positioning and development, ensuring every decision has a precise purpose.\n\nWithin the team I'm the reference point for clarity, important decisions and course corrections. My goal is to grow BD Media coherently and solidly, building projects that work today and in the long run." },
