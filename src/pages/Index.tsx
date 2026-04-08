@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
