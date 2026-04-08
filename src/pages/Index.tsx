@@ -207,13 +207,13 @@ const Index = () => {
                   onClick={() => openContactModal("Lead Generation")}
                   className="btn-primary"
                 >
-                  Voglio risultati come Aeon →
+                  {t(H.casestudy_cta)}
                 </button>
                 <Link
                   to="/case-study/aeon-studio"
                   className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
                 >
-                  Leggi il case study completo →
+                  {t(H.casestudy_link)}
                 </Link>
               </div>
             </div>
@@ -240,23 +240,23 @@ const Index = () => {
         <div className="mx-auto max-w-3xl">
           <ScrollReveal>
             <div className="rounded-2xl border border-primary/30 bg-card p-8 md:p-10">
-              <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Per chi lavoriamo</h2>
-              <p className="mt-4 text-base text-muted-foreground">BD Media è la scelta giusta se:</p>
+              <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{t(H.who_we_work.title)}</h2>
+              <p className="mt-4 text-base text-muted-foreground">{t(H.who_we_work.subtitle)}</p>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-foreground">
                 <li className="flex items-start gap-3">
                   <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  Hai un'attività con almeno €10K/mese di fatturato
+                  {t(H.who_we_work.item1)}
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  Sei pronto a investire seriamente in advertising
+                  {t(H.who_we_work.item2)}
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  Vuoi dati e risultati misurabili, non promesse vaghe
+                  {t(H.who_we_work.item3)}
                 </li>
               </ul>
-              <p className="mt-6 text-sm italic text-muted-foreground">Se cerchi un freelance da €300/mese, non siamo il match giusto.</p>
+              <p className="mt-6 text-sm italic text-muted-foreground">{t(H.who_we_work.note)}</p>
             </div>
           </ScrollReveal>
         </div>
