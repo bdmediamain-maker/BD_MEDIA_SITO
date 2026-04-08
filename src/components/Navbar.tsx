@@ -13,10 +13,10 @@ const dropdownLinks = [
 const LangSwitcher = () => {
   const { lang, setLang } = useLanguage();
   return (
-    <div className="flex items-center gap-0.5 rounded-full border border-white/[0.12] px-1.5 py-1 text-xs font-semibold tracking-wide select-none">
+    <div className="flex items-center gap-0.5 rounded-full border border-white/[0.12] px-1 py-0.5 text-xs font-semibold tracking-wide select-none">
       <button
         onClick={() => setLang("it")}
-        className={`rounded-full border-none px-2.5 py-1 text-xs font-semibold tracking-wide transition-all ${
+        className={`min-h-[44px] min-w-[44px] rounded-full border-none px-3 py-2 text-xs font-semibold tracking-wide transition-all ${
           lang === "it" ? "bg-white/[0.08] text-foreground" : "bg-transparent text-muted-foreground"
         }`}
       >
@@ -24,7 +24,7 @@ const LangSwitcher = () => {
       </button>
       <button
         onClick={() => setLang("en")}
-        className={`rounded-full border-none px-2.5 py-1 text-xs font-semibold tracking-wide transition-all ${
+        className={`min-h-[44px] min-w-[44px] rounded-full border-none px-3 py-2 text-xs font-semibold tracking-wide transition-all ${
           lang === "en" ? "bg-white/[0.08] text-foreground" : "bg-transparent text-muted-foreground"
         }`}
       >
