@@ -65,10 +65,6 @@ const Footer = () => {
         </div>
 
         {/* Dati legali — obbligatori per legge (art. 2250 c.c. + DPR 633/72) */}
-        {/* TODO: sostituire i placeholder con i dati reali prima del go-live */}
-        <p className="mt-2 text-center text-[10px] leading-relaxed text-muted-foreground/35">
-          BD Media [forma giuridica] — Sede legale: [via, città, CAP] — P.IVA / CF: [XXXXXXXXX] — REA: [XX-XXXXXX]
-        </p>
       </div>
     </footer>
   );
