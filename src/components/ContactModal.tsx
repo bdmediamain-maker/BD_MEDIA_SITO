@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useContactModal } from "./ContactModalContext";
@@ -97,29 +97,14 @@ const ContactModal = () => {
           </button>
 
           {submitted ? (
-            <div className="flex min-h-[200px] flex-col items-start justify-center gap-6">
+            <div className="flex flex-col items-start justify-center gap-5">
               <p className="text-lg font-bold text-primary">{t(T.success)}</p>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Perfetto, ti ricontattiamo entro 24h.<br />
                 Se vuoi accelerare, prenota direttamente una call:
               </p>
 
-              {/*
-                ── Calendly / Cal.com embed ────────────────────────────────
-                Per attivare l'embed:
-                1. Sostituisci INSERIRE_URL_CALENDLY_QUI con il tuo URL
-                   (es. https://calendly.com/tuo-account/30min)
-                2. Aggiungi lo script Calendly in index.html:
-                   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                3. Decommenta il div qui sotto e rimuovi il placeholder
-              */}
-              <div
-                id="calendly-embed-placeholder"
-                data-url="INSERIRE_URL_CALENDLY_QUI"
-                className="flex w-full items-center justify-center rounded-lg border border-dashed border-primary/30 bg-primary/5 px-4 py-6 text-center text-xs text-muted-foreground"
-              >
-                📅 Embed Calendly/Cal.com — configurare URL sopra
-              </div>
+              <CalendlyEmbed url="https://calendly.com/bdmedia-main/30min" />
 
               <Link
                 to="/case-study/aeon-studio"
