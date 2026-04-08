@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
@@ -6,6 +6,18 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setIsDesktop(mql.matches);
+    mql.addEventListener("change", onChange);
+    setIsDesktop(mql.matches);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+  return isDesktop;
+};
 
 const coreServiceTags = [
   ["Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads", "Funnel Strategy"],
@@ -31,6 +43,7 @@ const Services = () => {
   const { t } = useLanguage();
   const S = translations.services;
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+  const isDesktop = useIsDesktop();
 
   const coreServices = [
     { num: "01", title: t(S.s1_title), desc: t(S.s1_body), tags: coreServiceTags[0] },
@@ -153,9 +166,13 @@ const Services = () => {
               const isOpen = openAccordion === i;
               return (
                 <ScrollReveal key={i} delay={i * 60}>
-                  <button
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setOpenAccordion(isOpen ? null : i)}
-                    className="w-full text-left"
+                    onMouseEnter={() => isDesktop && setOpenAccordion(i)}
+                    onMouseLeave={() => isDesktop && setOpenAccordion(null)}
+                    className="w-full text-left cursor-pointer"
                   >
                     <div
                       className={cn(
@@ -191,7 +208,7 @@ const Services = () => {
                         </div>
                       </div>
                     </div>
-                  </button>
+                  </div>
                 </ScrollReveal>
               );
             })}
