@@ -233,6 +233,50 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Inline Form */}
+      <section className="section-padding !pt-0">
+        <div className="mx-auto max-w-3xl">
+          <ScrollReveal>
+            {formSubmitted ? (
+              <div className="rounded-xl border border-primary/20 bg-card p-8 text-center">
+                <p className="text-lg font-semibold text-primary">{t(H.inline_form.success)}</p>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleInlineSubmit}
+                className="flex flex-col gap-4 rounded-xl border border-white/[0.06] bg-card p-6 sm:flex-row sm:items-end sm:gap-3"
+              >
+                <input type="hidden" name="_subject" value="Richiesta analisi gratuita (Homepage)" />
+                <div className="flex-1">
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder={t(H.inline_form.email_placeholder)}
+                    className="w-full rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+                  />
+                </div>
+                <div className="flex-1">
+                  <input
+                    type="url"
+                    name="website"
+                    placeholder={t(H.inline_form.website_placeholder)}
+                    className="w-full rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={formLoading}
+                  className="btn-primary shrink-0 whitespace-nowrap disabled:opacity-60"
+                >
+                  {formLoading ? "..." : t(H.inline_form.submit)}
+                </button>
+              </form>
+            )}
+          </ScrollReveal>
+        </div>
+      </section>
+
     </div>
   );
 };
