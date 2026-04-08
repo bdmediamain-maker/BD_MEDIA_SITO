@@ -234,8 +234,8 @@ const Index = () => {
       </section>
 
       {/* Inline Form */}
-      <section className="section-padding !pt-0">
-        <div className="mx-auto max-w-3xl">
+      <section className="px-6 py-16 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             {formSubmitted ? (
               <div className="rounded-xl border border-primary/20 bg-card p-8 text-center">
@@ -244,26 +244,22 @@ const Index = () => {
             ) : (
               <form
                 onSubmit={handleInlineSubmit}
-                className="flex flex-col gap-4 rounded-xl border border-white/[0.06] bg-card p-8 sm:flex-row sm:items-center sm:gap-4"
+                className="flex flex-col items-stretch gap-4 rounded-xl border border-white/[0.06] bg-card px-8 py-6 md:flex-row md:items-center md:gap-4"
               >
                 <input type="hidden" name="_subject" value="Richiesta analisi gratuita (Homepage)" />
-                <div className="flex-1">
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder={t(H.inline_form.email_placeholder)}
-                    className="w-full rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
-                  />
-                </div>
-                <div className="flex-1">
-                  <input
-                    type="url"
-                    name="website"
-                    placeholder={t(H.inline_form.website_placeholder)}
-                    className="w-full rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
-                  />
-                </div>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder={t(H.inline_form.email_placeholder)}
+                  className="min-w-0 flex-1 rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+                />
+                <input
+                  type="url"
+                  name="website"
+                  placeholder={t(H.inline_form.website_placeholder)}
+                  className="min-w-0 flex-1 rounded-lg border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+                />
                 <button
                   type="submit"
                   disabled={formLoading}
