@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(ls -la public/*.png public/*.webp)",
+      "Bash(node -e \"console.log\\(process.version\\)\")",
+      "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp available'\\)}catch\\(e\\){console.log\\('sharp not available'\\)}\")",
+      "Bash(node -e \"const s=require\\('sharp'\\);console.log\\('sharp ok, version:', s.versions.sharp\\)\")",
+      "Bash(node -e ':*)",
+      "Bash(ls -la public/*.webp)",
+      "Read(//c/Users/ervin/Downloads/BD_MEDIA_SITO-main/BD_MEDIA_SITO-main/**)",
+      "Bash(ls public/*.png)"
+    ]
+  }
+}
