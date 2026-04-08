@@ -98,6 +98,12 @@ export const translations = {
       headline: { it: "Pronto a costruire il tuo sistema di acquisizione?", en: "Ready to build your acquisition system?" },
       button:   { it: "Ottieni l'analisi gratuita →", en: "Get the free analysis →" },
     },
+    inline_form: {
+      email_placeholder:   { it: "La tua email *", en: "Your email *" },
+      website_placeholder: { it: "Sito web del tuo business (opzionale)", en: "Your business website (optional)" },
+      submit:              { it: "Ricevi la tua analisi gratuita in 48h →", en: "Get your free analysis in 48h →" },
+      success:             { it: "✦ Richiesta inviata! Ti contatteremo entro 48 ore.", en: "✦ Request sent! We'll contact you within 48 hours." },
+    },
     contacts: {
       title:    { it: "Contatti", en: "Contacts" },
       subtitle: { it: "Scrivici o chiamaci, siamo sempre disponibili.", en: "Write to us or call us, we're always available." },

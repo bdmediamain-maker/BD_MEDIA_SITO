@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
@@ -6,6 +7,7 @@ import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { toast } from "sonner";
 
 // ── JSON-LD Case Study Aeon Studio ───────────────────────────────────────────
 const AEON_SCHEMA = {
