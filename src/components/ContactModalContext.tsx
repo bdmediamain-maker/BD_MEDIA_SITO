@@ -20,8 +20,9 @@ export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [initialTopic, setInitialTopic] = useState("");
 
-  const open = useCallback((topic?: string) => {
-    setInitialTopic(topic ?? "");
+  const open = useCallback((topicOrEvent?: string | React.MouseEvent) => {
+    const topic = typeof topicOrEvent === "string" ? topicOrEvent : "";
+    setInitialTopic(topic);
     setIsOpen(true);
   }, []);
   const close = useCallback(() => setIsOpen(false), []);
