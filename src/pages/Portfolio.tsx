@@ -146,7 +146,7 @@ const Portfolio = () => {
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(P.cta_headline)}</h2>
-            <button onClick={openContactModal} className="btn-primary mt-8 inline-flex">{t(P.cta_button)}</button>
+            <button onClick={() => openContactModal()} className="btn-primary mt-8 inline-flex">Vediamo se siamo il match giusto →</button>
           </ScrollReveal>
         </div>
       </section>
