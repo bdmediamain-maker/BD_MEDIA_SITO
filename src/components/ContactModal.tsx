@@ -50,8 +50,7 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
   );
 };
 
-
-  const { isOpen, close, initialTopic } = useContactModal();
+const ContactModal = () => {
   const { t } = useLanguage();
   const T = translations.modal;
   const [submitted, setSubmitted] = useState(false);
