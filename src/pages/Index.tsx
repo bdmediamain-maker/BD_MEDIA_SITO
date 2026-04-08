@@ -244,7 +244,7 @@ const Index = () => {
             ) : (
               <form
                 onSubmit={handleInlineSubmit}
-                className="flex flex-col gap-4 rounded-xl border border-white/[0.06] bg-card p-6 sm:flex-row sm:items-end sm:gap-3"
+                className="flex flex-col gap-4 rounded-xl border border-white/[0.06] bg-card p-8 sm:flex-row sm:items-center sm:gap-4"
               >
                 <input type="hidden" name="_subject" value="Richiesta analisi gratuita (Homepage)" />
                 <div className="flex-1">
