@@ -30,6 +30,31 @@ const Index = () => {
   const { open: openContactModal } = useContactModal();
   const { t } = useLanguage();
   const H = translations.home;
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formLoading, setFormLoading] = useState(false);
+
+  const handleInlineSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormLoading(true);
+    const data = new FormData(e.currentTarget);
+    try {
+      const res = await fetch("https://formspree.io/f/xykbpjze", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setFormSubmitted(true);
+        toast.success(t(H.inline_form.success));
+      } else {
+        toast.error("Errore nell'invio. Riprova.");
+      }
+    } catch {
+      toast.error("Errore di rete. Riprova.");
+    } finally {
+      setFormLoading(false);
+    }
+  };
 
   const steps = [
     { num: "01", title: t(H.method.step1_title), desc: t(H.method.step1_body) },
