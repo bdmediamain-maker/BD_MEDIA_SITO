@@ -43,6 +43,7 @@ const Services = () => {
   const { t } = useLanguage();
   const S = translations.services;
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+  const isDesktop = useIsDesktop();
 
   const coreServices = [
     { num: "01", title: t(S.s1_title), desc: t(S.s1_body), tags: coreServiceTags[0] },
