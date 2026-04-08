@@ -168,28 +168,34 @@ const Index = () => {
               <h3 className="text-2xl font-extrabold">{t(H.casestudy.client)}</h3>
               <p className="mt-1 text-lg font-semibold text-primary">{t(H.casestudy.headline)}</p>
               <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">{t(H.casestudy.body)}</p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
                 {caseMetrics.map((m, i) => (
-                  <div key={i} className="rounded-lg bg-white/[0.03] p-5">
-                    <div className="text-3xl font-extrabold">{m.value}</div>
-                    <p className="mt-2 text-xs text-muted-foreground">{m.label}</p>
+                  <div key={i} className="rounded-lg bg-white/[0.03] p-4 sm:p-5">
+                    <div className="text-xl font-extrabold sm:text-2xl md:text-3xl break-words">{m.value}</div>
+                    <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground sm:mt-2 sm:text-xs">{m.label}</p>
                   </div>
                 ))}
               </div>
-              <div className="mt-8 space-y-3 rounded-lg bg-white/[0.03] p-5 text-sm">
-                <div className="flex flex-wrap gap-x-8 gap-y-1">
-                  <span className="text-muted-foreground">{t(H.casestudy.chart_leads_title)} — {t(H.casestudy.chart_before_label)}:</span>
-                  <span className="font-semibold">7,4/mese</span>
-                  <span className="text-primary">→</span>
-                  <span className="text-muted-foreground">{t(H.casestudy.chart_after_label)}:</span>
-                  <span className="font-semibold">85,8/mese</span>
+              <div className="mt-8 space-y-4 rounded-lg bg-white/[0.03] p-4 text-sm sm:p-5">
+                <div className="space-y-1">
+                  <span className="block text-muted-foreground">{t(H.casestudy.chart_leads_title)}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-muted-foreground">{t(H.casestudy.chart_before_label)}:</span>
+                    <span className="font-semibold">7,4/mese</span>
+                    <span className="text-primary">→</span>
+                    <span className="text-muted-foreground">{t(H.casestudy.chart_after_label)}:</span>
+                    <span className="font-semibold">85,8/mese</span>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-x-8 gap-y-1">
-                  <span className="text-muted-foreground">{t(H.casestudy.chart_cpl_title)} — {t(H.casestudy.chart_before_label)}:</span>
-                  <span className="font-semibold">€15,46/lead</span>
-                  <span className="text-primary">→</span>
-                  <span className="text-muted-foreground">{t(H.casestudy.chart_after_label)}:</span>
-                  <span className="font-semibold">€6,30/lead</span>
+                <div className="space-y-1">
+                  <span className="block text-muted-foreground">{t(H.casestudy.chart_cpl_title)}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-muted-foreground">{t(H.casestudy.chart_before_label)}:</span>
+                    <span className="font-semibold">€15,46/lead</span>
+                    <span className="text-primary">→</span>
+                    <span className="text-muted-foreground">{t(H.casestudy.chart_after_label)}:</span>
+                    <span className="font-semibold">€6,30/lead</span>
+                  </div>
                 </div>
                 <div>
                   <span className="text-muted-foreground">{t(H.casestudy.chart_conv_title)}: </span>
