@@ -95,7 +95,7 @@ const Services = () => {
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             {coreServices.map((s, i) => (
               <ScrollReveal key={i} delay={i * 80}>
-                <div className="card-surface group relative h-full border-l-2 border-primary bg-gradient-to-br from-card to-card/80 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(255,0,170,0.12)]">
+                <div className="card-surface group relative h-full border-l-2 border-l-transparent p-8 transition-all duration-200 hover:border-l-primary hover:bg-white/[0.03]">
                   <span className="text-4xl font-black leading-none text-primary/30">{s.num}</span>
                   <h3 className="mt-3 text-xl font-bold leading-tight text-foreground">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
