@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NoiseOverlay from "@/components/NoiseOverlay";
 import ContactModal from "@/components/ContactModal";
+import CalendlyButton from "@/components/CalendlyButton";
 import { ContactModalProvider } from "@/components/ContactModalContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Index from "./pages/Index";

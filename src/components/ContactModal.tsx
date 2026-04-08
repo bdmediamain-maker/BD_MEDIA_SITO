@@ -1,54 +1,10 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useContactModal } from "./ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { X } from "lucide-react";
-
-/** Inline Calendly embed – loads the widget script on mount */
-const CalendlyEmbed = ({ url }: { url: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Load Calendly script if not already present
-    const id = "calendly-widget-script";
-    if (!document.getElementById(id)) {
-      const s = document.createElement("script");
-      s.id = id;
-      s.src = "https://assets.calendly.com/assets/external/widget.js";
-      s.async = true;
-      document.head.appendChild(s);
-    }
-
-    // Init widget once script is ready
-    const init = () => {
-      if (containerRef.current && (window as any).Calendly) {
-        (window as any).Calendly.initInlineWidget({
-          url,
-          parentElement: containerRef.current,
-        });
-      }
-    };
-
-    // If script already loaded, init immediately; otherwise wait
-    if ((window as any).Calendly) {
-      init();
-    } else {
-      const script = document.getElementById(id);
-      script?.addEventListener("load", init);
-      return () => script?.removeEventListener("load", init);
-    }
-  }, [url]);
-
-  return (
-    <div
-      ref={containerRef}
-      className="w-full overflow-hidden rounded-lg"
-      style={{ minHeight: 630 }}
-    />
-  );
-};
 
 const ContactModal = () => {
   const { isOpen, close, initialTopic } = useContactModal();
@@ -141,15 +97,8 @@ const ContactModal = () => {
           </button>
 
           {submitted ? (
-            <div className="flex flex-col items-start justify-center gap-5">
+            <div className="flex min-h-[200px] flex-col items-center justify-center text-center gap-4">
               <p className="text-lg font-bold text-primary">{t(T.success)}</p>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Perfetto, ti ricontattiamo entro 24h.<br />
-                Se vuoi accelerare, prenota direttamente una call:
-              </p>
-
-              <CalendlyEmbed url="https://calendly.com/bdmedia-main/30min" />
-
               <Link
                 to="/case-study/aeon-studio"
                 onClick={handleClose}
