@@ -98,6 +98,16 @@ export const translations = {
       headline: { it: "Pronto a costruire il tuo sistema di acquisizione?", en: "Ready to build your acquisition system?" },
       button:   { it: "Ottieni l'analisi gratuita →", en: "Get the free analysis →" },
     },
+    casestudy_cta: { it: "Voglio risultati come Aeon →", en: "I want results like Aeon →" },
+    casestudy_link: { it: "Leggi il case study completo →", en: "Read the full case study →" },
+    who_we_work: {
+      title:    { it: "Per chi lavoriamo", en: "Who we work with" },
+      subtitle: { it: "BD Media è la scelta giusta se:", en: "BD Media is the right choice if:" },
+      item1:    { it: "Hai un'attività con almeno €10K/mese di fatturato", en: "You have a business with at least €10K/month in revenue" },
+      item2:    { it: "Sei pronto a investire seriamente in advertising", en: "You're ready to invest seriously in advertising" },
+      item3:    { it: "Vuoi dati e risultati misurabili, non promesse vaghe", en: "You want measurable data and results, not vague promises" },
+      note:     { it: "Se cerchi un freelance da €300/mese, non siamo il match giusto.", en: "If you're looking for a €300/month freelancer, we're not the right match." },
+    },
     inline_form: {
       email_placeholder:   { it: "La tua email *", en: "Your email *" },
       website_placeholder: { it: "Sito web del tuo business (opzionale)", en: "Your business website (optional)" },
