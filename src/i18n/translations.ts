@@ -25,9 +25,9 @@ export const translations = {
   home: {
     hero: {
       eyebrow:  { it: "GROWTH PARTNER", en: "GROWTH PARTNER" },
-      h1_line1: { it: "Più clienti. Meno sprechi.", en: "More clients. Less waste." },
-      h1_line2: { it: "Più controllo.", en: "More control." },
-      tagline:  { it: "Più clienti. Meno sprechi. Più controllo.", en: "More clients. Less waste. More control." },
+      h1_line1: { it: "Più clienti.", en: "More clients." },
+      h1_line2: { it: "Meno sprechi.", en: "Less waste." },
+      h1_line3: { it: "Più controllo.", en: "More control." },
       body:     { it: "Progettiamo sistemi di acquisizione clienti misurabili e scalabili. Niente promesse vaghe — solo risultati documentati e tracciabili.", en: "We design measurable and scalable client acquisition systems. No vague promises — only documented, trackable results." },
       cta_primary:   { it: "Ottieni l'analisi gratuita →", en: "Get the free analysis →" },
       cta_secondary: { it: "Vedi i risultati", en: "See the results" },
