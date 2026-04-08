@@ -73,7 +73,6 @@ const App = () => (
           <NoiseOverlay />
           <Navbar />
           <ContactModal />
-          <CalendlyButton />
           <main className="pt-0">
             <Routes>
               <Route path="/" element={<Index />} />
