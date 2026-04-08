@@ -32,7 +32,7 @@ const ORG_SCHEMA = {
   "logo": "https://bdmedia.it/logo-full.png",
   "description": "Agenzia di performance marketing italiana specializzata in lead generation, Meta Ads, funnel e acquisizione clienti per PMI.",
   "telephone": "+39-338-286-2017",
-  "email": "bdmedia.main@gmail.com",   // TODO: aggiornare con email @bdmedia.it
+  "email": "info@bdmedia.it",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "IT",
