@@ -166,8 +166,14 @@ const Services = () => {
               const isOpen = openAccordion === i;
               return (
                 <ScrollReveal key={i} delay={i * 60}>
-                  <button
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setOpenAccordion(isOpen ? null : i)}
+                    onMouseEnter={() => isDesktop && setOpenAccordion(i)}
+                    onMouseLeave={() => isDesktop && setOpenAccordion(null)}
+                    className="w-full text-left cursor-pointer"
+                  >
                     className="w-full text-left"
                   >
                     <div
