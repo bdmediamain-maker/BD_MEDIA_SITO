@@ -203,12 +203,12 @@ const Index = () => {
                 >
                   Voglio risultati come Aeon →
                 </button>
-                <a
-                  href="/case-study/aeon-studio"
+                <Link
+                  to="/case-study/aeon-studio"
                   className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
                 >
                   Leggi il case study completo →
-                </a>
+                </Link>
               </div>
             </div>
           </ScrollReveal>
