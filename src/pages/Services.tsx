@@ -174,8 +174,6 @@ const Services = () => {
                     onMouseLeave={() => isDesktop && setOpenAccordion(null)}
                     className="w-full text-left cursor-pointer"
                   >
-                    className="w-full text-left"
-                  >
                     <div
                       className={cn(
                         "rounded-xl border border-white/[0.06] bg-card px-6 py-4 transition-all duration-200",
