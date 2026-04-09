@@ -15,6 +15,8 @@ import logoKP from "@/assets/clients/kp-management.png";
 import logoIC from "@/assets/clients/istituto-campanella.png";
 import logoBF from "@/assets/clients/barber-feb.png";
 import logoTI from "@/assets/clients/tecia.png";
+import logoAS from "@/assets/clients/aeon-studio.png";
+import logoAE from "@/assets/clients/accademia-europea.png";
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
