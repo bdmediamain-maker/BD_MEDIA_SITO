@@ -16,7 +16,7 @@ const About = () => {
     { photo: "/tiubbi.webp",  name: t(A.team.m1_name), role: t(A.team.m1_role), bio: t(A.team.m1_bio) },
     { photo: "/schili.webp",  name: t(A.team.m2_name), role: t(A.team.m2_role), bio: t(A.team.m2_bio) },
     { photo: "/lucky_.webp",  name: t(A.team.m3_name), role: t(A.team.m3_role), bio: t(A.team.m3_bio) },
-    { photo: "/donny.webp",   name: t(A.team.m4_name), role: t(A.team.m4_role), bio: t(A.team.m4_bio) },
+    { photo: "/donny.webp",   name: t(A.team.m4_name), role: t(A.team.m4_role), bio: t(A.team.m4_bio), imgClassName: "absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105" },
   ];
 
   const values = [
@@ -79,6 +79,7 @@ const About = () => {
                   name={m.name}
                   role={m.role}
                   bio={m.bio}
+                  imgClassName={(m as any).imgClassName}
                 />
               </ScrollReveal>
             ))}
