@@ -79,6 +79,7 @@ const About = () => {
                   name={m.name}
                   role={m.role}
                   bio={m.bio}
+                  imgClassName={(m as any).imgClassName}
                 />
               </ScrollReveal>
             ))}
