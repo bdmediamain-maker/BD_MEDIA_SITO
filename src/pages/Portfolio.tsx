@@ -37,14 +37,14 @@ const Portfolio = () => {
     { sig: "DDC", cat: "food_beverage",  client: "Dark Diamond Cafè",    headline: t(P.p1_headline), desc: t(P.p1_body), tags: ["Brand Identity", "Meta Ads", "Lead Gen"], logo: logoDDC },
     { sig: "Go",  cat: "food_beverage",  client: "Golosi",               headline: t(P.p11_headline), desc: t(P.p11_body), tags: ["Brand Identity", "Food Import"], logo: logoGo },
     { sig: "CaT", cat: "food_beverage",  client: "Caffè al Teatro",      headline: t(P.p6_headline), desc: t(P.p6_body), tags: ["Social Media", "Brand", "Local"], logo: logoCaT },
-    { sig: "AS",  cat: "architettura",   client: "AEON Studio",          headline: t(P.p2_headline), desc: t(P.p2_body), tags: ["Social Media", "Ads", "Crescita"] },
+    { sig: "AS",  cat: "architettura",   client: "AEON Studio",          headline: t(P.p2_headline), desc: t(P.p2_body), tags: ["Social Media", "Ads", "Crescita"], logo: logoAS },
     { sig: "TD",  cat: "architettura",   client: "TDSTUDIO",             headline: t(P.p5_headline), desc: t(P.p5_body), tags: ["Branding", "Social", "Positioning"], logo: logoTD },
     { sig: "TI+", cat: "software",       client: "TecIA+",               headline: t(P.p7_headline), desc: t(P.p7_body), tags: ["AI", "Launch", "Digital"], logo: logoTI },
 
     { sig: "LoS", cat: "altro",          client: "Lab On Sense",         headline: t(P.p3_headline), desc: t(P.p3_body), tags: ["Sito Web", "Brand Identity", "UX"], logo: logoLoS },
     { sig: "AR",  cat: "altro",          client: "Arkes Roleplay",       headline: t(P.p4_headline), desc: t(P.p4_body), tags: ["Community Management", "Discord"], logo: logoAR },
     { sig: "KP",  cat: "altro",          client: "KP Management",        headline: t(P.p8_headline), desc: t(P.p8_body), tags: ["Strategia", "Comunicazione", "B2B"], logo: logoKP },
-    { sig: "AE",  cat: "altro",          client: "Accademia Europea",    headline: t(P.p9_headline), desc: t(P.p9_body), tags: ["Meta Ads", "Social Media", "Lead Gen"] },
+    { sig: "AE",  cat: "altro",          client: "Accademia Europea",    headline: t(P.p9_headline), desc: t(P.p9_body), tags: ["Meta Ads", "Social Media", "Lead Gen"], logo: logoAE },
     { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"], logo: logoIC },
     { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"], logo: logoBF },
   ];
