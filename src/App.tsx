@@ -21,6 +21,7 @@ import CaseStudyAeonStudio from "./pages/CaseStudyAeonStudio";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import CalendlyWidget from "@/components/CalendlyWidget";
 
 const queryClient = new QueryClient();
 
@@ -88,6 +89,7 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
+          <CalendlyWidget />
         </BrowserRouter>
       </ContactModalProvider>
       </LanguageProvider>
