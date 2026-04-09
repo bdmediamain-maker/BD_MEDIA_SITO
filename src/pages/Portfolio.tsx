@@ -5,6 +5,17 @@ import { useContactModal } from "@/components/ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 
+import logoDDC from "@/assets/clients/dark-diamond-cafe.png";
+import logoGo from "@/assets/clients/golosi.png";
+import logoCaT from "@/assets/clients/caffe-al-teatro.png";
+import logoTD from "@/assets/clients/td-studio.png";
+import logoLoS from "@/assets/clients/lab-on-sense.png";
+import logoAR from "@/assets/clients/arkes-roleplay.png";
+import logoKP from "@/assets/clients/kp-management.png";
+import logoIC from "@/assets/clients/istituto-campanella.png";
+import logoBF from "@/assets/clients/barber-feb.png";
+import logoTI from "@/assets/clients/tecia.png";
+
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
   const { open: openContactModal } = useContactModal();
@@ -21,19 +32,19 @@ const Portfolio = () => {
   ];
 
   const projects = [
-    { sig: "DDC", cat: "food_beverage",  client: "Dark Diamond Cafè",    headline: t(P.p1_headline), desc: t(P.p1_body), tags: ["Brand Identity", "Meta Ads", "Lead Gen"] },
-    { sig: "Go",  cat: "food_beverage",  client: "Golosi",               headline: t(P.p11_headline), desc: t(P.p11_body), tags: ["Brand Identity", "Food Import"] },
-    { sig: "CaT", cat: "food_beverage",  client: "Caffè al Teatro",      headline: t(P.p6_headline), desc: t(P.p6_body), tags: ["Social Media", "Brand", "Local"] },
+    { sig: "DDC", cat: "food_beverage",  client: "Dark Diamond Cafè",    headline: t(P.p1_headline), desc: t(P.p1_body), tags: ["Brand Identity", "Meta Ads", "Lead Gen"], logo: logoDDC },
+    { sig: "Go",  cat: "food_beverage",  client: "Golosi",               headline: t(P.p11_headline), desc: t(P.p11_body), tags: ["Brand Identity", "Food Import"], logo: logoGo },
+    { sig: "CaT", cat: "food_beverage",  client: "Caffè al Teatro",      headline: t(P.p6_headline), desc: t(P.p6_body), tags: ["Social Media", "Brand", "Local"], logo: logoCaT },
     { sig: "AS",  cat: "architettura",   client: "AEON Studio",          headline: t(P.p2_headline), desc: t(P.p2_body), tags: ["Social Media", "Ads", "Crescita"] },
-    { sig: "TD",  cat: "architettura",   client: "TDSTUDIO",             headline: t(P.p5_headline), desc: t(P.p5_body), tags: ["Branding", "Social", "Positioning"] },
-    { sig: "TI+", cat: "software",       client: "TecIA+",               headline: t(P.p7_headline), desc: t(P.p7_body), tags: ["AI", "Launch", "Digital"] },
+    { sig: "TD",  cat: "architettura",   client: "TDSTUDIO",             headline: t(P.p5_headline), desc: t(P.p5_body), tags: ["Branding", "Social", "Positioning"], logo: logoTD },
+    { sig: "TI+", cat: "software",       client: "TecIA+",               headline: t(P.p7_headline), desc: t(P.p7_body), tags: ["AI", "Launch", "Digital"], logo: logoTI },
 
-    { sig: "LoS", cat: "altro",          client: "Lab On Sense",         headline: t(P.p3_headline), desc: t(P.p3_body), tags: ["Sito Web", "Brand Identity", "UX"] },
-    { sig: "AR",  cat: "altro",          client: "Arkes Roleplay",       headline: t(P.p4_headline), desc: t(P.p4_body), tags: ["Community Management", "Discord"] },
-    { sig: "KP",  cat: "altro",          client: "KP Management",        headline: t(P.p8_headline), desc: t(P.p8_body), tags: ["Strategia", "Comunicazione", "B2B"] },
+    { sig: "LoS", cat: "altro",          client: "Lab On Sense",         headline: t(P.p3_headline), desc: t(P.p3_body), tags: ["Sito Web", "Brand Identity", "UX"], logo: logoLoS },
+    { sig: "AR",  cat: "altro",          client: "Arkes Roleplay",       headline: t(P.p4_headline), desc: t(P.p4_body), tags: ["Community Management", "Discord"], logo: logoAR },
+    { sig: "KP",  cat: "altro",          client: "KP Management",        headline: t(P.p8_headline), desc: t(P.p8_body), tags: ["Strategia", "Comunicazione", "B2B"], logo: logoKP },
     { sig: "AE",  cat: "altro",          client: "Accademia Europea",    headline: t(P.p9_headline), desc: t(P.p9_body), tags: ["Meta Ads", "Social Media", "Lead Gen"] },
-    { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"] },
-    { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"] },
+    { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"], logo: logoIC },
+    { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"], logo: logoBF },
   ];
 
   const statsStrip = [
@@ -111,7 +122,11 @@ const Portfolio = () => {
                     <div className="card-surface flex h-full flex-col">
                       <div className="flex items-start justify-between">
                         <span className="tag-pill text-[10px]">{p.cat}</span>
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{p.sig}</div>
+                        {p.logo ? (
+                          <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-contain bg-white/10 p-1" />
+                        ) : (
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{p.sig}</div>
+                        )}
                       </div>
                       <h3 className="mt-4 text-lg font-bold">{p.client}</h3>
                       <p className="mt-1 text-sm font-medium text-primary">{p.headline}</p>
