@@ -16,16 +16,16 @@ const LangSwitcher = () => {
     <div className="flex items-center gap-0.5 rounded-full border border-white/[0.12] px-1 py-0.5 text-xs font-semibold tracking-wide select-none">
       <button
         onClick={() => setLang("it")}
-        className={`min-h-[44px] min-w-[44px] rounded-full border-none px-3 py-2 text-xs font-semibold tracking-wide transition-all ${
-          lang === "it" ? "bg-white/[0.08] text-foreground" : "bg-transparent text-muted-foreground"
+        className={`min-h-[36px] min-w-[36px] rounded-full border-none px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-all ${
+          lang === "it" ? "bg-white/[0.12] text-foreground" : "bg-transparent text-white/60"
         }`}
       >
         IT
       </button>
       <button
         onClick={() => setLang("en")}
-        className={`min-h-[44px] min-w-[44px] rounded-full border-none px-3 py-2 text-xs font-semibold tracking-wide transition-all ${
-          lang === "en" ? "bg-white/[0.08] text-foreground" : "bg-transparent text-muted-foreground"
+        className={`min-h-[36px] min-w-[36px] rounded-full border-none px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-all ${
+          lang === "en" ? "bg-white/[0.12] text-foreground" : "bg-transparent text-white/60"
         }`}
       >
         EN
@@ -43,9 +43,12 @@ const Navbar = () => {
   const { t } = useLanguage();
   const T = translations.nav;
 
-  const navLinks = [
+  const leftLinks = [
     { label: t(T.services), to: "/services" },
     { label: t(T.about), to: "/about" },
+  ];
+
+  const rightLinks = [
     { label: t(T.portfolio), to: "/portfolio" },
   ];
 
@@ -64,39 +67,80 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  const linkClasses = (to: string) =>
+    `relative text-[15px] font-medium tracking-[0.02em] transition-all duration-200 ${
+      location.pathname === to
+        ? "text-white"
+        : "text-white/[0.85] hover:text-white"
+    }`;
+
+  const hoverGlow = "hover:[text-shadow:0_0_12px_rgba(255,0,204,0.4)]";
+
   return (
     <>
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/[0.05] bg-[rgba(10,10,10,0.85)] backdrop-blur-[20px]">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-12">
-          <Link to="/" className="flex items-center">
+      {/* ── Desktop Liquid Glass Navbar ── */}
+      <nav
+        className="fixed left-1/2 top-6 z-[100] hidden -translate-x-1/2 md:block"
+        style={{
+          maxWidth: 880,
+          width: "calc(100% - 48px)",
+          borderRadius: 9999,
+          padding: "12px 32px",
+          background: "rgba(255,255,255,0.08)",
+          backdropFilter: "blur(24px) saturate(180%)",
+          WebkitBackdropFilter: "blur(24px) saturate(180%)",
+          border: "1px solid rgba(255,255,255,0.18)",
+          boxShadow:
+            "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -1px 1px rgba(255,255,255,0.08)",
+          backgroundImage:
+            "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%)",
+          transition: "all 0.3s ease",
+        }}
+      >
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+          {/* Left links */}
+          <div className="flex items-center gap-6 justify-self-end">
+            {leftLinks.map((l) => (
+              <Link key={l.to} to={l.to} className={`${linkClasses(l.to)} ${hoverGlow}`}>
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Center logo */}
+          <Link to="/" className="flex items-center justify-center">
             <img
               src="/logo-full.png"
               alt="BD Media"
               width={683}
               height={183}
-              className="block h-[45px] w-auto md:h-[53px]"
+              className="block h-[38px] w-auto"
             />
           </Link>
 
-          {/* Desktop links */}
-          <div className="hidden items-center gap-7 md:flex">
-            {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className={`relative pb-1.5 text-sm transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100 ${
-                  location.pathname === l.to ? "text-foreground after:scale-x-100" : "text-muted-foreground"
-                }`}
-              >
+          {/* Right links + dropdown + lang + CTA */}
+          <div className="flex items-center gap-6 justify-self-start">
+            {rightLinks.map((l) => (
+              <Link key={l.to} to={l.to} className={`${linkClasses(l.to)} ${hoverGlow}`}>
                 {l.label}
               </Link>
             ))}
 
-            {/* Dropdown */}
+            {/* Pages dropdown */}
             <div ref={dropdownRef} className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="relative flex items-center gap-1 pb-1 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
+                className={`flex items-center gap-1 text-[15px] font-medium tracking-[0.02em] text-white/[0.85] transition-all duration-200 hover:text-white ${hoverGlow}`}
               >
                 {t(T.pages)}
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}>
@@ -104,12 +148,21 @@ const Navbar = () => {
                 </svg>
               </button>
               {dropdownOpen && (
-                <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-white/[0.06] bg-[#1a1a1a] p-2 shadow-xl">
+                <div
+                  className="absolute right-0 top-full mt-3 w-52 rounded-2xl p-2 shadow-xl"
+                  style={{
+                    background: "rgba(255,255,255,0.08)",
+                    backdropFilter: "blur(24px) saturate(180%)",
+                    WebkitBackdropFilter: "blur(24px) saturate(180%)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.2)",
+                  }}
+                >
                   {dropdownLinks.map((l) => (
                     <Link
                       key={l.to}
                       to={l.to}
-                      className="block rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-foreground"
+                      className="block rounded-xl px-4 py-2.5 text-sm text-white/70 transition-colors hover:bg-white/[0.06] hover:text-white"
                     >
                       {t(T[l.key])}
                     </Link>
@@ -117,48 +170,83 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Right */}
-          <div className="hidden items-center gap-4 md:flex">
             <LangSwitcher />
-            <button onClick={openContactModal} className="btn-primary text-sm">
+
+            <button onClick={openContactModal} className="btn-primary text-sm !py-2.5 !px-5">
               {t(T.cta)}
             </button>
           </div>
+        </div>
+      </nav>
 
+      {/* ── Mobile Liquid Glass Navbar ── */}
+      <nav
+        className="fixed left-1/2 top-4 z-[100] -translate-x-1/2 md:hidden"
+        style={{
+          width: "calc(100% - 32px)",
+          borderRadius: 9999,
+          padding: "10px 20px",
+          background: "rgba(255,255,255,0.08)",
+          backdropFilter: "blur(24px) saturate(180%)",
+          WebkitBackdropFilter: "blur(24px) saturate(180%)",
+          border: "1px solid rgba(255,255,255,0.18)",
+          boxShadow:
+            "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -1px 1px rgba(255,255,255,0.08)",
+          backgroundImage:
+            "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%)",
+          transition: "all 0.3s ease",
+        }}
+      >
+        <div className="flex items-center justify-between">
           {/* Hamburger */}
           <button
-            className="flex h-10 w-10 items-center justify-center md:hidden"
+            className="flex h-10 w-10 items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
             <div className="flex flex-col gap-1.5">
-              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span className={`h-0.5 w-5 bg-white transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`h-0.5 w-5 bg-white transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-5 bg-white transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
             </div>
+          </button>
+
+          {/* Logo centered */}
+          <Link to="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <img src="/logo-full.png" alt="BD Media" className="h-[34px] w-auto" />
+          </Link>
+
+          {/* CTA */}
+          <button onClick={openContactModal} className="btn-primary !py-2 !px-4 text-xs">
+            {t(T.cta)}
           </button>
         </div>
       </nav>
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 md:hidden" onClick={() => setMobileOpen(false)}>
-          <div className="absolute inset-0 bg-black/60" />
+        <div className="fixed inset-0 z-[99] md:hidden" onClick={() => setMobileOpen(false)}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
-            className="absolute right-0 top-0 h-full w-72 bg-[#0e0e12] p-8 pt-24"
+            className="absolute right-0 top-0 h-full w-72 p-8 pt-24"
+            style={{
+              background: "rgba(14,14,18,0.92)",
+              backdropFilter: "blur(24px) saturate(180%)",
+              WebkitBackdropFilter: "blur(24px) saturate(180%)",
+              borderLeft: "1px solid rgba(255,255,255,0.1)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col gap-5">
-              {navLinks.map((l) => (
-                <Link key={l.to} to={l.to} className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">
+              {[...leftLinks, ...rightLinks].map((l) => (
+                <Link key={l.to} to={l.to} className="text-lg font-medium text-white/70 transition-colors hover:text-white">
                   {l.label}
                 </Link>
               ))}
-              <div className="border-t border-white/[0.06] pt-4">
+              <div className="border-t border-white/[0.08] pt-4">
                 {dropdownLinks.map((l) => (
-                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-white/60 transition-colors hover:text-white">
                     {t(T[l.key])}
                   </Link>
                 ))}
