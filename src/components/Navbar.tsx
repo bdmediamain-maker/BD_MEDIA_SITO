@@ -137,12 +137,28 @@ const Navbar = () => {
           transition: "all 0.3s ease",
         }}
       >
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div ref={navContainerRef} className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 relative">
+          {/* Sliding bubble indicator */}
+          {bubble && (
+            <div
+              className="absolute top-1/2 -translate-y-1/2 pointer-events-none z-0"
+              style={{
+                left: bubble.left,
+                width: bubble.width,
+                height: "calc(100% - 4px)",
+                borderRadius: 980,
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.03), 0 2px 16px rgba(0,0,0,0.3)",
+                transition: "left 0.45s cubic-bezier(.4,0,.1,1), width 0.35s cubic-bezier(.4,0,.2,1)",
+              }}
+            />
+          )}
+
           {/* Left links */}
           <div className="flex items-center gap-3 justify-self-end">
             {leftLinks.map((l) => (
-              <Link key={l.to} to={l.to} className={glassLink(l.to)}>
-                <span className="liquid-glass-link-border" />
+              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className="liquid-glass-link">
                 <span className="relative z-10">{l.label}</span>
               </Link>
             ))}
@@ -162,8 +178,7 @@ const Navbar = () => {
           {/* Right links + dropdown + lang + CTA */}
           <div className="flex items-center gap-3 justify-self-start">
             {rightLinks.map((l) => (
-              <Link key={l.to} to={l.to} className={glassLink(l.to)}>
-                <span className="liquid-glass-link-border" />
+              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className="liquid-glass-link">
                 <span className="relative z-10">{l.label}</span>
               </Link>
             ))}
