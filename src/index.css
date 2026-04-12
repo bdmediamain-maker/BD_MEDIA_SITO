@@ -99,6 +99,87 @@
     @apply px-6 py-24 md:px-12 lg:px-20;
   }
 
+  /* Liquid Glass Link – WWDC25 style */
+  .liquid-glass-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 6px 18px;
+    border-radius: 980px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  /* Gradient border via outline trick */
+  .liquid-glass-link::before,
+  .liquid-glass-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  /* Inner highlight – light refraction */
+  .liquid-glass-link::before {
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.15), transparent 70%);
+    z-index: 1;
+  }
+  /* Prismatic rainbow refraction */
+  .liquid-glass-link::after {
+    top: 70%;
+    bottom: auto;
+    height: 2px;
+    left: 10%;
+    right: 10%;
+    inset: auto 10% auto 10%;
+    border-radius: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,0,0,0.15), rgba(255,165,0,0.15), rgba(255,255,0,0.15), rgba(0,255,0,0.15), rgba(0,100,255,0.15), rgba(128,0,255,0.15), transparent);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+    z-index: 2;
+    position: absolute;
+    top: 70%;
+    height: 2px;
+  }
+  /* Gradient border overlay */
+  .liquid-glass-link-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    border: 1px solid transparent;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 100%);
+    padding: 1px;
+  }
+  .liquid-glass-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255,0,204,0.4);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .liquid-glass-link:hover::before {
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.25), transparent 70%);
+  }
+  .liquid-glass-link:hover::after {
+    top: 65%;
+    opacity: 0.55;
+  }
+
   .noise-overlay {
     position: fixed;
     top: 0;
