@@ -99,7 +99,7 @@
     @apply px-6 py-24 md:px-12 lg:px-20;
   }
 
-  /* Liquid Glass Link – WWDC25 style */
+  /* Liquid Glass Link – WWDC25 hover-reveal style */
   .liquid-glass-link {
     position: relative;
     display: inline-flex;
@@ -108,77 +108,102 @@
     padding: 6px 18px;
     border-radius: 980px;
     overflow: hidden;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(40px) saturate(1.8);
-    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    background: transparent;
+    backdrop-filter: blur(0px) saturate(1);
+    -webkit-backdrop-filter: blur(0px) saturate(1);
     border: 1px solid transparent;
-    background-clip: padding-box;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    box-shadow: none;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.02em;
     color: rgba(255,255,255,0.85);
     text-decoration: none;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: background 0.35s cubic-bezier(.4,0,.2,1),
+                backdrop-filter 0.35s cubic-bezier(.4,0,.2,1),
+                -webkit-backdrop-filter 0.35s cubic-bezier(.4,0,.2,1),
+                border-color 0.35s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.35s cubic-bezier(.4,0,.2,1),
+                color 0.25s ease,
+                text-shadow 0.25s ease;
   }
-  /* Gradient border via outline trick */
   .liquid-glass-link::before,
   .liquid-glass-link::after {
     content: "";
     position: absolute;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(.4,0,.2,1), top 0.35s ease;
+  }
+  /* Inner highlight – hidden by default */
+  .liquid-glass-link::before {
     inset: 0;
     border-radius: inherit;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  /* Inner highlight – light refraction */
-  .liquid-glass-link::before {
     background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.15), transparent 70%);
     z-index: 1;
+    opacity: 0;
   }
-  /* Prismatic rainbow refraction */
+  /* Prismatic rainbow – hidden by default */
   .liquid-glass-link::after {
-    top: 70%;
-    bottom: auto;
-    height: 2px;
     left: 10%;
     right: 10%;
-    inset: auto 10% auto 10%;
+    top: 70%;
+    height: 2px;
     border-radius: 0;
     background: linear-gradient(90deg, transparent, rgba(255,0,0,0.15), rgba(255,165,0,0.15), rgba(255,255,0,0.15), rgba(0,255,0,0.15), rgba(0,100,255,0.15), rgba(128,0,255,0.15), transparent);
     mix-blend-mode: screen;
-    opacity: 0.4;
     z-index: 2;
-    position: absolute;
-    top: 70%;
-    height: 2px;
+    opacity: 0;
   }
-  /* Gradient border overlay */
+  /* Gradient border overlay – hidden by default */
   .liquid-glass-link-border {
     position: absolute;
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    border: 1px solid transparent;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: xor;
     background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 100%);
     padding: 1px;
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
   }
+
+  /* ── HOVER: glass materializes ── */
   .liquid-glass-link:hover {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12);
     color: #ffffff;
     text-shadow: 0 0 12px rgba(255,0,204,0.4);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
   }
   .liquid-glass-link:hover::before {
+    opacity: 1;
     background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.25), transparent 70%);
   }
   .liquid-glass-link:hover::after {
+    opacity: 0.5;
     top: 65%;
-    opacity: 0.55;
   }
+  .liquid-glass-link:hover .liquid-glass-link-border {
+    opacity: 1;
+  }
+
+  /* Active page: always show glass */
+  .liquid-glass-link.active {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+    color: #ffffff;
+  }
+  .liquid-glass-link.active::before { opacity: 1; }
+  .liquid-glass-link.active::after { opacity: 0.4; }
+  .liquid-glass-link.active .liquid-glass-link-border { opacity: 1; }
 
   .noise-overlay {
     position: fixed;

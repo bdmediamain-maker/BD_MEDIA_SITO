@@ -77,14 +77,8 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const linkClasses = (to: string) =>
-    `relative text-[15px] font-medium tracking-[0.02em] transition-all duration-200 ${
-      location.pathname === to
-        ? "text-white"
-        : "text-white/[0.85] hover:text-white"
-    }`;
-
-  const hoverGlow = "hover:[text-shadow:0_0_12px_rgba(255,0,204,0.4)]";
+  const glassLink = (to: string) =>
+    `liquid-glass-link ${location.pathname === to ? "active" : ""}`;
 
   return (
     <>
