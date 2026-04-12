@@ -103,19 +103,13 @@ const Navbar = () => {
       >
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
           {/* Left links */}
-          <div className="flex items-center gap-6 justify-self-end">
-            {leftLinks.map((l) =>
-              l.to === "/services" ? (
-                <Link key={l.to} to={l.to} className="liquid-glass-link">
-                  <span className="liquid-glass-link-border" />
-                  <span className="relative z-10">{l.label}</span>
-                </Link>
-              ) : (
-                <Link key={l.to} to={l.to} className={`${linkClasses(l.to)} ${hoverGlow}`}>
-                  {l.label}
-                </Link>
-              )
-            )}
+          <div className="flex items-center gap-3 justify-self-end">
+            {leftLinks.map((l) => (
+              <Link key={l.to} to={l.to} className={glassLink(l.to)}>
+                <span className="liquid-glass-link-border" />
+                <span className="relative z-10">{l.label}</span>
+              </Link>
+            ))}
           </div>
 
           {/* Center logo */}
@@ -130,10 +124,11 @@ const Navbar = () => {
           </Link>
 
           {/* Right links + dropdown + lang + CTA */}
-          <div className="flex items-center gap-6 justify-self-start">
+          <div className="flex items-center gap-3 justify-self-start">
             {rightLinks.map((l) => (
-              <Link key={l.to} to={l.to} className={`${linkClasses(l.to)} ${hoverGlow}`}>
-                {l.label}
+              <Link key={l.to} to={l.to} className={glassLink(l.to)}>
+                <span className="liquid-glass-link-border" />
+                <span className="relative z-10">{l.label}</span>
               </Link>
             ))}
 
@@ -141,7 +136,7 @@ const Navbar = () => {
             <div ref={dropdownRef} className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`flex items-center gap-1 text-[15px] font-medium tracking-[0.02em] text-white/[0.85] transition-all duration-200 hover:text-white ${hoverGlow}`}
+                className={`liquid-glass-link ${dropdownOpen ? "active" : ""}`}
               >
                 {t(T.pages)}
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}>
