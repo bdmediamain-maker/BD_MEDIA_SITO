@@ -178,7 +178,7 @@ const Navbar = () => {
           {/* Right links + dropdown + lang + CTA */}
           <div className="flex items-center gap-3 justify-self-start">
             {rightLinks.map((l) => (
-              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className="liquid-glass-link">
+              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className={`liquid-glass-link${location.pathname === l.to ? " active" : ""}`}>
                 <span className="relative z-10">{l.label}</span>
               </Link>
             ))}
