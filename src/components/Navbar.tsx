@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useContactModal } from "./ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -16,16 +16,16 @@ const LangSwitcher = () => {
     <div className="flex items-center gap-0.5 rounded-full border border-white/[0.12] px-1 py-0.5 text-xs font-semibold tracking-wide select-none">
       <button
         onClick={() => setLang("it")}
-        className={`min-h-[36px] min-w-[36px] rounded-full border-none px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-all ${
-          lang === "it" ? "bg-white/[0.12] text-foreground" : "bg-transparent text-white/60"
+        className={`min-h-[44px] min-w-[44px] rounded-full border-none px-3 py-2 text-xs font-semibold tracking-wide transition-all ${
+          lang === "it" ? "bg-white/[0.08] text-foreground" : "bg-transparent text-muted-foreground"
         }`}
       >
         IT
       </button>
       <button
         onClick={() => setLang("en")}
-        className={`min-h-[36px] min-w-[36px] rounded-full border-none px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-all ${
-          lang === "en" ? "bg-white/[0.12] text-foreground" : "bg-transparent text-white/60"
+        className={`min-h-[44px] min-w-[44px] rounded-full border-none px-3 py-2 text-xs font-semibold tracking-wide transition-all ${
+          lang === "en" ? "bg-white/[0.08] text-foreground" : "bg-transparent text-muted-foreground"
         }`}
       >
         EN
@@ -38,54 +38,16 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const navContainerRef = useRef<HTMLDivElement>(null);
-  const linkRefs = useRef<Map<string, HTMLElement>>(new Map());
-  const [bubble, setBubble] = useState<{ left: number; width: number } | null>(null);
   const location = useLocation();
   const { open: openContactModal } = useContactModal();
   const { t } = useLanguage();
   const T = translations.nav;
 
-  const leftLinks = [
+  const navLinks = [
     { label: t(T.services), to: "/services" },
     { label: t(T.about), to: "/about" },
-  ];
-
-  const rightLinks = [
     { label: t(T.portfolio), to: "/portfolio" },
   ];
-
-  const allNavKeys = [...leftLinks.map(l => l.to), ...rightLinks.map(l => l.to), "__pages__"];
-
-  // Calculate bubble position from a given key
-  const calcBubble = useCallback((key: string) => {
-    const el = linkRefs.current.get(key);
-    const container = navContainerRef.current;
-    if (!el || !container) return null;
-    const containerRect = container.getBoundingClientRect();
-    const elRect = el.getBoundingClientRect();
-    return {
-      left: elRect.left - containerRect.left,
-      width: elRect.width,
-    };
-  }, []);
-
-  // Determine active key
-  const activeKey = allNavKeys.find(k => k !== "__pages__" && location.pathname === k)
-    || (dropdownLinks.some(dl => location.pathname === dl.to) ? "__pages__" : null);
-
-  // Update bubble on route change
-  useEffect(() => {
-    if (activeKey) {
-      // Small delay to let DOM settle after render
-      requestAnimationFrame(() => {
-        const pos = calcBubble(activeKey);
-        if (pos) setBubble(pos);
-      });
-    } else {
-      setBubble(null);
-    }
-  }, [activeKey, calcBubble]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -102,117 +64,52 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  const setLinkRef = (key: string) => (el: HTMLElement | null) => {
-    if (el) linkRefs.current.set(key, el);
-    else linkRefs.current.delete(key);
-  };
-
   return (
     <>
-      {/* ── Desktop Liquid Glass Navbar ── */}
-      <nav
-        className="fixed left-1/2 top-6 z-[100] hidden -translate-x-1/2 md:block"
-        style={{
-          maxWidth: 880,
-          width: "calc(100% - 48px)",
-          borderRadius: 9999,
-          padding: "12px 32px",
-          background: "rgba(255,255,255,0.08)",
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)",
-          border: "1px solid rgba(255,255,255,0.18)",
-          boxShadow:
-            "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -1px 1px rgba(255,255,255,0.08)",
-          backgroundImage:
-            "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%)",
-          transition: "all 0.3s ease",
-        }}
-      >
-        <div ref={navContainerRef} className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 relative">
-          {/* Sliding bubble indicator */}
-          {bubble && (
-            <div
-              className="absolute top-1/2 -translate-y-1/2 pointer-events-none z-0"
-              style={{
-                left: bubble.left,
-                width: bubble.width,
-                height: "calc(100% - 4px)",
-                borderRadius: 980,
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.03), 0 2px 16px rgba(0,0,0,0.3)",
-                transition: "left 0.45s cubic-bezier(.4,0,.1,1), width 0.35s cubic-bezier(.4,0,.2,1)",
-              }}
-            />
-          )}
-
-          {/* Left links */}
-          <div className="flex items-center gap-3 justify-self-end">
-            {leftLinks.map((l) => (
-              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className={`liquid-glass-link${location.pathname === l.to ? " active" : ""}`}>
-                <span className="relative z-10">{l.label}</span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Center logo */}
-          <Link to="/" className="flex items-center justify-center">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/[0.05] bg-[rgba(10,10,10,0.85)] backdrop-blur-[20px]">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-12">
+          <Link to="/" className="flex items-center">
             <img
               src="/logo-full.png"
               alt="BD Media"
               width={683}
               height={183}
-              className="block h-[38px] w-auto"
+              className="block h-[45px] w-auto md:h-[53px]"
             />
           </Link>
 
-          {/* Right links + dropdown + lang + CTA */}
-          <div className="flex items-center gap-3 justify-self-start">
-            {rightLinks.map((l) => (
-              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className={`liquid-glass-link${location.pathname === l.to ? " active" : ""}`}>
-                <span className="relative z-10">{l.label}</span>
+          {/* Desktop links */}
+          <div className="hidden items-center gap-7 md:flex">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`relative pb-1.5 text-sm transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100 ${
+                  location.pathname === l.to ? "text-foreground after:scale-x-100" : "text-muted-foreground"
+                }`}
+              >
+                {l.label}
               </Link>
             ))}
 
-            {/* Pages dropdown */}
+            {/* Dropdown */}
             <div ref={dropdownRef} className="relative">
               <button
-                ref={setLinkRef("__pages__") as any}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="liquid-glass-link"
+                className="relative flex items-center gap-1 pb-1 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
               >
-                <span className="relative z-10 flex items-center gap-1">
-                  {t(T.pages)}
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}>
-                    <path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
+                {t(T.pages)}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}>
+                  <path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </button>
               {dropdownOpen && (
-                <div
-                  className="absolute right-0 top-full mt-3 w-52 rounded-2xl p-2 shadow-xl"
-                  style={{
-                    background: "rgba(255,255,255,0.08)",
-                    backdropFilter: "blur(24px) saturate(180%)",
-                    WebkitBackdropFilter: "blur(24px) saturate(180%)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.2)",
-                  }}
-                >
+                <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-white/[0.06] bg-[#1a1a1a] p-2 shadow-xl">
                   {dropdownLinks.map((l) => (
                     <Link
                       key={l.to}
                       to={l.to}
-                      className="block rounded-xl px-4 py-2.5 text-sm text-white/70 transition-colors hover:bg-white/[0.06] hover:text-white"
+                      className="block rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-foreground"
                     >
                       {t(T[l.key])}
                     </Link>
@@ -220,83 +117,48 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+          </div>
 
+          {/* Right */}
+          <div className="hidden items-center gap-4 md:flex">
             <LangSwitcher />
-
-            <button onClick={openContactModal} className="btn-primary text-sm !py-2.5 !px-5">
+            <button onClick={openContactModal} className="btn-primary text-sm">
               {t(T.cta)}
             </button>
           </div>
-        </div>
-      </nav>
 
-      {/* ── Mobile Liquid Glass Navbar ── */}
-      <nav
-        className="fixed left-1/2 top-4 z-[100] -translate-x-1/2 md:hidden"
-        style={{
-          width: "calc(100% - 32px)",
-          borderRadius: 9999,
-          padding: "10px 20px",
-          background: "rgba(255,255,255,0.08)",
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)",
-          border: "1px solid rgba(255,255,255,0.18)",
-          boxShadow:
-            "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -1px 1px rgba(255,255,255,0.08)",
-          backgroundImage:
-            "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%)",
-          transition: "all 0.3s ease",
-        }}
-      >
-        <div className="flex items-center justify-between">
           {/* Hamburger */}
           <button
-            className="flex h-10 w-10 items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
             <div className="flex flex-col gap-1.5">
-              <span className={`h-0.5 w-5 bg-white transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`h-0.5 w-5 bg-white transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-5 bg-white transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
             </div>
-          </button>
-
-          {/* Logo centered */}
-          <Link to="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <img src="/logo-full.png" alt="BD Media" className="h-[34px] w-auto" />
-          </Link>
-
-          {/* CTA */}
-          <button onClick={openContactModal} className="btn-primary !py-2 !px-4 text-xs">
-            {t(T.cta)}
           </button>
         </div>
       </nav>
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[99] md:hidden" onClick={() => setMobileOpen(false)}>
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        <div className="fixed inset-0 z-40 md:hidden" onClick={() => setMobileOpen(false)}>
+          <div className="absolute inset-0 bg-black/60" />
           <div
-            className="absolute right-0 top-0 h-full w-72 p-8 pt-24"
-            style={{
-              background: "rgba(14,14,18,0.92)",
-              backdropFilter: "blur(24px) saturate(180%)",
-              WebkitBackdropFilter: "blur(24px) saturate(180%)",
-              borderLeft: "1px solid rgba(255,255,255,0.1)",
-            }}
+            className="absolute right-0 top-0 h-full w-72 bg-[#0e0e12] p-8 pt-24"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col gap-5">
-              {[...leftLinks, ...rightLinks].map((l) => (
-                <Link key={l.to} to={l.to} className="text-lg font-medium text-white/70 transition-colors hover:text-white">
+              {navLinks.map((l) => (
+                <Link key={l.to} to={l.to} className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">
                   {l.label}
                 </Link>
               ))}
-              <div className="border-t border-white/[0.08] pt-4">
+              <div className="border-t border-white/[0.06] pt-4">
                 {dropdownLinks.map((l) => (
-                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-white/60 transition-colors hover:text-white">
+                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
                     {t(T[l.key])}
                   </Link>
                 ))}
