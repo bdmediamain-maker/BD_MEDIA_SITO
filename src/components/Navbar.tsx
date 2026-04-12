@@ -110,11 +110,18 @@ const Navbar = () => {
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
           {/* Left links */}
           <div className="flex items-center gap-6 justify-self-end">
-            {leftLinks.map((l) => (
-              <Link key={l.to} to={l.to} className={`${linkClasses(l.to)} ${hoverGlow}`}>
-                {l.label}
-              </Link>
-            ))}
+            {leftLinks.map((l) =>
+              l.to === "/services" ? (
+                <Link key={l.to} to={l.to} className="liquid-glass-link">
+                  <span className="liquid-glass-link-border" />
+                  <span className="relative z-10">{l.label}</span>
+                </Link>
+              ) : (
+                <Link key={l.to} to={l.to} className={`${linkClasses(l.to)} ${hoverGlow}`}>
+                  {l.label}
+                </Link>
+              )
+            )}
           </div>
 
           {/* Center logo */}
