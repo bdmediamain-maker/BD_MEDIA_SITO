@@ -38,6 +38,9 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const linkRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const [bubble, setBubble] = useState<{ left: number; width: number } | null>(null);
   const location = useLocation();
   const { open: openContactModal } = useContactModal();
   const { t } = useLanguage();
@@ -51,6 +54,38 @@ const Navbar = () => {
   const rightLinks = [
     { label: t(T.portfolio), to: "/portfolio" },
   ];
+
+  const allNavKeys = [...leftLinks.map(l => l.to), ...rightLinks.map(l => l.to), "__pages__"];
+
+  // Calculate bubble position from a given key
+  const calcBubble = useCallback((key: string) => {
+    const el = linkRefs.current.get(key);
+    const container = navContainerRef.current;
+    if (!el || !container) return null;
+    const containerRect = container.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    return {
+      left: elRect.left - containerRect.left,
+      width: elRect.width,
+    };
+  }, []);
+
+  // Determine active key
+  const activeKey = allNavKeys.find(k => k !== "__pages__" && location.pathname === k)
+    || (dropdownLinks.some(dl => location.pathname === dl.to) ? "__pages__" : null);
+
+  // Update bubble on route change
+  useEffect(() => {
+    if (activeKey) {
+      // Small delay to let DOM settle after render
+      requestAnimationFrame(() => {
+        const pos = calcBubble(activeKey);
+        if (pos) setBubble(pos);
+      });
+    } else {
+      setBubble(null);
+    }
+  }, [activeKey, calcBubble]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -67,7 +102,6 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -77,8 +111,10 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const glassLink = (to: string) =>
-    `liquid-glass-link ${location.pathname === to ? "active" : ""}`;
+  const setLinkRef = (key: string) => (el: HTMLElement | null) => {
+    if (el) linkRefs.current.set(key, el);
+    else linkRefs.current.delete(key);
+  };
 
   return (
     <>
