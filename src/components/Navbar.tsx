@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useContactModal } from "./ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -38,6 +38,9 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const linkRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const [bubble, setBubble] = useState<{ left: number; width: number } | null>(null);
   const location = useLocation();
   const { open: openContactModal } = useContactModal();
   const { t } = useLanguage();
@@ -51,6 +54,38 @@ const Navbar = () => {
   const rightLinks = [
     { label: t(T.portfolio), to: "/portfolio" },
   ];
+
+  const allNavKeys = [...leftLinks.map(l => l.to), ...rightLinks.map(l => l.to), "__pages__"];
+
+  // Calculate bubble position from a given key
+  const calcBubble = useCallback((key: string) => {
+    const el = linkRefs.current.get(key);
+    const container = navContainerRef.current;
+    if (!el || !container) return null;
+    const containerRect = container.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    return {
+      left: elRect.left - containerRect.left,
+      width: elRect.width,
+    };
+  }, []);
+
+  // Determine active key
+  const activeKey = allNavKeys.find(k => k !== "__pages__" && location.pathname === k)
+    || (dropdownLinks.some(dl => location.pathname === dl.to) ? "__pages__" : null);
+
+  // Update bubble on route change
+  useEffect(() => {
+    if (activeKey) {
+      // Small delay to let DOM settle after render
+      requestAnimationFrame(() => {
+        const pos = calcBubble(activeKey);
+        if (pos) setBubble(pos);
+      });
+    } else {
+      setBubble(null);
+    }
+  }, [activeKey, calcBubble]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -67,7 +102,6 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -77,8 +111,10 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const glassLink = (to: string) =>
-    `liquid-glass-link ${location.pathname === to ? "active" : ""}`;
+  const setLinkRef = (key: string) => (el: HTMLElement | null) => {
+    if (el) linkRefs.current.set(key, el);
+    else linkRefs.current.delete(key);
+  };
 
   return (
     <>
@@ -101,12 +137,28 @@ const Navbar = () => {
           transition: "all 0.3s ease",
         }}
       >
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div ref={navContainerRef} className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 relative">
+          {/* Sliding bubble indicator */}
+          {bubble && (
+            <div
+              className="absolute top-1/2 -translate-y-1/2 pointer-events-none z-0"
+              style={{
+                left: bubble.left,
+                width: bubble.width,
+                height: "calc(100% - 4px)",
+                borderRadius: 980,
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.03), 0 2px 16px rgba(0,0,0,0.3)",
+                transition: "left 0.45s cubic-bezier(.4,0,.1,1), width 0.35s cubic-bezier(.4,0,.2,1)",
+              }}
+            />
+          )}
+
           {/* Left links */}
           <div className="flex items-center gap-3 justify-self-end">
             {leftLinks.map((l) => (
-              <Link key={l.to} to={l.to} className={glassLink(l.to)}>
-                <span className="liquid-glass-link-border" />
+              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className={`liquid-glass-link${location.pathname === l.to ? " active" : ""}`}>
                 <span className="relative z-10">{l.label}</span>
               </Link>
             ))}
@@ -126,8 +178,7 @@ const Navbar = () => {
           {/* Right links + dropdown + lang + CTA */}
           <div className="flex items-center gap-3 justify-self-start">
             {rightLinks.map((l) => (
-              <Link key={l.to} to={l.to} className={glassLink(l.to)}>
-                <span className="liquid-glass-link-border" />
+              <Link key={l.to} to={l.to} ref={setLinkRef(l.to) as any} className={`liquid-glass-link${location.pathname === l.to ? " active" : ""}`}>
                 <span className="relative z-10">{l.label}</span>
               </Link>
             ))}
@@ -135,10 +186,10 @@ const Navbar = () => {
             {/* Pages dropdown */}
             <div ref={dropdownRef} className="relative">
               <button
+                ref={setLinkRef("__pages__") as any}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`liquid-glass-link ${dropdownOpen ? "active" : ""}`}
+                className="liquid-glass-link"
               >
-                <span className="liquid-glass-link-border" />
                 <span className="relative z-10 flex items-center gap-1">
                   {t(T.pages)}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}>

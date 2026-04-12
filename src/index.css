@@ -145,16 +145,9 @@
     opacity: 1;
   }
 
-  /* Active page: always show dark pill */
+  /* Active page: text highlight only (bubble handles background) */
   .liquid-glass-link.active {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.12);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.03), 0 2px 16px rgba(0,0,0,0.3);
     color: #ffffff;
-  }
-  .liquid-glass-link.active .liquid-glass-link-border {
-    opacity: 1;
-    border-color: rgba(255,255,255,0.12);
   }
 
   .noise-overlay {
