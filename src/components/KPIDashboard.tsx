@@ -1,5 +1,87 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { useEffect, useRef, useState } from "react";
+
+/** Parse a display value like "2K+", "13.5M+", "10/10" into animatable parts */
+function parseValue(val: string): { prefix: string; number: number; suffix: string; decimals: number } {
+  // Handle fraction like "10/10"
+  const fractionMatch = val.match(/^(\d+)\/(\d+)$/);
+  if (fractionMatch) {
+    return { prefix: "", number: parseInt(fractionMatch[1]), suffix: `/${fractionMatch[2]}`, decimals: 0 };
+  }
+
+  const match = val.match(/^([€$]?)(\d+(?:[.,]\d+)?)\s*([KMB+%x]*.*)?$/i);
+  if (!match) return { prefix: "", number: 0, suffix: val, decimals: 0 };
+
+  const prefix = match[1] || "";
+  const numStr = match[2].replace(",", ".");
+  const number = parseFloat(numStr);
+  const suffix = match[3] || "";
+  const decParts = numStr.split(".");
+  const decimals = decParts.length > 1 ? decParts[1].length : 0;
+
+  return { prefix, number, suffix, decimals };
+}
+
+function AnimatedValue({ value }: { value: string }) {
+  const [displayed, setDisplayed] = useState("0");
+  const ref = useRef<HTMLParagraphElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const { prefix, number, suffix, decimals } = parseValue(value);
+
+          if (number === 0) {
+            setDisplayed(value);
+            return;
+          }
+
+          const duration = 1800;
+          const startTime = performance.now();
+
+          const animate = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * number;
+
+            if (decimals > 0) {
+              setDisplayed(`${prefix}${current.toFixed(decimals)}${suffix}`);
+            } else {
+              setDisplayed(`${prefix}${Math.round(current)}${suffix}`);
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setDisplayed(value);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <p ref={ref} className="mt-3 text-[2.25rem] font-extrabold leading-none tracking-tight tabular-nums">
+      {displayed}
+    </p>
+  );
+}
 
 const KPIDashboard = () => {
   const { t } = useLanguage();
@@ -34,9 +116,7 @@ const KPIDashboard = () => {
           <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
             {k.label}
           </p>
-          <p className="mt-3 text-[2.25rem] font-extrabold leading-none tracking-tight">
-            {k.value}
-          </p>
+          <AnimatedValue value={k.value} />
           <p className="mt-3 text-[11px] leading-snug text-muted-foreground/60">
             {k.sub}
           </p>
