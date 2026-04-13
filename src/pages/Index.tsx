@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CaseStudyInteractive from "@/components/CaseStudyInteractive";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
@@ -162,60 +163,13 @@ const Index = () => {
               {t(H.casestudy.category)}
             </div>
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t(H.casestudy.label)}</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              {t(H.casestudy.client)} — {t(H.casestudy.headline)}
+            </p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
-            <div className="mt-10 card-surface">
-              <h3 className="text-2xl font-extrabold">{t(H.casestudy.client)}</h3>
-              <p className="mt-1 text-lg font-semibold text-primary">{t(H.casestudy.headline)}</p>
-              <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">{t(H.casestudy.body)}</p>
-              <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
-                {caseMetrics.map((m, i) => (
-                  <div key={i} className="rounded-lg bg-white/[0.03] p-4 sm:p-5">
-                    <div className="text-xl font-extrabold sm:text-2xl md:text-3xl break-words">{m.value}</div>
-                    <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground sm:mt-2 sm:text-xs">{m.label}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 space-y-4 rounded-lg bg-white/[0.03] p-4 text-sm sm:p-5">
-                <div className="space-y-1">
-                  <span className="block text-muted-foreground">{t(H.casestudy.chart_leads_title)}</span>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-muted-foreground">{t(H.casestudy.chart_before_label)}:</span>
-                    <span className="font-semibold">7,4/mese</span>
-                    <span className="text-primary">→</span>
-                    <span className="text-muted-foreground">{t(H.casestudy.chart_after_label)}:</span>
-                    <span className="font-semibold">85,8/mese</span>
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <span className="block text-muted-foreground">{t(H.casestudy.chart_cpl_title)}</span>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-muted-foreground">{t(H.casestudy.chart_before_label)}:</span>
-                    <span className="font-semibold">€15,46/lead</span>
-                    <span className="text-primary">→</span>
-                    <span className="text-muted-foreground">{t(H.casestudy.chart_after_label)}:</span>
-                    <span className="font-semibold">€6,30/lead</span>
-                  </div>
-                </div>
-                <div>
-                  <span className="text-muted-foreground">{t(H.casestudy.chart_conv_title)}: </span>
-                  <span className="font-semibold text-primary">17,16x</span>
-                </div>
-              </div>
-              <div className="mt-8 flex flex-wrap items-center gap-6">
-                <button
-                  onClick={() => openContactModal("Lead Generation")}
-                  className="btn-primary"
-                >
-                  {t(H.casestudy_cta)}
-                </button>
-                <Link
-                  to="/case-study/aeon-studio"
-                  className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-                >
-                  {t(H.casestudy_link)}
-                </Link>
-              </div>
+            <div className="mt-10">
+              <CaseStudyInteractive onCtaClick={() => openContactModal("Lead Generation")} />
             </div>
           </ScrollReveal>
         </div>
