@@ -50,18 +50,22 @@ function Counter({ value, decimals = 0, prefix = "", suffix = "" }: {
 }
 
 /* ─── Bar ───────────────────────────────────────────────────────────────────── */
-function GrowBar({ percentage, color, label, value, delay = 0 }: {
-  percentage: number; color: string; label: string; value: string; delay?: number;
+function GrowBar({ percentage, color, label, value, delay = 0, animKey }: {
+  percentage: number; color: string; label: string; value: string; delay?: number; animKey?: number;
 }) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setMounted(true), delay); return () => clearTimeout(t); }, [delay]);
+  const [height, setHeight] = useState(0);
+  useEffect(() => {
+    setHeight(0);
+    const t = setTimeout(() => setHeight(percentage), delay + 50);
+    return () => clearTimeout(t);
+  }, [percentage, delay, animKey]);
 
   return (
     <div className="flex flex-col items-center gap-3">
       <span className="text-sm font-bold tabular-nums" style={{ color }}>{value}</span>
       <div className="relative h-48 w-16 overflow-hidden rounded-lg sm:h-56 sm:w-20" style={{ background: "rgba(255,255,255,0.04)" }}>
         <div className="absolute bottom-0 left-0 w-full rounded-lg transition-all duration-1000 ease-out"
-          style={{ height: mounted ? `${percentage}%` : "0%", background: color }} />
+          style={{ height: `${height}%`, background: color }} />
       </div>
       <span className="text-xs text-center text-muted-foreground">{label}</span>
     </div>
@@ -158,8 +162,22 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
       <div className="mt-12">
         <h3 className="text-center text-lg font-bold tracking-tight">Lead Mensili — Prima vs Dopo</h3>
         <div className="mt-8 flex justify-center gap-12 sm:gap-20">
-          <GrowBar percentage={30} color="rgba(255,255,255,0.15)" label="Prima (26 mesi)" value="7,4" delay={100} />
-          <GrowBar percentage={100} color="hsl(var(--primary))" label="Dopo BD (10 mesi)" value="85,8" delay={300} />
+          <GrowBar
+            percentage={activeTab === "before" ? 100 : 30}
+            color="rgba(255,255,255,0.15)"
+            label="Prima (26 mesi)"
+            value={activeTab === "before" ? "7,4" : "7,4"}
+            delay={100}
+            animKey={counterKey}
+          />
+          <GrowBar
+            percentage={activeTab === "after" ? 100 : 8}
+            color="hsl(var(--primary))"
+            label="Dopo BD (10 mesi)"
+            value={activeTab === "after" ? "85,8" : "85,8"}
+            delay={300}
+            animKey={counterKey}
+          />
         </div>
       </div>
 
