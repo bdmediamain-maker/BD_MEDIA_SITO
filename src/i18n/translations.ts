@@ -44,7 +44,7 @@ export const translations = {
     method: {
       title:    { it: "Il Metodo BD", en: "The BD Method" },
       subtitle: { it: "Un sistema in 3 fasi. Non un servizio. Un processo.", en: "A 3-phase system. Not a service. A process." },
-      intro:    { it: "Il Metodo BD è un sistema strutturato in 3 fasi. Stessa logica per ogni cliente, applicazione personalizzata. Replicabile, misurabile, ottimizzato ogni settimana.", en: "The BD Method is a structured 3-phase system. Same logic for every client, customised application. Replicable, measurable, optimised every week." },
+      intro:    { it: "Il Metodo BD non è un insieme di servizi buttati a caso. Stessa logica per ogni cliente, applicazione personalizzata. Analizziamo, attiviamo, scaliamo ogni settimana.", en: "The BD Method is not a set of random services. Same logic for every client, customized application. We analyze, activate, scale every week." },
       step1_title: { it: "Analisi", en: "Audit" },
       step1_body:  { it: "Radiografiamo il tuo marketing attuale. Identifichiamo esattamente dove stai perdendo contatti e budget, prima di toccare qualsiasi cosa.", en: "We X-ray your current marketing. We identify exactly where you're losing leads and budget, before touching anything." },
       step2_title: { it: "Attivazione", en: "Activation" },
