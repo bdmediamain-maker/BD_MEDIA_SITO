@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="https://embeds.iubenda.com/widgets/20b90de6-924f-474e-b472-d95ec92614c2.js"></script>
+    <script type="text/javascript">
+    (function (w,d) {
+      var loader = function () {
+        var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
+        s.src = "https://cdn.iubenda.com/iubenda.js";
+        tag.parentNode.insertBefore(s,tag);
+      };
+      if(w.addEventListener){w.addEventListener("load", loader, false);}
+      else if(w.attachEvent){w.attachEvent("onload", loader);}
+      else{w.onload = loader;}
+    })(window, document);
+    </script>
     <title>BD Media</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
