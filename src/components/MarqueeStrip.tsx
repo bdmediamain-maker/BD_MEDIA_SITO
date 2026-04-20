@@ -1,7 +1,7 @@
 const clients = [
   "AEON Studio", "Dark Diamond Cafè", "Caffè al Teatro", "Lab On Sense",
   "KP Management", "CR Digital", "TDSTUDIO", "Arkes Roleplay", "Tecia+",
-  "Accademia Europea", "Istituto Campanella", "Golosi", "Barber Feb"
+  "Accademia Europea", "Istituto Campanella", "Golosi", "Barber Feb", "ALTALOGIK"
 ];
 
 const MarqueeStrip = () => {
