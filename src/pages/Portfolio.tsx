@@ -41,6 +41,7 @@ const Portfolio = () => {
     { sig: "AS",  cat: "architettura",   client: "AEON Studio",          headline: t(P.p2_headline), desc: t(P.p2_body), tags: ["Social Media", "Ads", "Crescita"], logo: logoAS },
     { sig: "TD",  cat: "architettura",   client: "TDSTUDIO",             headline: t(P.p5_headline), desc: t(P.p5_body), tags: ["Branding", "Social", "Positioning"], logo: logoTD },
     { sig: "TI+", cat: "software",       client: "TecIA+",               headline: t(P.p7_headline), desc: t(P.p7_body), tags: ["AI", "Launch", "Digital"], logo: logoTI },
+    { sig: "AL",  cat: "software",       client: "Altalogik",            headline: "Software house B2B per l'automazione aziendale", desc: "Sistemi software su misura, automazione processi e integrazione AI per PMI che vogliono eliminare il lavoro manuale e scalare in modo sostenibile.", tags: ["Custom Software", "Automazione", "AI"], logo: logoAL },
 
     { sig: "LoS", cat: "altro",          client: "Lab On Sense",         headline: t(P.p3_headline), desc: t(P.p3_body), tags: ["Sito Web", "Brand Identity", "UX"], logo: logoLoS },
     { sig: "AR",  cat: "altro",          client: "Arkes Roleplay",       headline: t(P.p4_headline), desc: t(P.p4_body), tags: ["Community Management", "Discord"], logo: logoAR },
