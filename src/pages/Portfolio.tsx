@@ -127,7 +127,15 @@ const Portfolio = () => {
                       <div className="flex items-start justify-between">
                         <span className="tag-pill text-[10px]">{p.cat}</span>
                         {p.logo ? (
-                          <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-contain bg-white/10 p-1" />
+                          <img
+                            src={p.logo}
+                            alt={p.client}
+                            className={
+                              p.sig === "AL"
+                                ? "h-10 w-10 rounded-full object-cover"
+                                : "h-10 w-10 rounded-full object-contain bg-white/10 p-1"
+                            }
+                          />
                         ) : (
                           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{p.sig}</div>
                         )}
