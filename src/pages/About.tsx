@@ -112,7 +112,7 @@ const About = () => {
       <section className="section-padding">
         <div className="mx-auto max-w-3xl text-center">
           <ScrollReveal>
-            <img src="/logo_bd_circle.png" alt="BD Media logo" loading="lazy" width={596} height={596} className="mx-auto mb-6 h-[100px] w-[100px] object-contain" />
+            <img src="/logo-symbol.png" alt="BD Media logo" loading="lazy" width={596} height={596} className="mx-auto mb-6 h-[130px] w-[130px] object-contain bg-transparent" />
             <blockquote className="text-2xl font-bold italic leading-snug md:text-3xl">{t(A.quote.text)}</blockquote>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{t(A.quote.body)}</p>
           </ScrollReveal>
