@@ -4,9 +4,20 @@ const clients = [
   "Accademia Europea", "Istituto Campanella", "Golosi", "Barber Feb", "ALTALOGIK"
 ];
 
+import { useNavigate } from "react-router-dom";
+
 const MarqueeStrip = () => {
+  const navigate = useNavigate();
   return (
-    <div className="my-[13px] overflow-hidden border-y border-white/[0.06] bg-surface-1 py-4">
+    <div
+      onClick={() => navigate("/portfolio")}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") navigate("/portfolio");
+      }}
+      className="my-[13px] cursor-pointer overflow-hidden border-y border-white/[0.06] bg-surface-1 py-4"
+    >
       <div className="flex w-max animate-marquee will-change-transform">
         {[0, 1].map((group) => (
           <div
