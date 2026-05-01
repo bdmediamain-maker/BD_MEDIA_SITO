@@ -1,9 +1,9 @@
 import { useLanguage } from "@/context/LanguageContext";
 
 const CtaScarcityNote = () => {
-  const { language } = useLanguage();
+  const { lang } = useLanguage();
   const text =
-    language === "en"
+    lang === "en"
       ? "We accept only 3 new clients per month — 1 spot left"
       : "Accettiamo solo 3 nuovi clienti al mese — 1 posto rimasto";
 
