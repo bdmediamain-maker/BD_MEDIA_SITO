@@ -10,14 +10,19 @@ import { useEffect, useState } from "react";
 const SplashScreen = () => {
   const [mounted, setMounted] = useState(true);
   const [animateIn, setAnimateIn] = useState(false);
+  const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
     // Trigger fly-in on next frame so transitions apply
     const raf = requestAnimationFrame(() => setAnimateIn(true));
-    const t = setTimeout(() => setMounted(false), 2500);
+    // After arrows have settled (1.2s), trigger exit
+    const tExit = setTimeout(() => setExiting(true), 1200);
+    // After exit (0.6s) + buffer, unmount
+    const tUnmount = setTimeout(() => setMounted(false), 2500);
     return () => {
       cancelAnimationFrame(raf);
-      clearTimeout(t);
+      clearTimeout(tExit);
+      clearTimeout(tUnmount);
     };
   }, []);
 
