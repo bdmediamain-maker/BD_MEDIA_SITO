@@ -1,23 +1,15 @@
 import { useEffect, useState } from "react";
 
-/**
- * SplashScreen — full-viewport overlay shown on page load.
- * Phase 1 (0 → 0.8s):  icon scales from 0.3 → 1, fades 0 → 1 (ease-out).
- * Phase 2 (0.8 → 1.8s): icon rotates 360° clockwise, decelerating to a stop.
- * Phase 3 (1.8 → 2.4s): icon shrinks & flies to navbar logo position;
- *                       background blurs (0 → 16px) and fades to opacity 0.
- * After 2.4s the component unmounts.
- */
 const SplashScreen = () => {
-  const [phase, setPhase] = useState<"in" | "spin" | "exit">("in");
   const [mounted, setMounted] = useState(true);
+  const [phase, setPhase] = useState<"draw" | "exit">("draw");
 
   useEffect(() => {
-    const tSpin = setTimeout(() => setPhase("spin"), 800);
-    const tExit = setTimeout(() => setPhase("exit"), 1800);
-    const tUnmount = setTimeout(() => setMounted(false), 2400);
+    // After circle finishes drawing (1.5s), trigger exit transition
+    const tExit = setTimeout(() => setPhase("exit"), 1500);
+    // After exit transition (0.8s), unmount
+    const tUnmount = setTimeout(() => setMounted(false), 1500 + 800);
     return () => {
-      clearTimeout(tSpin);
       clearTimeout(tExit);
       clearTimeout(tUnmount);
     };
@@ -25,16 +17,16 @@ const SplashScreen = () => {
 
   if (!mounted) return null;
 
-  const exiting = phase === "exit";
+  // Circle geometry
+  const size = 180;
+  const stroke = 2.5;
+  const radius = (size - stroke) / 2;
+  const circumference = 2 * Math.PI * radius;
 
-  // Navbar logo target (md): height 53px, left padding ~48px (md:px-12),
-  // vertical centered in h-16 navbar => center at y ≈ 32px from top.
-  // Logo is `h-[53px] w-auto` — assume aspect-ratio ~3:1 → ~160px wide,
-  // so its horizontal center ≈ 48 + 80 = 128px from left.
-  // Splash icon is 80×80 centered. We translate from viewport center to
-  // (128px, 32px) and scale to ~0.66 (53/80).
-  const exitTransform =
-    "translate(calc(-50vw + 128px), calc(-50vh + 32px)) scale(0.66)";
+  // Navbar logo target (approx): horizontal padding 24-48px + half logo width (~50px),
+  // vertical: navbar h-16 (64px) center => ~32px from top.
+  // Compute translation from viewport center to target.
+  const isExit = phase === "exit";
 
   return (
     <div
@@ -43,54 +35,65 @@ const SplashScreen = () => {
         width: "100vw",
         height: "100vh",
         zIndex: 9999,
-        opacity: exiting ? 0 : 1,
-        backdropFilter: exiting ? "blur(16px)" : "blur(0px)",
-        WebkitBackdropFilter: exiting ? "blur(16px)" : "blur(0px)",
+        opacity: isExit ? 0 : 1,
+        backdropFilter: isExit ? "blur(12px)" : "blur(0px)",
+        WebkitBackdropFilter: isExit ? "blur(12px)" : "blur(0px)",
         transition:
-          "opacity 0.6s ease-in-out, backdrop-filter 0.6s ease-in-out, -webkit-backdrop-filter 0.6s ease-in-out",
-        pointerEvents: exiting ? "none" : "auto",
+          "opacity 0.8s ease-in-out, backdrop-filter 0.8s ease-in-out, -webkit-backdrop-filter 0.8s ease-in-out",
+        pointerEvents: isExit ? "none" : "auto",
       }}
       aria-hidden="true"
     >
       <style>{`
-        @keyframes splash-grow-in {
-          0% { opacity: 0; transform: scale(0.3); }
-          100% { opacity: 1; transform: scale(1); }
-        }
-        @keyframes splash-spin-once {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        .splash-icon-in {
-          animation: splash-grow-in 0.8s ease-out forwards;
-        }
-        .splash-icon-spin {
-          opacity: 1;
-          animation: splash-spin-once 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .splash-icon-exit {
-          opacity: 1;
-          transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+        @keyframes splash-draw-circle {
+          from { stroke-dashoffset: ${circumference}; }
+          to { stroke-dashoffset: 0; }
         }
       `}</style>
-      <img
-        src="/logo-full.png"
-        alt=""
-        className={
-          phase === "in"
-            ? "splash-icon-in"
-            : phase === "spin"
-            ? "splash-icon-spin"
-            : "splash-icon-exit"
-        }
+
+      {/* Centered icon + circle wrapper that flies to navbar on exit */}
+      <div
+        className="relative flex items-center justify-center"
         style={{
-          width: 80,
-          height: 80,
-          objectFit: "contain",
+          transition: "transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s ease-in-out",
+          transform: isExit
+            ? `translate(calc(-50vw + 72px), calc(-50vh + 32px)) scale(0.28)`
+            : "translate(0, 0) scale(1)",
           transformOrigin: "center center",
-          ...(exiting ? { transform: exitTransform } : null),
         }}
-      />
+      >
+        <svg
+          width={size}
+          height={size}
+          viewBox={`0 0 ${size} ${size}`}
+          className="absolute"
+          style={{
+            transform: "rotate(-90deg)",
+            opacity: isExit ? 0 : 1,
+            transition: "opacity 0.4s ease-out",
+          }}
+        >
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="none"
+            stroke="hsl(var(--primary))"
+            strokeWidth={stroke}
+            strokeLinecap="round"
+            style={{
+              strokeDasharray: circumference,
+              strokeDashoffset: circumference,
+              animation: "splash-draw-circle 1.5s ease-out forwards",
+            }}
+          />
+        </svg>
+        <img
+          src="/logo_3_frecce_bdmedia.png"
+          alt=""
+          className="relative h-24 w-auto md:h-28 animate-scale-in"
+        />
+      </div>
     </div>
   );
 };
