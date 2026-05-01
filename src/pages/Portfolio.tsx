@@ -81,8 +81,8 @@ const Portfolio = () => {
   return (
     <div>
       <SEO
-        title="Portfolio & Risultati Clienti | Case Study Lead Generation | BD Media"
-        description="Portfolio di BD Media: case study reali su lead generation, Meta Ads, brand identity. Aeon Studio +1059% lead in 10 mesi, Dark Diamond Cafè, Lab On Sense e altri clienti."
+        title={t(SE.portfolio_title)}
+        description={t(SE.portfolio_desc)}
         ogUrl="https://bdmedia.it/portfolio"
       />
 
