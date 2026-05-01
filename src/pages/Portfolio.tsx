@@ -175,7 +175,10 @@ const Portfolio = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(P.cta_headline)}</h2>
             <CtaScarcityNote />
-            <button onClick={() => openContactModal()} className="btn-primary mt-8 inline-flex">Vediamo se siamo il match giusto →</button>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <button onClick={() => openContactModal()} className="btn-primary inline-flex">Vediamo se siamo il match giusto →</button>
+              <CalendlyButton />
+            </div>
           </ScrollReveal>
         </div>
       </section>

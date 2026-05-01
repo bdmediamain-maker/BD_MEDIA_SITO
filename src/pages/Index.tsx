@@ -224,7 +224,10 @@ const Index = () => {
           <ScrollReveal>
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{t(H.cta_final.headline)}</h2>
             <CtaScarcityNote />
-            <button onClick={openContactModal} className="btn-primary mt-5 inline-flex">{t(H.cta_final.button)}</button>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <button onClick={openContactModal} className="btn-primary inline-flex">{t(H.cta_final.button)}</button>
+              <CalendlyButton />
+            </div>
           </ScrollReveal>
         </div>
       </section>
