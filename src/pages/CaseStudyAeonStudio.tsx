@@ -1,3 +1,4 @@
+import { CalendlyButton } from "@/components/CalendlyModal";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
 import SEO from "@/components/SEO";
@@ -161,12 +162,15 @@ const CaseStudyAeonStudio = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">Vuoi risultati simili per la tua attività?</h2>
             <CtaScarcityNote />
-            <button
-              onClick={() => openContactModal("Lead Generation")}
-              className="btn-primary mt-8 inline-flex"
-            >
-              Vuoi risultati simili per la tua attività? →
-            </button>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <button
+                onClick={() => openContactModal("Lead Generation")}
+                className="btn-primary inline-flex"
+              >
+                Vuoi risultati simili per la tua attività? →
+              </button>
+              <CalendlyButton />
+            </div>
           </ScrollReveal>
         </div>
       </section>

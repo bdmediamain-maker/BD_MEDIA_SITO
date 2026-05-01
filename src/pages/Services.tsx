@@ -1,3 +1,4 @@
+import { CalendlyButton } from "@/components/CalendlyModal";
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
@@ -243,7 +244,10 @@ const Services = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(S.cta_headline)}</h2>
             <CtaScarcityNote />
-            <button onClick={() => openContactModal("Ads & Funnel")} className="btn-primary mt-8 inline-flex">Costruisci il tuo sistema →</button>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <button onClick={() => openContactModal("Ads & Funnel")} className="btn-primary inline-flex">Costruisci il tuo sistema →</button>
+              <CalendlyButton />
+            </div>
           </ScrollReveal>
         </div>
       </section>
