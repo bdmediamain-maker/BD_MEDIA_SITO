@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Megaphone, Filter, Globe, Palette, Mail, Share2, Zap, Bot, Users, ShoppingBag, Search, Target, BarChart2, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const useIsDesktop = () => {
@@ -47,29 +47,29 @@ const Services = () => {
   const isDesktop = useIsDesktop();
 
   const coreServices = [
-    { num: "01", title: t(S.s1_title), desc: t(S.s1_body), tags: coreServiceTags[0] },
-    { num: "02", title: t(S.s10_title), desc: t(S.s10_body), tags: coreServiceTags[1] },
-    { num: "03", title: t(S.s2_title), desc: t(S.s2_body), tags: coreServiceTags[2] },
+    { num: "01", title: t(S.s1_title), desc: t(S.s1_body), tags: coreServiceTags[0], Icon: Megaphone },
+    { num: "02", title: t(S.s10_title), desc: t(S.s10_body), tags: coreServiceTags[1], Icon: Filter },
+    { num: "03", title: t(S.s2_title), desc: t(S.s2_body), tags: coreServiceTags[2], Icon: Globe },
   ];
 
   const integratedServices = [
-    { num: "04", title: t(S.s5_title), desc: t(S.s5_body), tags: integratedServiceTags[0] },
-    { num: "05", title: t(S.s6_title), desc: t(S.s6_body), tags: integratedServiceTags[1] },
-    { num: "06", title: t(S.s4_title), desc: t(S.s4_body), tags: integratedServiceTags[2] },
+    { num: "04", title: t(S.s5_title), desc: t(S.s5_body), tags: integratedServiceTags[0], Icon: Palette },
+    { num: "05", title: t(S.s6_title), desc: t(S.s6_body), tags: integratedServiceTags[1], Icon: Mail },
+    { num: "06", title: t(S.s4_title), desc: t(S.s4_body), tags: integratedServiceTags[2], Icon: Share2 },
   ];
 
   const onDemandServices = [
-    { num: "07", title: t(S.s3_title), desc: t(S.s3_body), tags: onDemandServiceTags[0] },
-    { num: "08", title: t(S.s7_title), desc: t(S.s7_body), tags: onDemandServiceTags[1] },
-    { num: "09", title: t(S.s8_title), desc: t(S.s8_body), tags: onDemandServiceTags[2] },
-    { num: "10", title: t(S.s9_title), desc: t(S.s9_body), tags: onDemandServiceTags[3] },
+    { num: "07", title: t(S.s3_title), desc: t(S.s3_body), tags: onDemandServiceTags[0], Icon: Zap },
+    { num: "08", title: t(S.s7_title), desc: t(S.s7_body), tags: onDemandServiceTags[1], Icon: Bot },
+    { num: "09", title: t(S.s8_title), desc: t(S.s8_body), tags: onDemandServiceTags[2], Icon: Users },
+    { num: "10", title: t(S.s9_title), desc: t(S.s9_body), tags: onDemandServiceTags[3], Icon: ShoppingBag },
   ];
 
   const howWeWork = [
-    { title: t(S.how1_title), desc: t(S.how1_body) },
-    { title: t(S.how2_title), desc: t(S.how2_body) },
-    { title: t(S.how3_title), desc: t(S.how3_body) },
-    { title: t(S.how4_title), desc: t(S.how4_body) },
+    { title: t(S.how1_title), desc: t(S.how1_body), Icon: Search },
+    { title: t(S.how2_title), desc: t(S.how2_body), Icon: Target },
+    { title: t(S.how3_title), desc: t(S.how3_body), Icon: BarChart2 },
+    { title: t(S.how4_title), desc: t(S.how4_body), Icon: RefreshCw },
   ];
 
   return (
@@ -110,7 +110,8 @@ const Services = () => {
             {coreServices.map((s, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface group relative h-full border-l-2 border-l-transparent p-8 transition-all duration-200 hover:border-l-primary hover:bg-white/[0.03]">
-                  <span className="text-4xl font-black leading-none text-primary/30">{s.num}</span>
+                  <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
+                  <span className="mt-3 block text-4xl font-black leading-none text-primary/30">{s.num}</span>
                   <h3 className="mt-3 text-xl font-bold leading-tight text-foreground">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   <div className="mt-5 flex flex-wrap gap-1.5">
@@ -138,7 +139,8 @@ const Services = () => {
             {integratedServices.map((s, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface group relative h-full border-l-2 border-l-transparent px-6 py-5 transition-all duration-200 hover:border-l-primary hover:bg-white/[0.03]">
-                  <span className="text-2xl font-black leading-none text-primary/20">{s.num}</span>
+                  <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
+                  <span className="mt-2 block text-2xl font-black leading-none text-primary/20">{s.num}</span>
                   <h3 className="mt-2 text-[16px] font-bold leading-tight text-foreground">{s.title}</h3>
                   <p className="mt-2 text-[13px] leading-snug text-muted-foreground">{s.desc}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
@@ -183,6 +185,7 @@ const Services = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
+                          <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
                           <span className="text-lg font-black text-primary/25">{s.num}</span>
                           <h3 className="text-[15px] font-bold text-foreground">{s.title}</h3>
                         </div>
@@ -227,6 +230,7 @@ const Services = () => {
             {howWeWork.map((h, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface h-full transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">
+                  <h.Icon className="text-primary mb-3" size={24} strokeWidth={1.5} />
                   <h3 className="text-base font-bold">{h.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{h.desc}</p>
                 </div>
