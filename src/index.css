@@ -89,6 +89,11 @@
   .btn-primary:active {
     transform: scale(0.97);
   }
+  .btn-primary.no-glow,
+  .btn-primary.no-glow:hover {
+    animation: none;
+    box-shadow: none;
+  }
 
   @keyframes btn-primary-pulse {
     0%, 100% {
