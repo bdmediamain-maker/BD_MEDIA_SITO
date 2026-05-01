@@ -2,42 +2,35 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
-
-const metrics = [
-  { value: "858",     label: "Lead qualificati generati in 10 mesi" },
-  { value: "+1059%",  label: "Crescita lead rispetto ai 26 mesi precedenti" },
-  { value: "17,16x",  label: "ROAS — Return on Ad Spend" },
-  { value: "€6,30",   label: "CPL medio (dimezzato da €15,46)" },
-  { value: "2,46%",   label: "CTR medio sulle campagne" },
-  { value: "€5,17",   label: "CPM medio" },
-];
-
-const phases = [
-  {
-    step: "01",
-    title: "Analisi",
-    desc: "Audit completo dell'account pubblicitario, analisi del mercato di riferimento e mappatura del funnel esistente. Identificazione dei colli di bottiglia che limitavano la generazione di lead.",
-  },
-  {
-    step: "02",
-    title: "Setup campagne",
-    desc: "Nuova architettura campagne Meta Ads con struttura a obiettivi differenziati, creatività testate in A/B e landing page ottimizzate per la conversione.",
-  },
-  {
-    step: "03",
-    title: "Ottimizzazione continua",
-    desc: "Monitoraggio settimanale dei KPI, riallocazione budget sulle campagne più performanti, iterazione costante su copy e creatività per abbassare il CPL e aumentare il volume.",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const CaseStudyAeonStudio = () => {
   const { open: openContactModal } = useContactModal();
+  const { t } = useLanguage();
+  const C = translations.case_aeon;
+  const SE = translations.seo;
+
+  const metrics = [
+    { value: "858",     label: t(C.m1_label) },
+    { value: "+1059%",  label: t(C.m2_label) },
+    { value: "17,16x",  label: t(C.m3_label) },
+    { value: "€6,30",   label: t(C.m4_label) },
+    { value: "2,46%",   label: t(C.m5_label) },
+    { value: "€5,17",   label: t(C.m6_label) },
+  ];
+
+  const phases = [
+    { step: "01", title: t(C.phase1_title), desc: t(C.phase1_desc) },
+    { step: "02", title: t(C.phase2_title), desc: t(C.phase2_desc) },
+    { step: "03", title: t(C.phase3_title), desc: t(C.phase3_desc) },
+  ];
 
   return (
     <div>
       <SEO
-        title="Case Study Aeon Studio | Da 7 a 86 lead/mese | BD Media"
-        description="Come BD Media ha portato Aeon Studio da 7,4 a 85,8 lead al mese in 10 mesi con Meta Ads. +1059% lead, ROAS 17,16x, CPL dimezzato."
+        title={t(C.seo_title)}
+        description={t(C.seo_desc)}
         ogUrl="https://bdmedia.it/case-study/aeon-studio"
       />
 
@@ -47,13 +40,13 @@ const CaseStudyAeonStudio = () => {
           <ScrollReveal>
             <div className="eyebrow mb-4 flex items-center gap-3">
               <span className="h-px w-8 bg-primary" />
-              Case Study
+              {t(C.eyebrow)}
             </div>
             <h1 className="heading-hero max-w-4xl">
-              Come abbiamo portato Aeon Studio da <span className="text-primary">7 a 86 lead/mese</span>
+              {t(C.h1_pre)} <span className="text-primary">{t(C.h1_highlight)}</span>
             </h1>
             <p className="mt-4 text-lg font-light text-muted-foreground">
-              +1059% di lead qualificati in 10 mesi. ROAS 17,16x. CPL dimezzato.
+              {t(C.sub)}
             </p>
           </ScrollReveal>
         </div>
@@ -64,9 +57,9 @@ const CaseStudyAeonStudio = () => {
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <div className="card-surface">
-              <h2 className="text-xl font-extrabold tracking-tight">Il cliente</h2>
+              <h2 className="text-xl font-extrabold tracking-tight">{t(C.client_title)}</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                <strong className="text-foreground">Aeon Studio</strong> è uno studio di architettura che cercava un modo scalabile per acquisire nuovi clienti attraverso il digitale. Prima di lavorare con BD Media, la lead generation era sporadica e basata principalmente sul passaparola, con risultati difficili da misurare e costi per lead elevati.
+                <strong className="text-foreground">{t(C.client_pre)}</strong> {t(C.client_body)}
               </p>
             </div>
           </ScrollReveal>
@@ -78,11 +71,13 @@ const CaseStudyAeonStudio = () => {
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
             <div className="card-surface border-l-2 border-l-primary/40">
-              <h2 className="text-xl font-extrabold tracking-tight">Il problema iniziale</h2>
+              <h2 className="text-xl font-extrabold tracking-tight">{t(C.problem_title)}</h2>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
-                <p>Nei <strong className="text-foreground">26 mesi precedenti</strong> alla collaborazione con BD Media, Aeon Studio aveva generato solo <strong className="text-foreground">194 lead totali</strong> — una media di <strong className="text-foreground">7,4 lead al mese</strong>.</p>
-                <p>Il costo per lead era di <strong className="text-foreground">€15,46</strong>, troppo alto per garantire un ritorno sostenibile sull'investimento pubblicitario.</p>
-                <p>Le campagne mancavano di una struttura chiara, i dati non venivano tracciati correttamente e non c'era un funnel ottimizzato per la conversione.</p>
+                <p>
+                  {t(C.problem_p1_a)} <strong className="text-foreground">{t(C.problem_p1_b)}</strong> {t(C.problem_p1_c)} <strong className="text-foreground">{t(C.problem_p1_d)}</strong> {t(C.problem_p1_e)} <strong className="text-foreground">{t(C.problem_p1_f)}</strong>{t(C.problem_p1_end)}
+                </p>
+                <p>{t(C.problem_p2)}</p>
+                <p>{t(C.problem_p3)}</p>
               </div>
             </div>
           </ScrollReveal>
@@ -93,7 +88,7 @@ const CaseStudyAeonStudio = () => {
       <section className="section-padding pt-0">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
-            <h2 className="text-2xl font-extrabold tracking-tight">Il processo in 3 fasi</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight">{t(C.process_title)}</h2>
           </ScrollReveal>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {phases.map((p, i) => (
@@ -113,8 +108,8 @@ const CaseStudyAeonStudio = () => {
       <section className="section-padding pt-0">
         <div className="mx-auto max-w-4xl">
           <ScrollReveal>
-            <h2 className="text-2xl font-extrabold tracking-tight">I risultati</h2>
-            <p className="mt-2 text-sm text-muted-foreground">10 mesi di collaborazione · dati verificati</p>
+            <h2 className="text-2xl font-extrabold tracking-tight">{t(C.results_title)}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{t(C.results_sub)}</p>
           </ScrollReveal>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {metrics.map((m, i) => (
@@ -132,21 +127,21 @@ const CaseStudyAeonStudio = () => {
           <ScrollReveal delay={200}>
             <div className="mt-8 space-y-3 rounded-xl border border-white/[0.06] bg-card p-6 text-sm">
               <div className="flex flex-wrap gap-x-8 gap-y-1">
-                <span className="text-muted-foreground">Lead/mese — Prima:</span>
+                <span className="text-muted-foreground">{t(C.leads_month_before)}</span>
                 <span className="font-semibold">7,4</span>
                 <span className="text-primary">→</span>
-                <span className="text-muted-foreground">Dopo:</span>
+                <span className="text-muted-foreground">{t(C.after_label)}</span>
                 <span className="font-semibold">85,8</span>
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-1">
-                <span className="text-muted-foreground">CPL — Prima:</span>
+                <span className="text-muted-foreground">{t(C.cpl_before)}</span>
                 <span className="font-semibold">€15,46</span>
                 <span className="text-primary">→</span>
-                <span className="text-muted-foreground">Dopo:</span>
+                <span className="text-muted-foreground">{t(C.after_label)}</span>
                 <span className="font-semibold">€6,30</span>
               </div>
               <div>
-                <span className="text-muted-foreground">ROAS: </span>
+                <span className="text-muted-foreground">{t(C.roas_label)} </span>
                 <span className="font-semibold text-primary">17,16x</span>
               </div>
             </div>
@@ -159,14 +154,14 @@ const CaseStudyAeonStudio = () => {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-extrabold tracking-tight">Vuoi risultati simili per la tua attività?</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight">{t(C.cta_h2)}</h2>
             <CtaScarcityNote />
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <button
                 onClick={() => openContactModal("Lead Generation")}
                 className="btn-primary inline-flex"
               >
-                Vuoi risultati simili per la tua attività? →
+                {t(C.cta_btn)}
               </button>
             </div>
           </ScrollReveal>

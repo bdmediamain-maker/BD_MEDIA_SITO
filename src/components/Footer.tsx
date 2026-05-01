@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <Link to="/privacy" className="transition-colors hover:text-foreground">{t(T.privacy)}</Link>
               <Link to="/termini" className="transition-colors hover:text-foreground">{t(T.termini)}</Link>
-              <Link to="/rimborsi" className="transition-colors hover:text-foreground">Rimborsi</Link>
+              <Link to="/rimborsi" className="transition-colors hover:text-foreground">{t(T.rimborsi)}</Link>
               <a href="https://www.iubenda.com/privacy-policy/72368232" className="iubenda-white iubenda-noiframe iubenda-embed transition-colors hover:text-foreground" title="Privacy Policy">Privacy Policy</a>
               <a href="https://www.iubenda.com/privacy-policy/72368232/cookie-policy" className="iubenda-white iubenda-noiframe iubenda-embed transition-colors hover:text-foreground" title="Cookie Policy">Cookie Policy</a>
             </div>

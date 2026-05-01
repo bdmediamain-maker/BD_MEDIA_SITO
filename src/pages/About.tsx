@@ -31,8 +31,8 @@ const About = () => {
   return (
     <div>
       <SEO
-        title="Chi Siamo — BD Media | Agenzia Marketing Performance Italia"
-        description="Il team di BD Media: Bedr Diana (CEO), Francesco Schilirò (COO), Luca Fortunato (CTO), Donato Angerame (CMO). Agenzia performance marketing fondata su dati, trasparenza e crescita misurabile."
+        title={t(translations.seo.about_title)}
+        description={t(translations.seo.about_desc)}
         ogUrl="https://bdmedia.it/about"
       />
 

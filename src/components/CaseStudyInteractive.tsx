@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 /* ─── Data ──────────────────────────────────────────────────────────────────── */
 const DATA = {
   before: {
-    label: "Prima · 26 mesi",
     leads: 194,
     leadsMonth: 7.4,
     cpl: 15.46,
@@ -12,7 +13,6 @@ const DATA = {
     costReduction: null,
   },
   after: {
-    label: "Dopo BD · 10 mesi",
     leads: 858,
     leadsMonth: 85.8,
     cpl: 6.3,
@@ -81,6 +81,10 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
   const [activeTab, setActiveTab] = useState<"before" | "after">("after");
   const [counterKey, setCounterKey] = useState(0);
   const d = DATA[activeTab];
+  const { t } = useLanguage();
+  const C = translations.case_interactive;
+
+  const tabLabels = { before: t(C.tab_before), after: t(C.tab_after) };
 
   const switchTab = useCallback((tab: "before" | "after") => {
     setActiveTab(tab);
@@ -103,7 +107,7 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
               transform: activeTab === tab ? "scale(1.02)" : "scale(1)",
             }}
           >
-            {DATA[tab].label}
+            {tabLabels[tab]}
           </button>
         ))}
       </div>
@@ -112,18 +116,18 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
       <div key={counterKey} className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div className="relative overflow-hidden rounded-xl p-6" style={{ background: "rgba(255,0,204,0.08)", border: "1px solid rgba(255,0,204,0.2)" }}>
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Lead Qualificati</p>
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">{t(C.leads_qualified)}</p>
           <p className="mt-3 text-[2rem] font-extrabold leading-none text-primary"><Counter value={d.leads} /></p>
-          <p className="mt-2 text-xs text-muted-foreground">in {activeTab === "before" ? "26" : "10"} mesi</p>
+          <p className="mt-2 text-xs text-muted-foreground">{activeTab === "before" ? t(C.in_months_before) : t(C.in_months_after)}</p>
         </div>
 
         <div className="relative overflow-hidden rounded-xl p-6" style={{ background: "rgba(255,0,204,0.08)", border: "1px solid rgba(255,0,204,0.2)" }}>
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">ROAS</p>
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">{t(C.roas_label)}</p>
           <p className="mt-3 text-[2rem] font-extrabold leading-none text-primary">
             <Counter value={d.roas} decimals={d.roas % 1 !== 0 ? 2 : 0} suffix="x" />
           </p>
-          <p className="mt-2 text-xs text-muted-foreground">Return on Ad Spend</p>
+          <p className="mt-2 text-xs text-muted-foreground">{t(C.roas_sub)}</p>
         </div>
 
         <div className="relative overflow-hidden rounded-xl p-6 transition-all duration-500"
@@ -134,11 +138,11 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
             transform: activeTab === "after" ? "translateX(0)" : "translateX(20px)",
           }}>
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Riduzione Costo per Lead</p>
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">{t(C.cpl_reduction)}</p>
           {activeTab === "after" ? (
             <>
               <p className="mt-3 text-[2rem] font-extrabold leading-none text-primary"><Counter value={59} suffix="%" prefix="-" /></p>
-              <p className="mt-2 text-xs text-muted-foreground">da €15,46 a €6,30</p>
+              <p className="mt-2 text-xs text-muted-foreground">{t(C.cpl_from_to)}</p>
             </>
           ) : (
             <p className="mt-3 text-[2rem] font-extrabold leading-none text-muted-foreground">—</p>
@@ -149,23 +153,23 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
       {/* Secondary metrics */}
       <div key={`sec-${counterKey}`} className="mt-4 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-5">
-          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">CPL — Costo per Lead</p>
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">{t(C.cpl_label)}</p>
           <p className="mt-2 text-2xl font-extrabold tabular-nums">€<Counter value={d.cpl} decimals={2} /></p>
         </div>
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-5">
-          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">CPM</p>
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">{t(C.cpm_label)}</p>
           <p className="mt-2 text-2xl font-extrabold tabular-nums">€{d.cpm.toFixed(2)}</p>
         </div>
       </div>
 
       {/* Visual comparison */}
       <div className="mt-12">
-        <h3 className="text-center text-lg font-bold tracking-tight">Lead Mensili — Prima vs Dopo</h3>
+        <h3 className="text-center text-lg font-bold tracking-tight">{t(C.chart_title)}</h3>
         <div className="mt-8 flex justify-center gap-12 sm:gap-20">
           <GrowBar
             percentage={activeTab === "before" ? 100 : 30}
             color="rgba(255,255,255,0.15)"
-            label="Prima (26 mesi)"
+            label={t(C.chart_before)}
             value={activeTab === "before" ? "7,4" : "7,4"}
             delay={100}
             animKey={counterKey}
@@ -173,7 +177,7 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
           <GrowBar
             percentage={activeTab === "after" ? 100 : 8}
             color="hsl(var(--primary))"
-            label="Dopo BD (10 mesi)"
+            label={t(C.chart_after)}
             value={activeTab === "after" ? "85,8" : "85,8"}
             delay={300}
             animKey={counterKey}
@@ -191,7 +195,7 @@ const CaseStudyInteractive = ({ onCtaClick }: Props) => {
             onMouseEnter={(e) => { (e.currentTarget).style.boxShadow = "0 12px 32px rgba(255,0,204,0.35)"; }}
             onMouseLeave={(e) => { (e.currentTarget).style.boxShadow = "0 8px 24px rgba(255,0,204,0.2)"; }}
           >
-            Voglio risultati come Aeon →
+            {t(C.cta)}
           </button>
         </div>
       )}

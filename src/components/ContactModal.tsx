@@ -10,6 +10,7 @@ const ContactModal = () => {
   const { isOpen, close, initialTopic } = useContactModal();
   const { t } = useLanguage();
   const T = translations.modal;
+  const ME = translations.modal_extra;
   const [submitted, setSubmitted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [animating, setAnimating] = useState(false);
@@ -50,10 +51,10 @@ const ContactModal = () => {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        toast.error("Errore nell'invio. Riprova.");
+        toast.error(t(ME.error_send));
       }
     } catch {
-      toast.error("Errore di rete. Controlla la connessione.");
+      toast.error(t(ME.error_network));
     }
   };
 
@@ -104,7 +105,7 @@ const ContactModal = () => {
                 onClick={handleClose}
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                Mentre aspetti, leggi come abbiamo portato Aeon da 7 a 86 lead/mese →
+                {t(ME.aeon_invite)}
               </Link>
             </div>
           ) : (
@@ -213,15 +214,15 @@ const ContactModal = () => {
                     htmlFor="gdpr-consent"
                     className="cursor-pointer text-xs leading-relaxed text-muted-foreground"
                   >
-                    Ho letto la{" "}
+                    {t(ME.gdpr_pre)}{" "}
                     <Link
                       to="/privacy"
                       onClick={handleClose}
                       className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
                     >
-                      Privacy Policy
+                      {t(ME.gdpr_link)}
                     </Link>{" "}
-                    e acconsento al trattamento dei miei dati personali per essere ricontattato da BD Media.
+                    {t(ME.gdpr_post)}
                   </label>
                 </div>
 
