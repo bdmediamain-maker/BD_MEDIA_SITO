@@ -91,8 +91,11 @@ const CustomCursor = () => {
       document.removeEventListener("mouseleave", onLeave);
       document.body.style.cursor = prevBodyCursor;
       styleEl.remove();
+      mql.removeEventListener?.("change", updateTouch);
     };
   }, []);
+
+  if (isTouchDevice) return null;
 
   return (
     <>
