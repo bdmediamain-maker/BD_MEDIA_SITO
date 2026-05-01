@@ -188,7 +188,7 @@ const Index = () => {
             <p className="mt-2 text-muted-foreground">{t(H.method.subtitle)}</p>
             <p className="mt-6 max-w-2xl text-base text-muted-foreground">{t(H.method.intro)}</p>
           </ScrollReveal>
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {steps.map((s, i) => (
               <ScrollReveal key={i} delay={i * 120}>
                 <div className="card-surface relative overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">
