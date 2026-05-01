@@ -24,6 +24,7 @@ import { useLocation } from "react-router-dom";
 import { CalendlyModalProvider } from "@/components/CalendlyModal";
 import FloatingCalendlyWidget from "@/components/FloatingCalendlyWidget";
 import SplashScreen from "@/components/SplashScreen";
+import AutoScrollReveal from "@/components/AutoScrollReveal";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +76,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <AutoScrollReveal />
           <NoiseOverlay />
           <Navbar />
           <ContactModal />
