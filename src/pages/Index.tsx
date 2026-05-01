@@ -133,8 +133,8 @@ const Index = () => {
   return (
     <div>
       <SEO
-        title="BD Media — Agenzia Performance Marketing Italia | Lead Generation & Meta Ads"
-        description="Progettiamo sistemi di acquisizione clienti misurabili e scalabili. Meta Ads, funnel, lead generation per PMI italiane. Case study: +1059% lead per Aeon Studio in 10 mesi."
+        title={t(translations.seo.home_title)}
+        description={t(translations.seo.home_desc)}
         ogUrl="https://bdmedia.it/"
         jsonLd={AEON_SCHEMA}
       />
