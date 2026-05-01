@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 /* ─── Data ──────────────────────────────────────────────────────────────────── */
 const DATA = {
   before: {
-    label: "Prima · 26 mesi",
     leads: 194,
     leadsMonth: 7.4,
     cpl: 15.46,
@@ -12,7 +13,6 @@ const DATA = {
     costReduction: null,
   },
   after: {
-    label: "Dopo BD · 10 mesi",
     leads: 858,
     leadsMonth: 85.8,
     cpl: 6.3,
