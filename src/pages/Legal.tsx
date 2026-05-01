@@ -11,7 +11,7 @@ const LegalPage = ({ title, updated, children }: { title: string; updated: strin
         <p className="mt-2 text-sm text-muted-foreground">{updated}</p>
       </ScrollReveal>
       <ScrollReveal delay={100}>
-        <div className="mt-12 space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:mb-3 [&_h2]:mt-8 [&_h2]:text-lg [&_h2]:font-bold [&_h2]:text-foreground [&_p]:mb-3">
+        <div className="mt-8 space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:mb-3 [&_h2]:mt-8 [&_h2]:text-lg [&_h2]:font-bold [&_h2]:text-foreground [&_p]:mb-3">
           {children}
         </div>
       </ScrollReveal>
