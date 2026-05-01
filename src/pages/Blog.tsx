@@ -12,102 +12,104 @@ const catBadgeColors: Record<string, { bg: string; text: string; border: string 
   "Digital Marketing": { bg: "rgba(244,114,182,0.15)", text: "#f472b6", border: "rgba(244,114,182,0.3)" },
 };
 
-const articles = [
-  {
-    cat: "AI",
-    title: "AI Agents nel Marketing: come stanno rivoluzionando ogni fase del funnel nel 2026",
-    date: "8 Gen 2026",
-    time: "7 min",
-    url: "https://martech.org/how-ai-agents-will-reshape-every-part-of-marketing-in-2026/",
-    source: "martech.org",
-  },
-  {
-    cat: "SEO",
-    title: "Answer Engine Optimization: come farti citare da ChatGPT, Perplexity e Google AI Overview",
-    date: "Mar 2026",
-    time: "8 min",
-    url: "https://www.frase.io/blog/what-is-answer-engine-optimization-the-complete-guide-to-getting-cited-by-ai",
-    source: "frase.io",
-  },
-  {
-    cat: "Advertising",
-    title: "Meta Advantage+ Marzo 2026: AI Dubbing, musica generativa e ads personalizzate per persona",
-    date: "Feb 2026",
-    time: "6 min",
-    url: "https://www.digitalapplied.com/blog/meta-advantage-plus-march-2026-ai-dubbing-music-persona",
-    source: "digitalapplied.com",
-  },
-  {
-    cat: "Social Media",
-    title: "LinkedIn Algorithm 2026: perché il tuo reach crolla e come adattare la strategia B2B",
-    date: "Mar 2026",
-    time: "5 min",
-    url: "https://yepads.com/linkedin-algorithm-changes-2026-why-linkedin-reach-is-dropping/",
-    source: "yepads.com",
-  },
-  {
-    cat: "Advertising",
-    title: "Google Ads 2026: tutti gli aggiornamenti di Performance Max, AI Max e Search Ads",
-    date: "Mar 2026",
-    time: "9 min",
-    url: "https://almcorp.com/blog/google-ads-updates-2026/",
-    source: "almcorp.com",
-  },
-  {
-    cat: "Social Media",
-    title: "TikTok Shop domina il social commerce: i dati eMarketer e le previsioni per il 2026",
-    date: "10 Dic 2025",
-    time: "4 min",
-    url: "https://www.emarketer.com/press-releases/tiktok-shop-makes-up-nearly-20-of-social-commerce-in-2025/",
-    source: "emarketer.com",
-  },
-  {
-    cat: "SEO",
-    title: "Organic Traffic Crisis 2026: dati reali su zero-click search e crollo del traffico organico",
-    date: "Mar 2026",
-    time: "10 min",
-    url: "https://thedigitalbloom.com/learn/organic-traffic-crisis-report-2026-update/",
-    source: "thedigitalbloom.com",
-  },
-  {
-    cat: "Digital Marketing",
-    title: "Cookieless Marketing 2026: come costruire la tua strategia CDP e first-party data",
-    date: "Feb 2026",
-    time: "8 min",
-    url: "https://www.digitalapplied.com/blog/data-privacy-marketing-2026-cookieless-strategy",
-    source: "digitalapplied.com",
-  },
-  {
-    cat: "AI",
-    title: "I 30 migliori strumenti AI per il marketing nel 2026: da Claude Code a HubSpot Breeze",
-    date: "26 Feb 2026",
-    time: "7 min",
-    url: "https://www.marketermilk.com/blog/ai-marketing-tools",
-    source: "marketermilk.com",
-  },
-];
-
-const filterCategories = [
-  { key: "all", label: "Tutti" },
-  { key: "AI", label: "AI" },
-  { key: "SEO", label: "SEO" },
-  { key: "Advertising", label: "Advertising" },
-  { key: "Social Media", label: "Social Media" },
-  { key: "Digital Marketing", label: "Digital Marketing" },
-];
-
 const Blog = () => {
   const [filter, setFilter] = useState("all");
   const { t } = useLanguage();
   const B = translations.blog;
+  const BX = translations.blog_extra;
+  const SE = translations.seo;
+
+  const articles = [
+    {
+      cat: "AI",
+      title: t(BX.article_ai_agents),
+      date: "8 Gen 2026",
+      time: "7 min",
+      url: "https://martech.org/how-ai-agents-will-reshape-every-part-of-marketing-in-2026/",
+      source: "martech.org",
+    },
+    {
+      cat: "SEO",
+      title: t(BX.article_aeo),
+      date: "Mar 2026",
+      time: "8 min",
+      url: "https://www.frase.io/blog/what-is-answer-engine-optimization-the-complete-guide-to-getting-cited-by-ai",
+      source: "frase.io",
+    },
+    {
+      cat: "Advertising",
+      title: t(BX.article_meta_advplus),
+      date: "Feb 2026",
+      time: "6 min",
+      url: "https://www.digitalapplied.com/blog/meta-advantage-plus-march-2026-ai-dubbing-music-persona",
+      source: "digitalapplied.com",
+    },
+    {
+      cat: "Social Media",
+      title: t(BX.article_linkedin),
+      date: "Mar 2026",
+      time: "5 min",
+      url: "https://yepads.com/linkedin-algorithm-changes-2026-why-linkedin-reach-is-dropping/",
+      source: "yepads.com",
+    },
+    {
+      cat: "Advertising",
+      title: t(BX.article_googleads),
+      date: "Mar 2026",
+      time: "9 min",
+      url: "https://almcorp.com/blog/google-ads-updates-2026/",
+      source: "almcorp.com",
+    },
+    {
+      cat: "Social Media",
+      title: t(BX.article_tiktok),
+      date: "10 Dic 2025",
+      time: "4 min",
+      url: "https://www.emarketer.com/press-releases/tiktok-shop-makes-up-nearly-20-of-social-commerce-in-2025/",
+      source: "emarketer.com",
+    },
+    {
+      cat: "SEO",
+      title: t(BX.article_organic),
+      date: "Mar 2026",
+      time: "10 min",
+      url: "https://thedigitalbloom.com/learn/organic-traffic-crisis-report-2026-update/",
+      source: "thedigitalbloom.com",
+    },
+    {
+      cat: "Digital Marketing",
+      title: t(BX.article_cookieless),
+      date: "Feb 2026",
+      time: "8 min",
+      url: "https://www.digitalapplied.com/blog/data-privacy-marketing-2026-cookieless-strategy",
+      source: "digitalapplied.com",
+    },
+    {
+      cat: "AI",
+      title: t(BX.article_ai_tools),
+      date: "26 Feb 2026",
+      time: "7 min",
+      url: "https://www.marketermilk.com/blog/ai-marketing-tools",
+      source: "marketermilk.com",
+    },
+  ];
+
+  const filterCategories = [
+    { key: "all", label: t(B.filters.all) },
+    { key: "AI", label: "AI" },
+    { key: "SEO", label: "SEO" },
+    { key: "Advertising", label: "Advertising" },
+    { key: "Social Media", label: "Social Media" },
+    { key: "Digital Marketing", label: "Digital Marketing" },
+  ];
 
   const filtered = filter === "all" ? articles : articles.filter((a) => a.cat === filter);
 
   return (
     <div>
       <SEO
-        title="Blog — Strategie di Marketing, Lead Generation e Crescita | BD Media"
-        description="Articoli pratici su Meta Ads, lead generation, funnel marketing, AEO e crescita per PMI italiane. Strategie da chi le applica ogni giorno su clienti reali."
+        title={t(SE.blog_title)}
+        description={t(SE.blog_desc)}
         ogUrl="https://bdmedia.it/blog"
       />
 
