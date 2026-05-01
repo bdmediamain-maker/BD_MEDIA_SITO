@@ -90,7 +90,7 @@ const Services = () => {
             <p className="mt-4 max-w-2xl text-base text-muted-foreground">{t(S.hero.body)}</p>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <div className="mt-12 rounded-xl border-l-2 border-primary bg-surface-1 p-6">
+            <div className="mt-8 rounded-xl border-l-2 border-primary bg-surface-1 p-6">
               <p className="text-sm leading-relaxed text-muted-foreground">{t(S.note.body)}</p>
             </div>
           </ScrollReveal>
