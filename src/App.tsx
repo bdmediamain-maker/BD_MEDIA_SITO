@@ -22,6 +22,7 @@ import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { CalendlyModalProvider } from "@/components/CalendlyModal";
+import FloatingCalendlyWidget from "@/components/FloatingCalendlyWidget";
 
 const queryClient = new QueryClient();
 
@@ -90,6 +91,7 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
+          <FloatingCalendlyWidget />
         </BrowserRouter>
         </CalendlyModalProvider>
       </ContactModalProvider>
