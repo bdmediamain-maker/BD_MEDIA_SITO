@@ -9,10 +9,16 @@ import { useEffect, useState } from "react";
  */
 const SplashScreen = () => {
   const [mounted, setMounted] = useState(true);
+  const [animateIn, setAnimateIn] = useState(false);
 
   useEffect(() => {
+    // Trigger fly-in on next frame so transitions apply
+    const raf = requestAnimationFrame(() => setAnimateIn(true));
     const t = setTimeout(() => setMounted(false), 2500);
-    return () => clearTimeout(t);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(t);
+    };
   }, []);
 
   if (!mounted) return null;
