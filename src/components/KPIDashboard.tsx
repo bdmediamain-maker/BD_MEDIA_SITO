@@ -86,22 +86,23 @@ function AnimatedValue({ value }: { value: string }) {
 const KPIDashboard = () => {
   const { t } = useLanguage();
   const S = translations.home.stats;
+  const K = translations.kpi;
 
   const kpis = [
     {
       value: t(S.stat1_value),
       label: t(S.stat1_label),
-      sub: "CPL medio €5,86 · ROAS medio 11,3%",
+      sub: t(K.sub1),
     },
     {
       value: t(S.stat2_value),
       label: t(S.stat2_label),
-      sub: "valore complessivo dei progetti gestiti",
+      sub: t(K.sub2),
     },
     {
       value: t(S.stat3_value),
       label: t(S.stat3_label),
-      sub: "durata media collaborazione: 8 mesi",
+      sub: t(K.sub3),
     },
   ];
 
