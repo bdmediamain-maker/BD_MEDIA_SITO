@@ -156,7 +156,7 @@ const Index = () => {
             <p ref={heroSubtitleRef} className="mt-4 max-w-2xl text-base text-muted-foreground will-change-transform">{t(H.hero.body)}</p>
           </ScrollReveal>
           <ScrollReveal delay={300}>
-            <div ref={heroCtaRef} className="mt-10 flex flex-wrap items-center gap-5 will-change-transform my-0 px-0 mx-[7px]">
+            <div ref={heroCtaRef} className="mt-8 flex flex-wrap items-center gap-5 will-change-transform">
               <button onClick={openContactModal} className="btn-primary">{t(H.hero.cta_primary)}</button>
               <a href="#case-study" className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">
                 {t(H.hero.cta_secondary)}
