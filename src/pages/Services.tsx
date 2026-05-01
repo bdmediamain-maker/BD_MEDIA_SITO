@@ -185,6 +185,7 @@ const Services = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
+                          <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
                           <span className="text-lg font-black text-primary/25">{s.num}</span>
                           <h3 className="text-[15px] font-bold text-foreground">{s.title}</h3>
                         </div>
