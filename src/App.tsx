@@ -24,6 +24,7 @@ import { useLocation } from "react-router-dom";
 import { CalendlyModalProvider } from "@/components/CalendlyModal";
 import FloatingCalendlyWidget from "@/components/FloatingCalendlyWidget";
 import SplashScreen from "@/components/SplashScreen";
+import CustomCursor from "@/components/CustomCursor";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +66,7 @@ const App = () => (
       <ContactModalProvider>
         <CalendlyModalProvider>
         <SplashScreen />
+        <CustomCursor />
         {/* Organization JSON-LD — iniettato su ogni pagina */}
         <Helmet>
           <script type="application/ld+json">
