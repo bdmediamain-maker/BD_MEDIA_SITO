@@ -51,10 +51,10 @@ const ContactModal = () => {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        toast.error("Errore nell'invio. Riprova.");
+        toast.error(t(ME.error_send));
       }
     } catch {
-      toast.error("Errore di rete. Controlla la connessione.");
+      toast.error(t(ME.error_network));
     }
   };
 
