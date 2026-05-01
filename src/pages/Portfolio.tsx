@@ -25,6 +25,8 @@ const Portfolio = () => {
   const { open: openContactModal } = useContactModal();
   const { t } = useLanguage();
   const P = translations.portfolio;
+  const PX = translations.portfolio_extra;
+  const SE = translations.seo;
 
   const categories = [
     { key: "all",           label: t(P.filters.all) },
