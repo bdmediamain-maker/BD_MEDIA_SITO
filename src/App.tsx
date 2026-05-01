@@ -23,6 +23,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { CalendlyModalProvider } from "@/components/CalendlyModal";
 import FloatingCalendlyWidget from "@/components/FloatingCalendlyWidget";
+import SplashScreen from "@/components/SplashScreen";
 
 const queryClient = new QueryClient();
 
