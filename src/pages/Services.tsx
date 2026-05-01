@@ -241,6 +241,7 @@ const Services = () => {
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(S.cta_headline)}</h2>
+            <CtaScarcityNote />
             <button onClick={() => openContactModal("Ads & Funnel")} className="btn-primary mt-8 inline-flex">Costruisci il tuo sistema →</button>
           </ScrollReveal>
         </div>
