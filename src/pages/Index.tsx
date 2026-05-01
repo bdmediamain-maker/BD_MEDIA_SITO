@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CaseStudyInteractive from "@/components/CaseStudyInteractive";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
@@ -35,6 +35,56 @@ const Index = () => {
   const H = translations.home;
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
+
+  // Hero parallax refs
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const heroTitleRef = useRef<HTMLHeadingElement>(null);
+  const heroSubtitleRef = useRef<HTMLParagraphElement>(null);
+  const heroCtaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let rafId: number | null = null;
+    let ticking = false;
+
+    const update = () => {
+      const section = heroSectionRef.current;
+      if (!section) { ticking = false; return; }
+      const rect = section.getBoundingClientRect();
+      const scrolled = Math.max(0, -rect.top);
+      // Cap so content never leaves the hero section
+      const maxShift = Math.max(0, section.offsetHeight * 0.25);
+      const s = Math.min(scrolled, maxShift);
+
+      if (heroTitleRef.current)
+        heroTitleRef.current.style.transform = `translate3d(0, ${s * 0.4}px, 0)`;
+      if (heroSubtitleRef.current)
+        heroSubtitleRef.current.style.transform = `translate3d(0, ${s * 0.25}px, 0)`;
+      if (heroCtaRef.current)
+        heroCtaRef.current.style.transform = `translate3d(0, ${s * 0.15}px, 0)`;
+
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        rafId = requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      if (heroTitleRef.current) heroTitleRef.current.style.transform = "";
+      if (heroSubtitleRef.current) heroSubtitleRef.current.style.transform = "";
+      if (heroCtaRef.current) heroCtaRef.current.style.transform = "";
+    };
+  }, []);
 
   const handleInlineSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,7 +134,7 @@ const Index = () => {
       />
 
       {/* Hero */}
-      <section className="relative flex min-h-[80vh] items-end overflow-hidden px-6 pb-16 pt-24 md:px-12 lg:px-20">
+      <section ref={heroSectionRef} className="relative flex min-h-[80vh] items-end overflow-hidden px-6 pb-16 pt-24 md:px-12 lg:px-20">
         <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none opacity-[0.02]">
           <img src="/logo_3_frecce_bdmedia.png" alt="" aria-hidden="true" width={843} height={596} className="h-[30vw] w-auto" />
         </div>
@@ -96,17 +146,17 @@ const Index = () => {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
-            <h1 className="heading-hero max-w-4xl">
+            <h1 ref={heroTitleRef} className="heading-hero max-w-4xl will-change-transform">
               {t(H.hero.h1_line1)}<br />
               {t(H.hero.h1_line2)}<br />
               <span className="mt-2 inline-block text-primary">{t(H.hero.h1_line3)}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="mt-4 max-w-2xl text-base text-muted-foreground">{t(H.hero.body)}</p>
+            <p ref={heroSubtitleRef} className="mt-4 max-w-2xl text-base text-muted-foreground will-change-transform">{t(H.hero.body)}</p>
           </ScrollReveal>
           <ScrollReveal delay={300}>
-            <div className="mt-10 flex flex-wrap items-center gap-5">
+            <div ref={heroCtaRef} className="mt-10 flex flex-wrap items-center gap-5 will-change-transform">
               <button onClick={openContactModal} className="btn-primary">{t(H.hero.cta_primary)}</button>
               <a href="#case-study" className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">
                 {t(H.hero.cta_secondary)}
