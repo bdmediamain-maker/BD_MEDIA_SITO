@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Megaphone, Filter, Globe, Palette, Mail, Share2, Zap, Bot, Users, ShoppingBag, Search, Target, BarChart2, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const useIsDesktop = () => {
