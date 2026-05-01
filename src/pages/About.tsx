@@ -71,7 +71,7 @@ const About = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(A.team.title)}</h2>
           </ScrollReveal>
-          <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
             {team.map((m, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <TeamMemberCard
