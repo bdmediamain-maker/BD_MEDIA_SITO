@@ -1,4 +1,3 @@
-import { CalendlyButton } from "@/components/CalendlyModal";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
 import SEO from "@/components/SEO";
@@ -169,7 +168,6 @@ const CaseStudyAeonStudio = () => {
               >
                 Vuoi risultati simili per la tua attività? →
               </button>
-              <CalendlyButton />
             </div>
           </ScrollReveal>
         </div>

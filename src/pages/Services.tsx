@@ -1,4 +1,3 @@
-import { CalendlyButton } from "@/components/CalendlyModal";
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
@@ -246,7 +245,6 @@ const Services = () => {
             <CtaScarcityNote />
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <button onClick={() => openContactModal("Ads & Funnel")} className="btn-primary inline-flex">Costruisci il tuo sistema →</button>
-              <CalendlyButton />
             </div>
           </ScrollReveal>
         </div>

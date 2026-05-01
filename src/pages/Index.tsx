@@ -1,4 +1,3 @@
-import { CalendlyButton } from "@/components/CalendlyModal";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CaseStudyInteractive from "@/components/CaseStudyInteractive";
@@ -227,7 +226,6 @@ const Index = () => {
             <CtaScarcityNote />
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <button onClick={openContactModal} className="btn-primary inline-flex">{t(H.cta_final.button)}</button>
-              <CalendlyButton />
             </div>
           </ScrollReveal>
         </div>
