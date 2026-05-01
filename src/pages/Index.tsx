@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CaseStudyInteractive from "@/components/CaseStudyInteractive";
+import CtaScarcityNote from "@/components/CtaScarcityNote";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
