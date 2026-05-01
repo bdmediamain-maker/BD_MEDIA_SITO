@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import CtaScarcityNote from "@/components/CtaScarcityNote";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
 
@@ -159,6 +160,7 @@ const CaseStudyAeonStudio = () => {
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">Vuoi risultati simili per la tua attività?</h2>
+            <CtaScarcityNote />
             <button
               onClick={() => openContactModal("Lead Generation")}
               className="btn-primary mt-8 inline-flex"

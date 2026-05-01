@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CaseStudyInteractive from "@/components/CaseStudyInteractive";
+import CtaScarcityNote from "@/components/CtaScarcityNote";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
@@ -222,6 +223,7 @@ const Index = () => {
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{t(H.cta_final.headline)}</h2>
+            <CtaScarcityNote />
             <button onClick={openContactModal} className="btn-primary mt-5 inline-flex">{t(H.cta_final.button)}</button>
           </ScrollReveal>
         </div>
