@@ -10,6 +10,7 @@ const ContactModal = () => {
   const { isOpen, close, initialTopic } = useContactModal();
   const { t } = useLanguage();
   const T = translations.modal;
+  const ME = translations.modal_extra;
   const [submitted, setSubmitted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [animating, setAnimating] = useState(false);
