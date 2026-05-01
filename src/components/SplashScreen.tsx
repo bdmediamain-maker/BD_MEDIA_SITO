@@ -10,14 +10,19 @@ import { useEffect, useState } from "react";
 const SplashScreen = () => {
   const [mounted, setMounted] = useState(true);
   const [animateIn, setAnimateIn] = useState(false);
+  const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
     // Trigger fly-in on next frame so transitions apply
     const raf = requestAnimationFrame(() => setAnimateIn(true));
-    const t = setTimeout(() => setMounted(false), 2500);
+    // After arrows have settled (1.2s), trigger exit
+    const tExit = setTimeout(() => setExiting(true), 1200);
+    // After exit (0.6s) + buffer, unmount
+    const tUnmount = setTimeout(() => setMounted(false), 2500);
     return () => {
       cancelAnimationFrame(raf);
-      clearTimeout(t);
+      clearTimeout(tExit);
+      clearTimeout(tUnmount);
     };
   }, []);
 
@@ -92,12 +97,28 @@ const SplashScreen = () => {
         width: "100vw",
         height: "100vh",
         zIndex: 9999,
+        opacity: exiting ? 0 : 1,
+        backdropFilter: exiting ? "blur(16px)" : "blur(0px)",
+        WebkitBackdropFilter: exiting ? "blur(16px)" : "blur(0px)",
+        transition:
+          "opacity 0.6s ease-in-out, backdrop-filter 0.6s ease-in-out, -webkit-backdrop-filter 0.6s ease-in-out",
+        pointerEvents: exiting ? "none" : "auto",
       }}
       aria-hidden="true"
     >
       <div
         className="relative"
-        style={{ width: containerW, height: containerH }}
+        style={{
+          width: containerW,
+          height: containerH,
+          // Exit: shrink arrows together and fly toward navbar logo (top-left).
+          // Navbar logo center ~ (72px, 32px) from viewport top-left.
+          transform: exiting
+            ? "translate(calc(-50vw + 72px), calc(-50vh + 32px)) scale(0.22)"
+            : "translate(0, 0) scale(1)",
+          transformOrigin: "center center",
+          transition: "transform 0.6s cubic-bezier(0.65, 0, 0.35, 1)",
+        }}
       >
         {/* Bouncy ease-out for the final settle */}
         {(() => {
