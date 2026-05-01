@@ -21,7 +21,7 @@ import CaseStudyAeonStudio from "./pages/CaseStudyAeonStudio";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import CalendlyWidget from "@/components/CalendlyWidget";
+import { CalendlyModalProvider } from "@/components/CalendlyModal";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +61,7 @@ const App = () => (
     <TooltipProvider>
       <LanguageProvider>
       <ContactModalProvider>
+        <CalendlyModalProvider>
         {/* Organization JSON-LD — iniettato su ogni pagina */}
         <Helmet>
           <script type="application/ld+json">
@@ -89,8 +90,8 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
-          <CalendlyWidget />
         </BrowserRouter>
+        </CalendlyModalProvider>
       </ContactModalProvider>
       </LanguageProvider>
     </TooltipProvider>
