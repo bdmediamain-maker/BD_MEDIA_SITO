@@ -122,7 +122,7 @@ const Navbar = () => {
           {/* Right */}
           <div className="hidden items-center gap-4 md:flex">
             <LangSwitcher />
-            <button onClick={openContactModal} className="btn-primary text-sm">
+            <button onClick={openContactModal} className="btn-primary no-glow text-sm">
               {t(T.cta)}
             </button>
           </div>
