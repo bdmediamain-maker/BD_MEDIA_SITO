@@ -16,8 +16,13 @@ const CustomCursor = () => {
   useEffect(() => {
     // Disable on touch devices
     if (typeof window === "undefined") return;
-    const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-    if (isTouch) return;
+    const mql = window.matchMedia("(pointer: coarse)");
+    const updateTouch = () => setIsTouchDevice(mql.matches);
+    updateTouch();
+    mql.addEventListener?.("change", updateTouch);
+    if (mql.matches) {
+      return () => mql.removeEventListener?.("change", updateTouch);
+    }
 
     const prevBodyCursor = document.body.style.cursor;
     document.body.style.cursor = "none";
