@@ -230,6 +230,7 @@ const Services = () => {
             {howWeWork.map((h, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface h-full transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">
+                  <h.Icon className="text-primary mb-3" size={24} strokeWidth={1.5} />
                   <h3 className="text-base font-bold">{h.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{h.desc}</p>
                 </div>
