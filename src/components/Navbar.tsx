@@ -164,7 +164,7 @@ const Navbar = () => {
                 ))}
               </div>
               <LangSwitcher />
-              <button onClick={openContactModal} className="btn-primary mt-4 w-full justify-center text-sm">
+              <button onClick={openContactModal} className="btn-primary no-glow mt-4 w-full justify-center text-sm">
                 {t(T.cta)}
               </button>
             </div>
