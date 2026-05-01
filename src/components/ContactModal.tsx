@@ -214,15 +214,15 @@ const ContactModal = () => {
                     htmlFor="gdpr-consent"
                     className="cursor-pointer text-xs leading-relaxed text-muted-foreground"
                   >
-                    Ho letto la{" "}
+                    {t(ME.gdpr_pre)}{" "}
                     <Link
                       to="/privacy"
                       onClick={handleClose}
                       className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
                     >
-                      Privacy Policy
+                      {t(ME.gdpr_link)}
                     </Link>{" "}
-                    e acconsento al trattamento dei miei dati personali per essere ricontattato da BD Media.
+                    {t(ME.gdpr_post)}
                   </label>
                 </div>
 
