@@ -113,7 +113,7 @@ const Portfolio = () => {
       </section>
 
       <section className="section-padding pt-0">
-        <div className="mx-auto max-w-7xl space-y-14">
+        <div className="mx-auto max-w-7xl space-y-10">
           {groupedProjects.map((group) => (
             <div key={group.sector}>
               <ScrollReveal>
