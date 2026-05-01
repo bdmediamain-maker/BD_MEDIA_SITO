@@ -58,12 +58,18 @@ const Index = () => {
       const maxShift = Math.max(0, section.offsetHeight * 0.25);
       const s = Math.min(scrolled, maxShift);
 
+      // Reduce parallax intensity on mobile (<768px) for a near-imperceptible, smooth effect
+      const isMobile = window.innerWidth < 768;
+      const titleSpeed = isMobile ? 0.05 : 0.4;
+      const subtitleSpeed = isMobile ? 0.05 : 0.25;
+      const ctaSpeed = isMobile ? 0.05 : 0.15;
+
       if (heroTitleRef.current)
-        heroTitleRef.current.style.transform = `translate3d(0, ${s * 0.4}px, 0)`;
+        heroTitleRef.current.style.transform = `translate3d(0, ${s * titleSpeed}px, 0)`;
       if (heroSubtitleRef.current)
-        heroSubtitleRef.current.style.transform = `translate3d(0, ${s * 0.25}px, 0)`;
+        heroSubtitleRef.current.style.transform = `translate3d(0, ${s * subtitleSpeed}px, 0)`;
       if (heroCtaRef.current)
-        heroCtaRef.current.style.transform = `translate3d(0, ${s * 0.15}px, 0)`;
+        heroCtaRef.current.style.transform = `translate3d(0, ${s * ctaSpeed}px, 0)`;
 
       ticking = false;
     };
