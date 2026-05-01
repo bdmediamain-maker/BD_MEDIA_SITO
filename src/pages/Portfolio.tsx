@@ -1,4 +1,3 @@
-import { CalendlyButton } from "@/components/CalendlyModal";
 import { useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
@@ -178,7 +177,6 @@ const Portfolio = () => {
             <CtaScarcityNote />
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <button onClick={() => openContactModal()} className="btn-primary inline-flex">Vediamo se siamo il match giusto →</button>
-              <CalendlyButton />
             </div>
           </ScrollReveal>
         </div>
