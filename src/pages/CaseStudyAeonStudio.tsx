@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import CtaScarcityNote from "@/components/CtaScarcityNote";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
 
