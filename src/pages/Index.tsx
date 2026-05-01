@@ -1,3 +1,4 @@
+import { CalendlyButton } from "@/components/CalendlyModal";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CaseStudyInteractive from "@/components/CaseStudyInteractive";

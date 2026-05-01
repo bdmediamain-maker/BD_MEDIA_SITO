@@ -1,3 +1,4 @@
+import { CalendlyButton } from "@/components/CalendlyModal";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
 import SEO from "@/components/SEO";

@@ -1,3 +1,4 @@
+import { CalendlyButton } from "@/components/CalendlyModal";
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import CtaScarcityNote from "@/components/CtaScarcityNote";
