@@ -79,7 +79,7 @@ const FloatingCalendlyWidget = () => {
       <button
         ref={btnRef}
         type="button"
-        className="btn-primary inline-flex"
+        className="btn-primary no-glow inline-flex"
       >
         {label}
       </button>
