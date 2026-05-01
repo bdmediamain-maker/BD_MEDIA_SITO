@@ -75,8 +75,8 @@ const Services = () => {
   return (
     <div>
       <SEO
-        title="Servizi di Marketing Performance | Meta Ads, Lead Generation, Web | BD Media"
-        description="Campagne Meta Ads, Google, TikTok, siti web ad alta conversione, social media management, brand identity e automazioni. BD Media, agenzia performance marketing per PMI italiane."
+        title={t(translations.seo.services_title)}
+        description={t(translations.seo.services_desc)}
         ogUrl="https://bdmedia.it/services"
       />
 
