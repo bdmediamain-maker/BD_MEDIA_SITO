@@ -153,7 +153,7 @@ const Index = () => {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p ref={heroSubtitleRef} className="mt-4 max-w-2xl text-base text-muted-foreground will-change-transform my-[120px] mx-0 px-0 py-[34px]">{t(H.hero.body)}</p>
+            <p ref={heroSubtitleRef} className="mt-4 max-w-2xl text-base text-muted-foreground will-change-transform">{t(H.hero.body)}</p>
           </ScrollReveal>
           <ScrollReveal delay={300}>
             <div ref={heroCtaRef} className="mt-10 flex flex-wrap items-center gap-5 will-change-transform my-0 px-0 mx-[7px]">
