@@ -105,7 +105,7 @@ const ContactModal = () => {
                 onClick={handleClose}
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                Mentre aspetti, leggi come abbiamo portato Aeon da 7 a 86 lead/mese →
+                {t(ME.aeon_invite)}
               </Link>
             </div>
           ) : (
