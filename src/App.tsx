@@ -76,6 +76,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <AutoScrollReveal />
           <NoiseOverlay />
           <Navbar />
           <ContactModal />
