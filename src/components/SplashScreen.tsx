@@ -9,10 +9,16 @@ import { useEffect, useState } from "react";
  */
 const SplashScreen = () => {
   const [mounted, setMounted] = useState(true);
+  const [animateIn, setAnimateIn] = useState(false);
 
   useEffect(() => {
+    // Trigger fly-in on next frame so transitions apply
+    const raf = requestAnimationFrame(() => setAnimateIn(true));
     const t = setTimeout(() => setMounted(false), 2500);
-    return () => clearTimeout(t);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(t);
+    };
   }, []);
 
   if (!mounted) return null;
@@ -93,33 +99,57 @@ const SplashScreen = () => {
         className="relative"
         style={{ width: containerW, height: containerH }}
       >
-        {/* Bottom-left: smallest, dark anthracite */}
-        <Arrow
-          size={small}
-          color="hsl(0 0% 12%)"
-          style={{
-            left: 0,
-            bottom: 0,
-          }}
-        />
-        {/* Middle: viola */}
-        <Arrow
-          size={mid}
-          color="hsl(280 70% 45%)"
-          style={{
-            left: step,
-            bottom: step,
-          }}
-        />
-        {/* Top-right: largest, magenta (brand primary) */}
-        <Arrow
-          size={big}
-          color="hsl(var(--primary))"
-          style={{
-            left: step * 2,
-            bottom: step * 2,
-          }}
-        />
+        {/* Bouncy ease-out for the final settle */}
+        {(() => {
+          const easing = "cubic-bezier(0.34, 1.56, 0.64, 1)";
+          const transition = `transform 0.8s ${easing}, opacity 0.8s ease-out`;
+          // Off-screen offsets (large enough to be outside any viewport)
+          const darkFrom = "translate(-120vw, 120vh)";   // bottom-left out
+          const violetFrom = "translate(-120vw, 0)";     // left out
+          const magentaFrom = "translate(120vw, -120vh)"; // top-right out
+          const settled = "translate(0, 0)";
+
+          return (
+            <>
+              {/* Bottom-left: smallest, dark anthracite */}
+              <Arrow
+                size={small}
+                color="hsl(0 0% 12%)"
+                style={{
+                  left: 0,
+                  bottom: 0,
+                  transform: animateIn ? settled : darkFrom,
+                  opacity: animateIn ? 1 : 0,
+                  transition,
+                }}
+              />
+              {/* Middle: viola */}
+              <Arrow
+                size={mid}
+                color="hsl(280 70% 45%)"
+                style={{
+                  left: step,
+                  bottom: step,
+                  transform: animateIn ? settled : violetFrom,
+                  opacity: animateIn ? 1 : 0,
+                  transition,
+                }}
+              />
+              {/* Top-right: largest, magenta (brand primary) */}
+              <Arrow
+                size={big}
+                color="hsl(var(--primary))"
+                style={{
+                  left: step * 2,
+                  bottom: step * 2,
+                  transform: animateIn ? settled : magentaFrom,
+                  opacity: animateIn ? 1 : 0,
+                  transition,
+                }}
+              />
+            </>
+          );
+        })()}
       </div>
     </div>
   );
