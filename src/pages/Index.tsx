@@ -233,7 +233,7 @@ const Index = () => {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t(H.testimonials.title)}</h2>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <div className="mt-12">
+            <div className="mt-8">
               <TestimonialCarousel />
             </div>
           </ScrollReveal>
