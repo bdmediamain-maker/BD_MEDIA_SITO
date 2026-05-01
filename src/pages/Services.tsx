@@ -90,7 +90,7 @@ const Services = () => {
             <p className="mt-4 max-w-2xl text-base text-muted-foreground">{t(S.hero.body)}</p>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <div className="mt-12 rounded-xl border-l-2 border-primary bg-surface-1 p-6">
+            <div className="mt-8 rounded-xl border-l-2 border-primary bg-surface-1 p-6">
               <p className="text-sm leading-relaxed text-muted-foreground">{t(S.note.body)}</p>
             </div>
           </ScrollReveal>
@@ -226,7 +226,7 @@ const Services = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(S.how_subtitle)}</h2>
           </ScrollReveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {howWeWork.map((h, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface h-full transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">

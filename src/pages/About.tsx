@@ -71,7 +71,7 @@ const About = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(A.team.title)}</h2>
           </ScrollReveal>
-          <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
             {team.map((m, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <TeamMemberCard
@@ -95,7 +95,7 @@ const About = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(A.values.title)}</h2>
           </ScrollReveal>
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {values.map((v, i) => (
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface h-full border-l-2 border-l-transparent px-5 py-4 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">

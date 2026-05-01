@@ -153,10 +153,10 @@ const Index = () => {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p ref={heroSubtitleRef} className="mt-4 max-w-2xl text-base text-muted-foreground will-change-transform my-[120px] mx-0 px-0 py-[34px]">{t(H.hero.body)}</p>
+            <p ref={heroSubtitleRef} className="mt-4 max-w-2xl text-base text-muted-foreground will-change-transform">{t(H.hero.body)}</p>
           </ScrollReveal>
           <ScrollReveal delay={300}>
-            <div ref={heroCtaRef} className="mt-10 flex flex-wrap items-center gap-5 will-change-transform my-0 px-0 mx-[7px]">
+            <div ref={heroCtaRef} className="mt-8 flex flex-wrap items-center gap-5 will-change-transform">
               <button onClick={openContactModal} className="btn-primary">{t(H.hero.cta_primary)}</button>
               <a href="#case-study" className="relative pb-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">
                 {t(H.hero.cta_secondary)}
@@ -188,7 +188,7 @@ const Index = () => {
             <p className="mt-2 text-muted-foreground">{t(H.method.subtitle)}</p>
             <p className="mt-6 max-w-2xl text-base text-muted-foreground">{t(H.method.intro)}</p>
           </ScrollReveal>
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {steps.map((s, i) => (
               <ScrollReveal key={i} delay={i * 120}>
                 <div className="card-surface relative overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">
@@ -233,7 +233,7 @@ const Index = () => {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t(H.testimonials.title)}</h2>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <div className="mt-12">
+            <div className="mt-8">
               <TestimonialCarousel />
             </div>
           </ScrollReveal>
