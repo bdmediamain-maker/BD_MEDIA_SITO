@@ -1,32 +1,83 @@
 import { useEffect, useState } from "react";
 
+/**
+ * SplashScreen — overlay that recreates the BD Media logo
+ * with 3 independent "inverted L" arrow shapes arranged diagonally
+ * from bottom-left (smallest, dark) to top-right (largest, magenta).
+ *
+ * No animation yet — pure static composition.
+ */
 const SplashScreen = () => {
   const [mounted, setMounted] = useState(true);
-  const [phase, setPhase] = useState<"draw" | "exit">("draw");
 
   useEffect(() => {
-    // After circle finishes drawing (1.5s), trigger exit transition
-    const tExit = setTimeout(() => setPhase("exit"), 1500);
-    // After exit transition (0.8s), unmount
-    const tUnmount = setTimeout(() => setMounted(false), 1500 + 800);
-    return () => {
-      clearTimeout(tExit);
-      clearTimeout(tUnmount);
-    };
+    const t = setTimeout(() => setMounted(false), 2500);
+    return () => clearTimeout(t);
   }, []);
 
   if (!mounted) return null;
 
-  // Circle geometry
-  const size = 180;
-  const stroke = 2.5;
-  const radius = (size - stroke) / 2;
-  const circumference = 2 * Math.PI * radius;
+  // Arrow shape: a rectangle with the bottom-right corner cut out,
+  // forming an "inverted L". Built as an SVG path with rounded corners (r=6).
+  // Base unit size — each arrow is scaled from this.
+  const Arrow = ({
+    size,
+    color,
+    style,
+  }: {
+    size: number;
+    color: string;
+    style?: React.CSSProperties;
+  }) => {
+    // Shape proportions (square bounding box of `size`)
+    // Thickness of the L stroke = ~38% of size
+    const t = size * 0.38;
+    const r = 6; // border-radius
+    // Path: outer L = full square minus bottom-right square (size-t)
+    // Points (clockwise starting top-left):
+    // (0,0) -> (size,0) -> (size,t) -> (t,t) -> (t,size) -> (0,size) -> close
+    // We use an SVG path with rounded corners via arc commands.
+    const d = `
+      M ${r},0
+      L ${size - r},0
+      Q ${size},0 ${size},${r}
+      L ${size},${t - r}
+      Q ${size},${t} ${size - r},${t}
+      L ${t + r},${t}
+      Q ${t},${t} ${t},${t + r}
+      L ${t},${size - r}
+      Q ${t},${size} ${t - r},${size}
+      L ${r},${size}
+      Q 0,${size} 0,${size - r}
+      L 0,${r}
+      Q 0,0 ${r},0
+      Z
+    `;
 
-  // Navbar logo target (approx): horizontal padding 24-48px + half logo width (~50px),
-  // vertical: navbar h-16 (64px) center => ~32px from top.
-  // Compute translation from viewport center to target.
-  const isExit = phase === "exit";
+    return (
+      <svg
+        width={size}
+        height={size}
+        viewBox={`0 0 ${size} ${size}`}
+        style={{ position: "absolute", ...style }}
+      >
+        <path d={d} fill={color} />
+      </svg>
+    );
+  };
+
+  // Sizes (scaled crescente) and diagonal placement.
+  // Container is centered; each arrow is absolutely positioned.
+  const small = 56;   // bottom-left, antracite
+  const mid = 84;     // middle, viola
+  const big = 120;    // top-right, magenta
+
+  // Diagonal step: each arrow nested toward top-right
+  const step = 28;
+
+  // Container size to fit all arrows
+  const containerW = big + step * 2 + small * 0.4;
+  const containerH = big + step * 2 + small * 0.4;
 
   return (
     <div
@@ -35,63 +86,39 @@ const SplashScreen = () => {
         width: "100vw",
         height: "100vh",
         zIndex: 9999,
-        opacity: isExit ? 0 : 1,
-        backdropFilter: isExit ? "blur(12px)" : "blur(0px)",
-        WebkitBackdropFilter: isExit ? "blur(12px)" : "blur(0px)",
-        transition:
-          "opacity 0.8s ease-in-out, backdrop-filter 0.8s ease-in-out, -webkit-backdrop-filter 0.8s ease-in-out",
-        pointerEvents: isExit ? "none" : "auto",
       }}
       aria-hidden="true"
     >
-      <style>{`
-        @keyframes splash-draw-circle {
-          from { stroke-dashoffset: ${circumference}; }
-          to { stroke-dashoffset: 0; }
-        }
-      `}</style>
-
-      {/* Centered icon + circle wrapper that flies to navbar on exit */}
       <div
-        className="relative flex items-center justify-center"
-        style={{
-          transition: "transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s ease-in-out",
-          transform: isExit
-            ? `translate(calc(-50vw + 72px), calc(-50vh + 32px)) scale(0.28)`
-            : "translate(0, 0) scale(1)",
-          transformOrigin: "center center",
-        }}
+        className="relative"
+        style={{ width: containerW, height: containerH }}
       >
-        <svg
-          width={size}
-          height={size}
-          viewBox={`0 0 ${size} ${size}`}
-          className="absolute"
+        {/* Bottom-left: smallest, dark anthracite */}
+        <Arrow
+          size={small}
+          color="hsl(0 0% 12%)"
           style={{
-            transform: "rotate(-90deg)",
-            opacity: isExit ? 0 : 1,
-            transition: "opacity 0.4s ease-out",
+            left: 0,
+            bottom: 0,
           }}
-        >
-          <circle
-            cx={size / 2}
-            cy={size / 2}
-            r={radius}
-            fill="none"
-            stroke="hsl(var(--primary))"
-            strokeWidth={stroke}
-            strokeLinecap="round"
-            style={{
-              strokeDasharray: circumference,
-              strokeDashoffset: circumference,
-              animation: "splash-draw-circle 1.5s ease-out forwards",
-            }}
-          />
-        </svg>
-        <img
-          src="/logo_3_frecce_bdmedia.png"
-          alt=""
-          className="relative h-24 w-auto md:h-28 animate-scale-in"
+        />
+        {/* Middle: viola */}
+        <Arrow
+          size={mid}
+          color="hsl(280 70% 45%)"
+          style={{
+            left: step,
+            bottom: step,
+          }}
+        />
+        {/* Top-right: largest, magenta (brand primary) */}
+        <Arrow
+          size={big}
+          color="hsl(var(--primary))"
+          style={{
+            left: step * 2,
+            bottom: step * 2,
+          }}
         />
       </div>
     </div>
