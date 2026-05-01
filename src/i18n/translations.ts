@@ -432,6 +432,138 @@ export const translations = {
     s7_title: { it: "Contatti", en: "Contact" },
     s7_body:  { it: "Per qualsiasi domanda relativa ai presenti Termini e Condizioni, contattare: info@bdmedia.it", en: "For any questions regarding these Terms and Conditions, please contact: info@bdmedia.it" },
   },
+
+  // ─── 404 PAGE ─────────────────────────────────────────────────────────────
+  notfound: {
+    eyebrow:    { it: "ERRORE 404", en: "ERROR 404" },
+    headline_1: { it: "Questa pagina non esiste.", en: "This page doesn't exist." },
+    headline_2: { it: "Come il tuo ROAS con le vecchie campagne.", en: "Just like your ROAS with old campaigns." },
+    body_1:     { it: "Hai trovato un vicolo cieco digitale. Succede — anche ai migliori.", en: "You've hit a digital dead end. It happens — even to the best." },
+    body_2:     { it: "Ma non c'è niente di utile qui, solo buio e un URL sbagliato.", en: "But there's nothing useful here, just darkness and a wrong URL." },
+    body_3:     { it: "Torna dove i dati hanno senso.", en: "Go back where the data makes sense." },
+    cta_home:   { it: "← Torna alla home", en: "← Back to home" },
+    cta_portfolio: { it: "Vai al portfolio →", en: "Go to portfolio →" },
+    cta_contact:   { it: "Contattaci →", en: "Contact us →" },
+    attempted:  { it: "URL tentato:", en: "Attempted URL:" },
+  },
+
+  // ─── CASE STUDY AEON STUDIO PAGE ──────────────────────────────────────────
+  case_aeon: {
+    seo_title:   { it: "Case Study Aeon Studio | Da 7 a 86 lead/mese | BD Media", en: "Aeon Studio Case Study | From 7 to 86 leads/month | BD Media" },
+    seo_desc:    { it: "Come BD Media ha portato Aeon Studio da 7,4 a 85,8 lead al mese in 10 mesi con Meta Ads. +1059% lead, ROAS 17,16x, CPL dimezzato.", en: "How BD Media took Aeon Studio from 7.4 to 85.8 leads per month in 10 months with Meta Ads. +1059% leads, 17.16x ROAS, CPL halved." },
+    eyebrow:     { it: "Case Study", en: "Case Study" },
+    h1_pre:      { it: "Come abbiamo portato Aeon Studio da", en: "How we took Aeon Studio from" },
+    h1_highlight:{ it: "7 a 86 lead/mese", en: "7 to 86 leads/month" },
+    sub:         { it: "+1059% di lead qualificati in 10 mesi. ROAS 17,16x. CPL dimezzato.", en: "+1059% qualified leads in 10 months. 17.16x ROAS. CPL halved." },
+    client_title:{ it: "Il cliente", en: "The client" },
+    client_pre:  { it: "Aeon Studio", en: "Aeon Studio" },
+    client_body: { it: "è uno studio di architettura che cercava un modo scalabile per acquisire nuovi clienti attraverso il digitale. Prima di lavorare con BD Media, la lead generation era sporadica e basata principalmente sul passaparola, con risultati difficili da misurare e costi per lead elevati.", en: "is an architecture studio looking for a scalable way to acquire new clients through digital. Before working with BD Media, lead generation was sporadic and mostly word-of-mouth, with results that were hard to measure and high cost per lead." },
+    problem_title: { it: "Il problema iniziale", en: "The initial problem" },
+    problem_p1_a: { it: "Nei", en: "In the" },
+    problem_p1_b: { it: "26 mesi precedenti", en: "26 months prior" },
+    problem_p1_c: { it: "alla collaborazione con BD Media, Aeon Studio aveva generato solo", en: "to working with BD Media, Aeon Studio had generated only" },
+    problem_p1_d: { it: "194 lead totali", en: "194 total leads" },
+    problem_p1_e: { it: "— una media di", en: "— an average of" },
+    problem_p1_f: { it: "7,4 lead al mese", en: "7.4 leads per month" },
+    problem_p1_end: { it: ".", en: "." },
+    problem_p2: { it: "Il costo per lead era di €15,46, troppo alto per garantire un ritorno sostenibile sull'investimento pubblicitario.", en: "The cost per lead was €15.46, too high to ensure a sustainable return on ad spend." },
+    problem_p3: { it: "Le campagne mancavano di una struttura chiara, i dati non venivano tracciati correttamente e non c'era un funnel ottimizzato per la conversione.", en: "Campaigns lacked a clear structure, data wasn't tracked correctly and there was no funnel optimized for conversion." },
+    process_title: { it: "Il processo in 3 fasi", en: "The 3-phase process" },
+    phase1_title: { it: "Analisi", en: "Audit" },
+    phase1_desc:  { it: "Audit completo dell'account pubblicitario, analisi del mercato di riferimento e mappatura del funnel esistente. Identificazione dei colli di bottiglia che limitavano la generazione di lead.", en: "Full ad account audit, target market analysis and mapping of the existing funnel. Identification of the bottlenecks that limited lead generation." },
+    phase2_title: { it: "Setup campagne", en: "Campaign setup" },
+    phase2_desc:  { it: "Nuova architettura campagne Meta Ads con struttura a obiettivi differenziati, creatività testate in A/B e landing page ottimizzate per la conversione.", en: "New Meta Ads campaign architecture with differentiated objectives, A/B-tested creatives and landing pages optimized for conversion." },
+    phase3_title: { it: "Ottimizzazione continua", en: "Continuous optimization" },
+    phase3_desc:  { it: "Monitoraggio settimanale dei KPI, riallocazione budget sulle campagne più performanti, iterazione costante su copy e creatività per abbassare il CPL e aumentare il volume.", en: "Weekly KPI monitoring, budget reallocation to top-performing campaigns, constant iteration on copy and creatives to lower CPL and grow volume." },
+    results_title: { it: "I risultati", en: "The results" },
+    results_sub:   { it: "10 mesi di collaborazione · dati verificati", en: "10 months of collaboration · verified data" },
+    m1_label: { it: "Lead qualificati generati in 10 mesi", en: "Qualified leads generated in 10 months" },
+    m2_label: { it: "Crescita lead rispetto ai 26 mesi precedenti", en: "Lead growth vs the previous 26 months" },
+    m3_label: { it: "ROAS — Return on Ad Spend", en: "ROAS — Return on Ad Spend" },
+    m4_label: { it: "CPL medio (dimezzato da €15,46)", en: "Average CPL (halved from €15.46)" },
+    m5_label: { it: "CTR medio sulle campagne", en: "Average CTR across campaigns" },
+    m6_label: { it: "CPM medio", en: "Average CPM" },
+    leads_month_before: { it: "Lead/mese — Prima:", en: "Leads/month — Before:" },
+    after_label: { it: "Dopo:", en: "After:" },
+    cpl_before:  { it: "CPL — Prima:", en: "CPL — Before:" },
+    roas_label:  { it: "ROAS:", en: "ROAS:" },
+    cta_h2:    { it: "Vuoi risultati simili per la tua attività?", en: "Want similar results for your business?" },
+    cta_btn:   { it: "Vuoi risultati simili per la tua attività? →", en: "Want similar results for your business? →" },
+  },
+
+  // ─── CASE STUDY INTERACTIVE COMPONENT ─────────────────────────────────────
+  case_interactive: {
+    tab_before:  { it: "Prima · 26 mesi", en: "Before · 26 months" },
+    tab_after:   { it: "Dopo BD · 10 mesi", en: "After BD · 10 months" },
+    leads_qualified: { it: "Lead Qualificati", en: "Qualified Leads" },
+    in_months_before: { it: "in 26 mesi", en: "over 26 months" },
+    in_months_after:  { it: "in 10 mesi", en: "over 10 months" },
+    roas_label:  { it: "ROAS", en: "ROAS" },
+    roas_sub:    { it: "Return on Ad Spend", en: "Return on Ad Spend" },
+    cpl_reduction: { it: "Riduzione Costo per Lead", en: "Cost per Lead Reduction" },
+    cpl_from_to: { it: "da €15,46 a €6,30", en: "from €15.46 to €6.30" },
+    cpl_label:   { it: "CPL — Costo per Lead", en: "CPL — Cost per Lead" },
+    cpm_label:   { it: "CPM", en: "CPM" },
+    chart_title: { it: "Lead Mensili — Prima vs Dopo", en: "Monthly Leads — Before vs After" },
+    chart_before: { it: "Prima (26 mesi)", en: "Before (26 months)" },
+    chart_after:  { it: "Dopo BD (10 mesi)", en: "After BD (10 months)" },
+    cta:         { it: "Voglio risultati come Aeon →", en: "I want results like Aeon →" },
+  },
+
+  // ─── KPI DASHBOARD SUB-LABELS ─────────────────────────────────────────────
+  kpi: {
+    sub1: { it: "CPL medio €5,86 · ROAS medio 11,3%", en: "Average CPL €5.86 · Average ROAS 11.3%" },
+    sub2: { it: "valore complessivo dei progetti gestiti", en: "total value of managed projects" },
+    sub3: { it: "durata media collaborazione: 8 mesi", en: "average collaboration duration: 8 months" },
+  },
+
+  // ─── CONTACT MODAL EXTRAS ─────────────────────────────────────────────────
+  modal_extra: {
+    error_send:    { it: "Errore nell'invio. Riprova.", en: "Error sending. Please try again." },
+    error_network: { it: "Errore di rete. Controlla la connessione.", en: "Network error. Check your connection." },
+    aeon_invite:   { it: "Mentre aspetti, leggi come abbiamo portato Aeon da 7 a 86 lead/mese →", en: "While you wait, read how we took Aeon from 7 to 86 leads/month →" },
+    gdpr_pre:      { it: "Ho letto la", en: "I've read the" },
+    gdpr_link:     { it: "Privacy Policy", en: "Privacy Policy" },
+    gdpr_post:     { it: "e acconsento al trattamento dei miei dati personali per essere ricontattato da BD Media.", en: "and I consent to the processing of my personal data to be contacted by BD Media." },
+  },
+
+  // ─── PORTFOLIO EXTRAS ─────────────────────────────────────────────────────
+  portfolio_extra: {
+    p_alta_headline: { it: "Software house B2B per l'automazione aziendale", en: "B2B software house for business automation" },
+    p_alta_body:     { it: "Sistemi software su misura, automazione processi e integrazione AI per PMI che vogliono eliminare il lavoro manuale e scalare in modo sostenibile.", en: "Custom software systems, process automation and AI integration for SMBs that want to eliminate manual work and scale sustainably." },
+    tag_growth:      { it: "Crescita", en: "Growth" },
+    tag_automation:  { it: "Automazione", en: "Automation" },
+    tag_website:     { it: "Sito Web", en: "Website" },
+    tag_strategy:    { it: "Strategia", en: "Strategy" },
+    tag_communication:{ it: "Comunicazione", en: "Communication" },
+  },
+
+  // ─── BLOG EXTRAS ──────────────────────────────────────────────────────────
+  blog_extra: {
+    article_ai_agents:    { it: "AI Agents nel Marketing: come stanno rivoluzionando ogni fase del funnel nel 2026", en: "AI Agents in Marketing: how they're revolutionizing every stage of the funnel in 2026" },
+    article_aeo:          { it: "Answer Engine Optimization: come farti citare da ChatGPT, Perplexity e Google AI Overview", en: "Answer Engine Optimization: how to get cited by ChatGPT, Perplexity and Google AI Overview" },
+    article_meta_advplus: { it: "Meta Advantage+ Marzo 2026: AI Dubbing, musica generativa e ads personalizzate per persona", en: "Meta Advantage+ March 2026: AI Dubbing, generative music and persona-personalized ads" },
+    article_linkedin:     { it: "LinkedIn Algorithm 2026: perché il tuo reach crolla e come adattare la strategia B2B", en: "LinkedIn Algorithm 2026: why your reach is crashing and how to adapt your B2B strategy" },
+    article_googleads:    { it: "Google Ads 2026: tutti gli aggiornamenti di Performance Max, AI Max e Search Ads", en: "Google Ads 2026: all the updates to Performance Max, AI Max and Search Ads" },
+    article_tiktok:       { it: "TikTok Shop domina il social commerce: i dati eMarketer e le previsioni per il 2026", en: "TikTok Shop dominates social commerce: eMarketer data and 2026 forecasts" },
+    article_organic:      { it: "Organic Traffic Crisis 2026: dati reali su zero-click search e crollo del traffico organico", en: "Organic Traffic Crisis 2026: real data on zero-click search and organic traffic collapse" },
+    article_cookieless:   { it: "Cookieless Marketing 2026: come costruire la tua strategia CDP e first-party data", en: "Cookieless Marketing 2026: how to build your CDP and first-party data strategy" },
+    article_ai_tools:     { it: "I 30 migliori strumenti AI per il marketing nel 2026: da Claude Code a HubSpot Breeze", en: "The 30 best AI marketing tools in 2026: from Claude Code to HubSpot Breeze" },
+  },
+
+  // ─── PAGE-LEVEL SEO ───────────────────────────────────────────────────────
+  seo: {
+    home_title: { it: "BD Media — Agenzia Performance Marketing Italia | Lead Generation & Meta Ads", en: "BD Media — Performance Marketing Agency Italy | Lead Generation & Meta Ads" },
+    home_desc:  { it: "Progettiamo sistemi di acquisizione clienti misurabili e scalabili. Meta Ads, funnel, lead generation per PMI italiane. Case study: +1059% lead per Aeon Studio in 10 mesi.", en: "We design measurable, scalable client acquisition systems. Meta Ads, funnels, lead generation for Italian SMBs. Case study: +1059% leads for Aeon Studio in 10 months." },
+    services_title: { it: "Servizi di Marketing Performance | Meta Ads, Lead Generation, Web | BD Media", en: "Performance Marketing Services | Meta Ads, Lead Generation, Web | BD Media" },
+    services_desc:  { it: "Campagne Meta Ads, Google, TikTok, siti web ad alta conversione, social media management, brand identity e automazioni. BD Media, agenzia performance marketing per PMI italiane.", en: "Meta Ads, Google and TikTok campaigns, high-conversion websites, social media management, brand identity and automations. BD Media, performance marketing agency for Italian SMBs." },
+    about_title: { it: "Chi Siamo — BD Media | Agenzia Marketing Performance Italia", en: "About Us — BD Media | Performance Marketing Agency Italy" },
+    about_desc:  { it: "Il team di BD Media: Bedr Diana (CEO), Francesco Schilirò (COO), Luca Fortunato (CTO), Donato Angerame (CMO). Agenzia performance marketing fondata su dati, trasparenza e crescita misurabile.", en: "The BD Media team: Bedr Diana (CEO), Francesco Schilirò (COO), Luca Fortunato (CTO), Donato Angerame (CMO). A performance marketing agency built on data, transparency and measurable growth." },
+    portfolio_title: { it: "Portfolio & Risultati Clienti | Case Study Lead Generation | BD Media", en: "Portfolio & Client Results | Lead Generation Case Studies | BD Media" },
+    portfolio_desc:  { it: "Portfolio di BD Media: case study reali su lead generation, Meta Ads, brand identity. Aeon Studio +1059% lead in 10 mesi, Dark Diamond Cafè, Lab On Sense e altri clienti.", en: "BD Media portfolio: real case studies on lead generation, Meta Ads, brand identity. Aeon Studio +1059% leads in 10 months, Dark Diamond Cafè, Lab On Sense and other clients." },
+    blog_title: { it: "Blog — Strategie di Marketing, Lead Generation e Crescita | BD Media", en: "Blog — Marketing, Lead Generation and Growth Strategies | BD Media" },
+    blog_desc:  { it: "Articoli pratici su Meta Ads, lead generation, funnel marketing, AEO e crescita per PMI italiane. Strategie da chi le applica ogni giorno su clienti reali.", en: "Practical articles on Meta Ads, lead generation, funnel marketing, AEO and growth for Italian SMBs. Strategies from people who apply them daily on real clients." },
+  },
 } as const;
 
 export type Language = "it" | "en";
