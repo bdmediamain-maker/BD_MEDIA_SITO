@@ -64,6 +64,7 @@ const App = () => (
       <LanguageProvider>
       <ContactModalProvider>
         <CalendlyModalProvider>
+        <SplashScreen />
         {/* Organization JSON-LD — iniettato su ogni pagina */}
         <Helmet>
           <script type="application/ld+json">
