@@ -59,7 +59,7 @@ const Services = () => {
   ];
 
   const onDemandServices = [
-    { num: "07", title: t(S.s3_title), desc: t(S.s3_body), tags: onDemandServiceTags[0], Icon: Zap },
+    { num: "07", title: t(S.s3_title), desc: t(S.s3_body), tags: onDemandServiceTags[0], Icon: Zap, href: "https://altalogik.it/" },
     { num: "08", title: t(S.s7_title), desc: t(S.s7_body), tags: onDemandServiceTags[1], Icon: Bot },
     { num: "09", title: t(S.s8_title), desc: t(S.s8_body), tags: onDemandServiceTags[2], Icon: Users },
     { num: "10", title: t(S.s9_title), desc: t(S.s9_body), tags: onDemandServiceTags[3], Icon: ShoppingBag },
@@ -187,7 +187,19 @@ const Services = () => {
                         <div className="flex items-center gap-4">
                           <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
                           <span className="text-lg font-black text-primary/25">{s.num}</span>
-                          <h3 className="text-[15px] font-bold text-foreground">{s.title}</h3>
+                          {s.href ? (
+                            <a
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-[15px] font-bold text-foreground hover:text-primary transition-colors"
+                            >
+                              {s.title} ↗
+                            </a>
+                          ) : (
+                            <h3 className="text-[15px] font-bold text-foreground">{s.title}</h3>
+                          )}
                         </div>
                         <ChevronDown
                           className={cn(
