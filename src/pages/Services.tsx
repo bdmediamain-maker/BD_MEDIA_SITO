@@ -187,7 +187,19 @@ const Services = () => {
                         <div className="flex items-center gap-4">
                           <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
                           <span className="text-lg font-black text-primary/25">{s.num}</span>
-                          <h3 className="text-[15px] font-bold text-foreground">{s.title}</h3>
+                          {s.href ? (
+                            <a
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-[15px] font-bold text-foreground hover:text-primary transition-colors"
+                            >
+                              {s.title} ↗
+                            </a>
+                          ) : (
+                            <h3 className="text-[15px] font-bold text-foreground">{s.title}</h3>
+                          )}
                         </div>
                         <ChevronDown
                           className={cn(
