@@ -131,7 +131,7 @@ const Portfolio = () => {
                         <span className="tag-pill text-[10px]">{p.cat}</span>
                         {p.logo ? (
                           p.sig === "AL" ? (
-                            <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-contain p-1 bg-[#0a1f44]" />
+                            <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#0a1628]" />
                           ) : p.sig === "TI+" ? (
                             <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#6d28d9]" />
                           ) : (
