@@ -65,10 +65,10 @@ const CustomCursor = () => {
     const lerp = (a: number, b: number, n: number) => a + (b - a) * n;
 
     const tick = () => {
-      dotPos.current.x = lerp(dotPos.current.x, mouse.current.x, 0.15);
-      dotPos.current.y = lerp(dotPos.current.y, mouse.current.y, 0.15);
-      ringPos.current.x = lerp(ringPos.current.x, mouse.current.x, 0.08);
-      ringPos.current.y = lerp(ringPos.current.y, mouse.current.y, 0.08);
+      dotPos.current.x = lerp(dotPos.current.x, mouse.current.x, 0.35);
+      dotPos.current.y = lerp(dotPos.current.y, mouse.current.y, 0.35);
+      ringPos.current.x = lerp(ringPos.current.x, mouse.current.x, 0.20);
+      ringPos.current.y = lerp(ringPos.current.y, mouse.current.y, 0.20);
 
       const dotScale = hovering.current ? 1.5 : 1;
       const ringScale = hovering.current ? 1.5 : 1;
