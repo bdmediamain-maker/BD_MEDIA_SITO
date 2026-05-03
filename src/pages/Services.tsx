@@ -111,7 +111,7 @@ const Services = () => {
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface group relative h-full border-l-2 border-l-transparent p-8 transition-all duration-200 hover:border-l-primary hover:bg-white/[0.03]">
                   <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
-                  <span className="mt-3 block text-4xl font-black leading-none text-primary/30">{s.num}</span>
+                  <span className="absolute top-4 right-4 text-4xl font-black leading-none text-primary/30">{s.num}</span>
                   <h3 className="mt-3 text-xl font-bold leading-tight text-foreground">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   <div className="mt-5 flex flex-wrap gap-1.5">
@@ -140,7 +140,7 @@ const Services = () => {
               <ScrollReveal key={i} delay={i * 80}>
                 <div className="card-surface group relative h-full border-l-2 border-l-transparent px-6 py-5 transition-all duration-200 hover:border-l-primary hover:bg-white/[0.03]">
                   <s.Icon className="text-primary" size={24} strokeWidth={1.5} />
-                  <span className="mt-2 block text-2xl font-black leading-none text-primary/20">{s.num}</span>
+                  <span className="absolute top-4 right-4 text-2xl font-black leading-none text-primary/20">{s.num}</span>
                   <h3 className="mt-2 text-[16px] font-bold leading-tight text-foreground">{s.title}</h3>
                   <p className="mt-2 text-[13px] leading-snug text-muted-foreground">{s.desc}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
