@@ -130,13 +130,19 @@ const Portfolio = () => {
                       <div className="flex items-start justify-between">
                         <span className="tag-pill text-[10px]">{p.cat}</span>
                         {p.logo ? (
-                          <img
-                            src={p.logo}
-                            alt={p.client}
-                            className={`h-10 w-10 rounded-full object-contain p-1 ${
-                              p.sig === "AE" ? "bg-black" : "bg-white"
-                            }`}
-                          />
+                          p.sig === "AL" ? (
+                            <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-contain p-1 bg-[#0a1f44]" />
+                          ) : p.sig === "TI+" ? (
+                            <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#6d28d9]" />
+                          ) : (
+                            <img
+                              src={p.logo}
+                              alt={p.client}
+                              className={`h-10 w-10 rounded-full object-contain p-1 ${
+                                p.sig === "AE" ? "bg-black" : "bg-white"
+                              }`}
+                            />
+                          )
                         ) : (
                           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{p.sig}</div>
                         )}
