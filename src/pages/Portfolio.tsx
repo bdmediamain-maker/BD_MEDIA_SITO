@@ -133,11 +133,9 @@ const Portfolio = () => {
                           <img
                             src={p.logo}
                             alt={p.client}
-                            className={
-                              p.sig === "AL"
-                                ? "h-10 w-10 rounded-full object-cover"
-                                : "h-10 w-10 rounded-full object-contain bg-white/10 p-1"
-                            }
+                            className={`h-10 w-10 rounded-full object-contain p-1 ${
+                              p.sig === "AE" ? "bg-black" : "bg-white"
+                            }`}
                           />
                         ) : (
                           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{p.sig}</div>
