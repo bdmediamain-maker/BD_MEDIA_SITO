@@ -254,16 +254,16 @@ const Index = () => {
               <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{t(H.who_we_work.title)}</h2>
               <p className="mt-4 text-base text-muted-foreground">{t(H.who_we_work.subtitle)}</p>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <li className="flex items-center gap-2">
+                  <span className="block h-2 w-2 shrink-0 rounded-full bg-primary" />
                   {t(H.who_we_work.item1)}
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <li className="flex items-center gap-2">
+                  <span className="block h-2 w-2 shrink-0 rounded-full bg-primary" />
                   {t(H.who_we_work.item2)}
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <li className="flex items-center gap-2">
+                  <span className="block h-2 w-2 shrink-0 rounded-full bg-primary" />
                   {t(H.who_we_work.item3)}
                 </li>
               </ul>
