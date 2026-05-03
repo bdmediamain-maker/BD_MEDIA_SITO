@@ -136,3 +136,10 @@
     display: none !important;
   }
 }
+
+#iubenda-cs-banner, .iubenda-embed, a.iubenda-embed, .iubenda-fixed-button, #iubenda_policy, [class*="iubenda"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
