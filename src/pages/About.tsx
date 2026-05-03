@@ -90,7 +90,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="section-padding pb-8 md:pb-12">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(A.values.title)}</h2>
