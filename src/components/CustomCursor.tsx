@@ -5,16 +5,13 @@ const CustomCursor = () => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(pointer: coarse)").matches;
   });
-  const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   const mouse = useRef({ x: -100, y: -100 });
-  const dotPos = useRef({ x: -100, y: -100 });
-  const ringPos = useRef({ x: -100, y: -100 });
+  const pos = useRef({ x: -100, y: -100 });
   const hovering = useRef(false);
   const rafId = useRef<number | null>(null);
 
   useEffect(() => {
-    // Disable on touch devices
     if (typeof window === "undefined") return;
     const mql = window.matchMedia("(pointer: coarse)");
     const updateTouch = () => setIsTouchDevice(mql.matches);
@@ -43,14 +40,7 @@ const CustomCursor = () => {
       const t = e.target as HTMLElement | null;
       if (!t) return;
       const interactive = !!t.closest('a, button, [role="button"], input[type="submit"], input[type="button"], label[for], select, summary');
-      if (interactive !== hovering.current) {
-        hovering.current = interactive;
-        if (dotRef.current) {
-          dotRef.current.style.transform += ""; // no-op, scale handled via class
-        }
-        if (dotRef.current) dotRef.current.dataset.hover = interactive ? "1" : "0";
-        if (ringRef.current) ringRef.current.dataset.hover = interactive ? "1" : "0";
-      }
+      hovering.current = interactive;
     };
 
     const onLeave = () => {
@@ -65,19 +55,13 @@ const CustomCursor = () => {
     const lerp = (a: number, b: number, n: number) => a + (b - a) * n;
 
     const tick = () => {
-      dotPos.current.x = lerp(dotPos.current.x, mouse.current.x, 0.35);
-      dotPos.current.y = lerp(dotPos.current.y, mouse.current.y, 0.35);
-      ringPos.current.x = lerp(ringPos.current.x, mouse.current.x, 0.20);
-      ringPos.current.y = lerp(ringPos.current.y, mouse.current.y, 0.20);
+      pos.current.x = lerp(pos.current.x, mouse.current.x, 0.20);
+      pos.current.y = lerp(pos.current.y, mouse.current.y, 0.20);
 
-      const dotScale = hovering.current ? 1.5 : 1;
-      const ringScale = hovering.current ? 1.5 : 1;
+      const scale = hovering.current ? 1.3 : 1;
 
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${dotPos.current.x}px, ${dotPos.current.y}px, 0) translate(-50%, -50%) scale(${dotScale})`;
-      }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0) translate(-50%, -50%) scale(${ringScale})`;
+      if (imgRef.current) {
+        imgRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%) scale(${scale})`;
       }
 
       rafId.current = requestAnimationFrame(tick);
@@ -98,46 +82,25 @@ const CustomCursor = () => {
   if (isTouchDevice) return null;
 
   return (
-    <>
-      <div
-        ref={dotRef}
-        aria-hidden="true"
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: 12,
-          height: 12,
-          borderRadius: "9999px",
-          backgroundColor: "hsl(var(--primary))",
-          opacity: 0.85,
-          pointerEvents: "none",
-          zIndex: 99999,
-          transition: "transform 0.18s ease-out, opacity 0.2s ease-out",
-          willChange: "transform",
-          mixBlendMode: "normal",
-        }}
-      />
-      <div
-        ref={ringRef}
-        aria-hidden="true"
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: 36,
-          height: 36,
-          borderRadius: "9999px",
-          border: "1.5px solid hsl(var(--primary))",
-          opacity: 0.4,
-          pointerEvents: "none",
-          zIndex: 99999,
-          transition: "transform 0.25s ease-out, opacity 0.2s ease-out",
-          willChange: "transform",
-        }}
-      />
-    </>
+    <img
+      ref={imgRef}
+      src="/logo_3_frecce_bdmedia.png"
+      alt=""
+      aria-hidden="true"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: 36,
+        height: 36,
+        pointerEvents: "none",
+        zIndex: 99999,
+        transition: "transform 0.18s ease-out",
+        willChange: "transform",
+      }}
+    />
   );
 };
 
 export default CustomCursor;
+
