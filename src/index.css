@@ -127,3 +127,12 @@
     opacity: 0.03;
   }
 }
+
+@media (max-width: 768px) {
+  .iubenda-tp-btn,
+  .iub-cs-tp-content,
+  [class*="iubenda"],
+  [id*="iubenda"] {
+    display: none !important;
+  }
+}
