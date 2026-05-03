@@ -55,7 +55,10 @@ const TeamMemberCard = ({ photo, name, role, bio, imgClassName }: TeamMemberCard
           <X className="h-5 w-5" />
         </button>
 
-        <div className="flex flex-1 flex-col items-start justify-center px-5 py-5">
+        <div
+          className="flex flex-1 flex-col items-start justify-center px-5 py-5 overflow-y-auto"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           <h3
             className={`text-lg font-extrabold text-primary transition-all duration-300 delay-75 ${
               open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
