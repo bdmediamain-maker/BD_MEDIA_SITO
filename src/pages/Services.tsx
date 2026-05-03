@@ -59,7 +59,7 @@ const Services = () => {
   ];
 
   const onDemandServices = [
-    { num: "07", title: t(S.s3_title), desc: t(S.s3_body), tags: onDemandServiceTags[0], Icon: Zap },
+    { num: "07", title: t(S.s3_title), desc: t(S.s3_body), tags: onDemandServiceTags[0], Icon: Zap, href: "https://altalogik.it/" },
     { num: "08", title: t(S.s7_title), desc: t(S.s7_body), tags: onDemandServiceTags[1], Icon: Bot },
     { num: "09", title: t(S.s8_title), desc: t(S.s8_body), tags: onDemandServiceTags[2], Icon: Users },
     { num: "10", title: t(S.s9_title), desc: t(S.s9_body), tags: onDemandServiceTags[3], Icon: ShoppingBag },
