@@ -54,7 +54,7 @@ const FloatingCalendlyWidget = () => {
       <button
         type="button"
         onClick={handleClick}
-        className="btn-primary no-glow inline-flex"
+        className="btn-primary no-glow inline-flex text-xs px-3 py-2 md:text-base md:px-6 md:py-3"
       >
         {label}
       </button>
