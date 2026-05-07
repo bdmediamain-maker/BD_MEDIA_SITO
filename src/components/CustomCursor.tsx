@@ -95,7 +95,7 @@ const CustomCursor = () => {
         height: 67,
         pointerEvents: "none",
         zIndex: 99999,
-        transition: "transform 0.18s ease-out",
+        transition: "none",
         willChange: "transform",
       }}
     />
