@@ -81,7 +81,7 @@ const TestimonialCarousel = () => {
             return (
               <div
                 key={item.key}
-                className="w-full shrink-0 px-2 md:px-8 flex"
+                className="w-full shrink-0 px-2 md:px-8 flex items-center justify-center"
               >
                 <div
                   className={[
