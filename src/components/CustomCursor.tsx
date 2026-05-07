@@ -55,8 +55,8 @@ const CustomCursor = () => {
     const lerp = (a: number, b: number, n: number) => a + (b - a) * n;
 
     const tick = () => {
-      pos.current.x = lerp(pos.current.x, mouse.current.x, 0.20);
-      pos.current.y = lerp(pos.current.y, mouse.current.y, 0.20);
+      pos.current.x = mouse.current.x;
+      pos.current.y = mouse.current.y;
 
       const scale = hovering.current ? 1.3 : 1;
 
@@ -95,7 +95,7 @@ const CustomCursor = () => {
         height: 67,
         pointerEvents: "none",
         zIndex: 99999,
-        transition: "transform 0.18s ease-out",
+        transition: "none",
         willChange: "transform",
       }}
     />
