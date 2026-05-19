@@ -5,6 +5,7 @@ import CtaScarcityNote from "@/components/CtaScarcityNote";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
+import MethodTimeline from "@/components/MethodTimeline";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
