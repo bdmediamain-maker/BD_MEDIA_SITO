@@ -56,7 +56,6 @@ const TeamMemberCard = ({ photo, name, role, bio, imgClassName }: TeamMemberCard
         </button>
 
         <div
-          ref={contentRef}
           className="flex flex-1 flex-col items-start justify-center px-5 py-5 overflow-y-auto"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
