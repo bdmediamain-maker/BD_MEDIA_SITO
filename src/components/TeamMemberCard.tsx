@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
 
 interface TeamMemberCardProps {
@@ -11,18 +11,6 @@ interface TeamMemberCardProps {
 
 const TeamMemberCard = ({ photo, name, role, bio, imgClassName }: TeamMemberCardProps) => {
   const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    if (!isTouch) return;
-    requestAnimationFrame(() => {
-      containerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (contentRef.current) contentRef.current.scrollTop = 0;
-    });
-  }, [open]);
 
   return (
     <div
