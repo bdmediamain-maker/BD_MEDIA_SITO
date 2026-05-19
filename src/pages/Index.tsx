@@ -277,8 +277,14 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden px-6 py-12 md:px-12 md:py-16 lg:px-20">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
+      <section
+        className="relative overflow-hidden px-6 py-12 md:px-12 md:py-16 lg:px-20"
+        style={{
+          background: "linear-gradient(135deg, rgba(13,0,16,0.85) 0%, rgba(26,0,48,0.90) 50%, rgba(13,0,16,0.85) 100%)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
+      >
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{t(H.cta_final.headline)}</h2>
