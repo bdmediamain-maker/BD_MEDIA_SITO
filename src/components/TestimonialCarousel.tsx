@@ -85,14 +85,13 @@ const TestimonialCarousel = () => {
               >
                 <div
                   className={[
-                    "mx-auto max-w-3xl w-full rounded-2xl border border-white/[0.06] bg-white/[0.03] p-8 md:p-12",
-                    "shadow-[0_4px_24px_rgba(0,0,0,0.25)] backdrop-blur-sm",
+                    "card-surface mx-auto max-w-3xl w-full p-8 md:p-12",
+                    "shadow-[0_4px_24px_rgba(0,0,0,0.25)]",
                     "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-                    "",
                     isActive
                       ? "scale-100 opacity-100"
                       : "scale-[0.92] opacity-40",
-                    "hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:border-primary/20",
+                    "hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)]",
                   ].join(" ")}
                 >
                   <div className="mb-3 text-base">⭐⭐⭐⭐⭐</div>
@@ -124,7 +123,7 @@ const TestimonialCarousel = () => {
         <button
           onClick={handlePrev}
           aria-label="Previous"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.08] hover:text-foreground active:scale-95"
+          className="testimonial-arrow-btn flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:text-foreground active:scale-95"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
@@ -146,7 +145,7 @@ const TestimonialCarousel = () => {
         <button
           onClick={handleNext}
           aria-label="Next"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.08] hover:text-foreground active:scale-95"
+          className="testimonial-arrow-btn flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:text-foreground active:scale-95"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
