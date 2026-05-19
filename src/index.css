@@ -118,12 +118,17 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-[40px] bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @apply inline-flex items-center gap-2 rounded-[40px] px-7 py-3.5 text-sm font-bold text-primary-foreground;
+    background-color: rgba(255, 0, 204, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     animation: btn-primary-pulse 2s ease-in-out infinite;
   }
   .btn-primary:hover {
     transform: scale(1.05);
+    background-color: rgba(255, 0, 204, 0.95);
     box-shadow: 0 0 40px rgba(255, 0, 204, 0.7), 0 0 80px rgba(255, 0, 204, 0.4);
     animation: none;
   }
@@ -135,6 +140,7 @@
     animation: none;
     box-shadow: none;
   }
+
 
   @keyframes btn-primary-pulse {
     0%, 100% {
