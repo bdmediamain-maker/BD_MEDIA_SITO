@@ -117,17 +117,7 @@ const About = () => {
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(A.values.title)}</h2>
           </ScrollReveal>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {values.map((v, i) => (
-              <ScrollReveal key={i} delay={i * 80}>
-                <div className="card-surface h-full border-l-2 border-l-transparent px-5 py-4 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">
-                  <v.icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
-                  <h3 className="mt-2 text-[16px] font-bold leading-tight">{v.title}</h3>
-                  <p className="mt-1 text-[13px] leading-snug text-muted-foreground">{v.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <ValuesGrid values={values} />
         </div>
       </section>
 
