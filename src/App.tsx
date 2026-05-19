@@ -77,6 +77,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollProgressBar />
           <ScrollToTop />
           <NoiseOverlay />
           <Navbar />
