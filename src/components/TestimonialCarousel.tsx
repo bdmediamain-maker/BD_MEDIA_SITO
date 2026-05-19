@@ -85,20 +85,17 @@ const TestimonialCarousel = () => {
               >
                 <div
                   style={{
-                    background: "rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    background: "rgba(40, 10, 50, 0.6)",
+                    border: "1px solid rgba(255, 0, 204, 0.20)",
                     borderRadius: "20px",
+                    boxShadow: "0 0 40px rgba(255, 0, 204, 0.05)",
                   }}
                   className={[
                     "mx-auto max-w-3xl w-full p-8 md:p-12",
-                    "shadow-[0_4px_24px_rgba(0,0,0,0.25)]",
                     "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                     isActive
                       ? "scale-100 opacity-100"
                       : "scale-[0.92] opacity-40",
-                    "hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)]",
                   ].join(" ")}
                 >
                   <div className="mb-3 text-base">⭐⭐⭐⭐⭐</div>
