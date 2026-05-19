@@ -73,7 +73,7 @@ const Services = () => {
   ];
 
   return (
-    <div>
+    <div style={{ background: "linear-gradient(135deg, #0d0010 0%, #1a0030 50%, #0d0010 100%)" }}>
       <SEO
         title={t(translations.seo.services_title)}
         description={t(translations.seo.services_desc)}
