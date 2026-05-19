@@ -117,7 +117,7 @@ const About = () => {
         <div className="mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <img src="/logo_3_frecce_bdmedia.png" alt="BD Media logo" loading="lazy" width={596} height={596} className="mx-auto mb-6 h-[180px] w-[180px] object-contain bg-transparent" />
-            <blockquote className="text-2xl font-bold italic leading-snug md:text-3xl">{t(A.quote.text)}</blockquote>
+            <TypewriterQuote text={t(A.quote.text)} className="text-2xl font-bold italic leading-snug md:text-3xl" />
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{t(A.quote.body)}</p>
           </ScrollReveal>
         </div>
