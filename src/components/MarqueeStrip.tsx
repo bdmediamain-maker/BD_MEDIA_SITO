@@ -16,7 +16,7 @@ const MarqueeStrip = () => {
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") navigate("/portfolio");
       }}
-      className="cursor-pointer overflow-hidden border-y border-white/[0.06] bg-surface-1 py-4 my-[31px]"
+      className="cursor-pointer overflow-hidden py-4 my-[31px] marquee-glass"
     >
       <div className="flex w-max animate-marquee will-change-transform">
         {[0, 1].map((group) => (
