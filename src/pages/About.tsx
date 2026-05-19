@@ -37,6 +37,15 @@ const About = () => {
         en: "I handle video production: editing video ads, researching and selecting creative material, and optimizing content for advertising campaigns. I turn ideas into effective visual content that converts.",
       }),
     },
+    {
+      photo: "/chadi.jpg",
+      name: "Chadi Hargaoui",
+      role: t({ it: "Sales Team", en: "Sales Team" }),
+      bio: t({
+        it: "Mi occupo di tutto il processo di vendita: gestisco le chiamate con i potenziali clienti, preparo le sessioni di outreach e curo ogni contatto dalla prima interazione fino alla chiusura. Il mio obiettivo è trasformare ogni conversazione in un'opportunità concreta per il cliente e per BD Media.",
+        en: "I handle the entire sales process: managing calls with potential clients, preparing outreach sessions, and nurturing every contact from the first interaction to closing. My goal is to turn every conversation into a concrete opportunity for both the client and BD Media.",
+      }),
+    },
   ];
 
   const values = [
