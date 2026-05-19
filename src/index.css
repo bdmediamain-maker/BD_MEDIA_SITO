@@ -195,3 +195,27 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* ============ Glassmorphism global overrides ============ */
+.bg-card,
+.bg-popover,
+.bg-secondary,
+.bg-muted {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+/* Common Tailwind white-tinted card surfaces used across the project */
+[class*="bg-white/[0.0"],
+[class*="bg-white/5"],
+[class*="bg-white/10"] {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Round up rounded-xl/2xl card containers slightly toward 20px liquid-glass feel */
+.rounded-xl { border-radius: 20px; }
+.rounded-2xl { border-radius: 24px; }
