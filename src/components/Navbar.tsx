@@ -145,6 +145,7 @@ const Navbar = () => {
 
           {/* Right */}
           <div className="hidden items-center gap-4 md:flex">
+            <ThemeToggle />
             <LangSwitcher />
             <button onClick={openContactModal} className="btn-primary no-glow text-sm">
               {t(T.cta)}
