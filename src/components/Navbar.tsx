@@ -139,13 +139,14 @@ const Navbar = () => {
           {/* Hamburger */}
           <button
             className="flex h-10 w-10 items-center justify-center md:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
+            onClick={() => setMobileOpen((v) => !v)}
             aria-label="Menu"
           >
             <div className="flex flex-col gap-1.5">
-              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-6 bg-foreground transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span className={`h-0.5 w-6 bg-foreground transition-transform duration-100 ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`h-0.5 w-6 bg-foreground transition-opacity duration-100 ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-6 bg-foreground transition-transform duration-100 ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
             </div>
           </button>
         </div>
