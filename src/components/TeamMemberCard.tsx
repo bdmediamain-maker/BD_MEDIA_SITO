@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
 
 interface TeamMemberCardProps {
@@ -11,22 +11,9 @@ interface TeamMemberCardProps {
 
 const TeamMemberCard = ({ photo, name, role, bio, imgClassName }: TeamMemberCardProps) => {
   const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    if (!isTouch) return;
-    requestAnimationFrame(() => {
-      containerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (contentRef.current) contentRef.current.scrollTop = 0;
-    });
-  }, [open]);
 
   return (
     <div
-      ref={containerRef}
       className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-card transition-colors hover:border-primary/30"
       style={{ aspectRatio: "3/4" }}
       onMouseEnter={() => setOpen(true)}
@@ -69,7 +56,6 @@ const TeamMemberCard = ({ photo, name, role, bio, imgClassName }: TeamMemberCard
         </button>
 
         <div
-          ref={contentRef}
           className="flex flex-1 flex-col items-start justify-center px-5 py-5 overflow-y-auto"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
