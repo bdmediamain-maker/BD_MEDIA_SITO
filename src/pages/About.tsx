@@ -6,6 +6,7 @@ import { useContactModal } from "@/components/ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import TeamMemberCard from "@/components/TeamMemberCard";
+import TypewriterQuote from "@/components/TypewriterQuote";
 
 const About = () => {
   const { open: openContactModal } = useContactModal();
