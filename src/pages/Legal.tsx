@@ -4,7 +4,10 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 
 const LegalPage = ({ title, updated, children }: { title: string; updated: string; children: React.ReactNode }) => (
-  <div className="section-padding pt-32">
+  <div
+    className="section-padding pt-32"
+    style={{ background: "linear-gradient(135deg, #0d0010 0%, #1a0030 50%, #0d0010 100%)" }}
+  >
     <div className="mx-auto max-w-3xl">
       <ScrollReveal>
         <h1 className="text-4xl font-extrabold tracking-tight">{title}</h1>
