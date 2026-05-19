@@ -357,3 +357,8 @@ nav.fixed.top-0 {
   }
   .method-connector-in { width: 100%; }
 }
+
+@keyframes typewriter-caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
