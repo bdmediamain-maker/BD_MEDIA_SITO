@@ -123,7 +123,7 @@ const TestimonialCarousel = () => {
         <button
           onClick={handlePrev}
           aria-label="Previous"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.08] hover:text-foreground active:scale-95"
+          className="testimonial-arrow-btn flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:text-foreground active:scale-95"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
