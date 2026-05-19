@@ -84,8 +84,15 @@ const TestimonialCarousel = () => {
                 className="w-full shrink-0 px-2 md:px-8 flex items-center justify-center"
               >
                 <div
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: "20px",
+                  }}
                   className={[
-                    "card-surface mx-auto max-w-3xl w-full p-8 md:p-12",
+                    "mx-auto max-w-3xl w-full p-8 md:p-12",
                     "shadow-[0_4px_24px_rgba(0,0,0,0.25)]",
                     "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                     isActive
