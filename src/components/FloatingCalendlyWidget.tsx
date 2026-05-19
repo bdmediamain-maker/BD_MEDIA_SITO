@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const CALENDLY_URL = "https://calendly.com/bdmedia-main";
+const CALENDLY_URL = "https://calendly.com/bdmedia-main/30min";
 const CALENDLY_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
 const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
 
