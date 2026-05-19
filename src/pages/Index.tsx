@@ -169,6 +169,23 @@ const Index = () => {
               </a>
             </div>
           </ScrollReveal>
+          <div className="hero-metrics-desktop absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+            <div className="hero-metric-card" style={{ animationDelay: "0s" }}>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">ROAS MEDIO</p>
+              <p className="mt-1 text-2xl font-extrabold leading-none text-primary">16.2x</p>
+              <p className="mt-1 text-[11px] text-muted-foreground/70">Return on Ad Spend</p>
+            </div>
+            <div className="hero-metric-card" style={{ animationDelay: "0.5s" }}>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">LEAD QUALIFICATI</p>
+              <p className="mt-1 text-2xl font-extrabold leading-none text-white">1642</p>
+              <p className="mt-1 text-[11px] text-muted-foreground/70">in totale</p>
+            </div>
+            <div className="hero-metric-card" style={{ animationDelay: "1s" }}>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">RIDUZIONE CPL</p>
+              <p className="mt-1 text-2xl font-extrabold leading-none text-primary">-56%</p>
+              <p className="mt-1 text-[11px] text-muted-foreground/70">da €15.46 a €6.30</p>
+            </div>
+          </div>
         </div>
       </section>
 
