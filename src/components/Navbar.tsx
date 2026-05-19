@@ -154,21 +154,26 @@ const Navbar = () => {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 md:hidden" onClick={() => setMobileOpen(false)}>
-          <div className="absolute inset-0 bg-black/60" />
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          style={{ transition: "none", animation: "none" }}
+          onClick={() => setMobileOpen(false)}
+        >
+          <div className="absolute inset-0 bg-black/60" style={{ transition: "none", animation: "none" }} />
           <div
             className="absolute right-0 top-0 h-full w-72 bg-[#0e0e12] p-8 pt-24"
+            style={{ transition: "none", animation: "none" }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col gap-5">
               {navLinks.map((l) => (
-                <Link key={l.to} to={l.to} className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">
+                <Link key={l.to} to={l.to} className="text-lg font-medium text-muted-foreground hover:text-foreground">
                   {l.label}
                 </Link>
               ))}
               <div className="border-t border-white/[0.06] pt-4">
                 {dropdownLinks.map((l) => (
-                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
                     {t(T[l.key])}
                   </Link>
                 ))}
