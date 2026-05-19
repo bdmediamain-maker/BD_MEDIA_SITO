@@ -188,7 +188,10 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
-              <LangSwitcher />
+              <div className="flex items-center gap-3">
+                <ThemeToggle />
+                <LangSwitcher />
+              </div>
               <button onClick={openContactModal} className="btn-primary no-glow mt-4 w-full justify-center text-sm">
                 {t(T.cta)}
               </button>
