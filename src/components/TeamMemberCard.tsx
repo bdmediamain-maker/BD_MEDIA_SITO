@@ -14,7 +14,6 @@ const TeamMemberCard = ({ photo, name, role, bio, imgClassName }: TeamMemberCard
 
   return (
     <div
-      ref={containerRef}
       className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-card transition-colors hover:border-primary/30"
       style={{ aspectRatio: "3/4" }}
       onMouseEnter={() => setOpen(true)}
