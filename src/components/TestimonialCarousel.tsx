@@ -92,12 +92,10 @@ const TestimonialCarousel = () => {
                   }}
                   className={[
                     "mx-auto max-w-3xl w-full p-8 md:p-12",
-                    "shadow-[0_4px_24px_rgba(0,0,0,0.25)]",
                     "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                     isActive
                       ? "scale-100 opacity-100"
                       : "scale-[0.92] opacity-40",
-                    "hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)]",
                   ].join(" ")}
                 >
                   <div className="mb-3 text-base">⭐⭐⭐⭐⭐</div>
