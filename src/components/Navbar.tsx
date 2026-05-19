@@ -1,8 +1,32 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
 import { useContactModal } from "./ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
+
+const ThemeToggle = () => {
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") return "dark";
+    return (localStorage.getItem("theme") as "dark" | "light") || "dark";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("light", theme === "light");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  return (
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Toggle theme"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] text-foreground transition-colors hover:bg-white/[0.08]"
+    >
+      {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
+    </button>
+  );
+};
 
 const dropdownLinks = [
   { key: "privacy" as const, to: "/privacy" },
@@ -121,6 +145,7 @@ const Navbar = () => {
 
           {/* Right */}
           <div className="hidden items-center gap-4 md:flex">
+            <ThemeToggle />
             <LangSwitcher />
             <button onClick={openContactModal} className="btn-primary no-glow text-sm">
               {t(T.cta)}
@@ -163,7 +188,10 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
-              <LangSwitcher />
+              <div className="flex items-center gap-3">
+                <ThemeToggle />
+                <LangSwitcher />
+              </div>
               <button onClick={openContactModal} className="btn-primary no-glow mt-4 w-full justify-center text-sm">
                 {t(T.cta)}
               </button>
