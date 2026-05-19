@@ -104,12 +104,21 @@ const Navbar = () => {
                 </svg>
               </button>
               {dropdownOpen && (
-                <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-white/[0.06] bg-[#1a1a1a] p-2 shadow-xl">
+                <div
+                  className="absolute right-0 top-full mt-2 w-56 p-2 shadow-xl"
+                  style={{
+                    background: "rgba(13, 0, 16, 0.85)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "0.5px solid rgba(255,255,255,0.10)",
+                    borderRadius: "12px",
+                  }}
+                >
                   {dropdownLinks.map((l) => (
                     <Link
                       key={l.to}
                       to={l.to}
-                      className="block rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-foreground"
+                      className="block rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-[rgba(255,255,255,0.06)] hover:text-white"
                     >
                       {t(T[l.key])}
                     </Link>
