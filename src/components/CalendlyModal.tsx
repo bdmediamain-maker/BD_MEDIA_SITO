@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const CALENDLY_URL = "https://calendly.com/bdmedia-main";
+const CALENDLY_URL = "https://calendly.com/bdmedia-main/30min";
 
 declare global {
   interface Window {
