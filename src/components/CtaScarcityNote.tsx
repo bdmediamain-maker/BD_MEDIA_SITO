@@ -5,7 +5,7 @@ const CtaScarcityNote = () => {
   const text =
     lang === "en"
       ? "We accept only 3 new clients per month — 1 spot left"
-      : "Accettiamo solo 3 nuovi clienti al mese — 1 posto rimasto";
+      : "Accettiamo solo 3 nuovi clienti al mese — 2 posti rimasti";
 
   return (
     <div className="mt-4 flex items-center justify-center gap-2 text-[14px] leading-none text-white/80">
