@@ -260,3 +260,14 @@ nav.fixed.top-0 {
   border: 0.5px solid rgba(255, 100, 230, 0.35) !important;
   border-radius: 28px !important;
 }
+
+/* 5. Marquee strip glassmorphism + edge fade */
+.marquee-glass {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
