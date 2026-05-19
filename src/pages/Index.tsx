@@ -187,7 +187,7 @@ const Index = () => {
       </section>
 
       {/* Metodo BD */}
-      <section className="section-padding bg-surface-1">
+      <section className="section-padding">
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t(H.method.title)}</h2>
