@@ -219,3 +219,44 @@
 /* Round up rounded-xl/2xl card containers slightly toward 20px liquid-glass feel */
 .rounded-xl { border-radius: 20px; }
 .rounded-2xl { border-radius: 24px; }
+
+/* ============ Liquid Glass — targeted components ============ */
+
+/* 1. Navbar liquid glass */
+nav.fixed.top-0 {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.10) !important;
+}
+
+/* 2. Service cards (card-surface) liquid glass */
+.card-surface {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 0.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 20px !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-surface:hover {
+  background-color: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 0, 204, 0.35) !important;
+}
+
+/* 3. Calendly popup overlay liquid glass */
+.calendly-overlay,
+.calendly-overlay .calendly-close-overlay {
+  background: rgba(13, 0, 16, 0.7) !important;
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+}
+
+/* 4. Floating "Prenota una call gratuita" widget */
+.fixed.z-\[100\] > .btn-primary {
+  background-color: rgba(255, 0, 204, 0.80) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(255, 100, 230, 0.35) !important;
+  border-radius: 28px !important;
+}
