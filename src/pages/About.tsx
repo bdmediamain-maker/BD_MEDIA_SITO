@@ -18,6 +18,24 @@ const About = () => {
     { photo: "/schili.webp",  name: t(A.team.m2_name), role: t(A.team.m2_role), bio: t(A.team.m2_bio) },
     { photo: "/lucky_.webp",  name: t(A.team.m3_name), role: t(A.team.m3_role), bio: t(A.team.m3_bio) },
     { photo: "/donny.webp",   name: t(A.team.m4_name), role: t(A.team.m4_role), bio: t(A.team.m4_bio), imgClassName: "absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105" },
+    {
+      photo: "/ervin.jpg",
+      name: "Ervin Alla",
+      role: t({ it: "Tech Team", en: "Tech Team" }),
+      bio: t({
+        it: "Mi occupo dello sviluppo e manutenzione dei siti web dei clienti, gestendo tutta la parte tecnologica. Curo l'implementazione tecnica delle strategie digitali, dall'architettura del sito all'ottimizzazione delle performance, garantendo che ogni soluzione funzioni al massimo.",
+        en: "I handle the development and maintenance of client websites, managing the entire technology side. I oversee the technical implementation of digital strategies, from site architecture to performance optimization, ensuring every solution works at its best.",
+      }),
+    },
+    {
+      photo: "/alessio.jpg",
+      name: "Alessio Drera",
+      role: t({ it: "Production Team", en: "Production Team" }),
+      bio: t({
+        it: "Mi occupo della produzione video: editing di video ads, ricerca e selezione del materiale creativo, e ottimizzazione dei contenuti per le campagne pubblicitarie. Trasformo le idee in contenuti visivi efficaci che convertono.",
+        en: "I handle video production: editing video ads, researching and selecting creative material, and optimizing content for advertising campaigns. I turn ideas into effective visual content that converts.",
+      }),
+    },
   ];
 
   const values = [
