@@ -79,7 +79,7 @@ const Portfolio = () => {
     .filter((g) => g.items.length > 0);
 
   return (
-    <div>
+    <div style={{ background: "linear-gradient(135deg, #0d0010 0%, #1a0030 50%, #0d0010 100%)" }}>
       <SEO
         title={t(SE.portfolio_title)}
         description={t(SE.portfolio_desc)}
