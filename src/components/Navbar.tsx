@@ -136,53 +136,82 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Hamburger */}
+          {/* Mobile hamburger toggle */}
           <button
-            className="flex h-10 w-10 items-center justify-center md:hidden"
+            className="relative z-[60] flex h-10 w-10 items-center justify-center md:hidden"
             style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={mobileOpen}
           >
-            <div className="flex flex-col gap-1.5">
-              <span className={`h-0.5 w-6 bg-foreground transition-transform duration-100 ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`h-0.5 w-6 bg-foreground transition-opacity duration-100 ${mobileOpen ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-6 bg-foreground transition-transform duration-100 ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
-            </div>
+            {mobileOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <div className="flex flex-col gap-1.5">
+                <span className="block h-0.5 w-6 bg-foreground" />
+                <span className="block h-0.5 w-6 bg-foreground" />
+                <span className="block h-0.5 w-6 bg-foreground" />
+              </div>
+            )}
           </button>
         </div>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile fullscreen menu */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 md:hidden"
-          style={{ transition: "none", animation: "none" }}
-          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 z-[55] flex flex-col overflow-y-auto px-6 pb-10 pt-24 md:hidden"
+          style={{
+            background: "rgba(13, 0, 16, 0.97)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            transition: "none",
+            animation: "none",
+          }}
         >
-          <div className="absolute inset-0 bg-black/60" style={{ transition: "none", animation: "none" }} />
-          <div
-            className="absolute right-0 top-0 h-full w-72 bg-[#0e0e12] p-8 pt-24"
-            style={{ transition: "none", animation: "none" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex flex-col gap-5">
-              {navLinks.map((l) => (
-                <Link key={l.to} to={l.to} className="text-lg font-medium text-muted-foreground hover:text-foreground">
-                  {l.label}
+          <nav className="flex flex-col gap-2">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                onClick={() => setMobileOpen(false)}
+                className="block py-3 text-2xl font-semibold text-foreground"
+              >
+                {l.label}
+              </Link>
+            ))}
+
+            <div className="mt-2 border-t border-white/[0.08] pt-4">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[2px] text-primary">
+                {t(T.pages)}
+              </div>
+              {dropdownLinks.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-2 text-base text-muted-foreground"
+                >
+                  {t(T[l.key])}
                 </Link>
               ))}
-              <div className="border-t border-white/[0.06] pt-4">
-                {dropdownLinks.map((l) => (
-                  <Link key={l.to} to={l.to} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
-                    {t(T[l.key])}
-                  </Link>
-                ))}
-              </div>
-              <LangSwitcher />
-              <button onClick={openContactModal} className="btn-primary no-glow mt-4 w-full justify-center text-sm">
-                {t(T.cta)}
-              </button>
             </div>
+          </nav>
+
+          <div className="mt-8 flex flex-col gap-4">
+            <LangSwitcher />
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                openContactModal();
+              }}
+              className="btn-primary no-glow w-full justify-center text-sm"
+            >
+              {t(T.cta)}
+            </button>
           </div>
         </div>
       )}
