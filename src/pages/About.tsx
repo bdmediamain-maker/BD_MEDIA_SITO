@@ -7,6 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import TypewriterQuote from "@/components/TypewriterQuote";
+import ValuesGrid from "@/components/ValuesGrid";
 
 const About = () => {
   const { open: openContactModal } = useContactModal();
