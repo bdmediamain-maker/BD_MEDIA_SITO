@@ -85,11 +85,10 @@ const TestimonialCarousel = () => {
               >
                 <div
                   style={{
-                    background: "rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    background: "rgba(40, 10, 50, 0.6)",
+                    border: "1px solid rgba(255, 0, 204, 0.20)",
                     borderRadius: "20px",
+                    boxShadow: "0 0 40px rgba(255, 0, 204, 0.05)",
                   }}
                   className={[
                     "mx-auto max-w-3xl w-full p-8 md:p-12",
