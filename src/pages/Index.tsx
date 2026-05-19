@@ -169,6 +169,17 @@ const Index = () => {
               </a>
             </div>
           </ScrollReveal>
+          <div className="hero-metrics-desktop" style={{ position: "relative", zIndex: 50, display: "flex", flexDirection: "column", gap: "16px", marginTop: "24px" }}>
+            <div style={{ background: "#ff0000", padding: "20px", borderRadius: "8px" }}>
+              <p style={{ color: "#ffffff", fontWeight: "bold" }}>TEST CARD 1</p>
+            </div>
+            <div style={{ background: "#00ff00", padding: "20px", borderRadius: "8px" }}>
+              <p style={{ color: "#000000", fontWeight: "bold" }}>TEST CARD 2</p>
+            </div>
+            <div style={{ background: "#0000ff", padding: "20px", borderRadius: "8px" }}>
+              <p style={{ color: "#ffffff", fontWeight: "bold" }}>TEST CARD 3</p>
+            </div>
+          </div>
         </div>
       </section>
 

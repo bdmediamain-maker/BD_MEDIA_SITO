@@ -284,3 +284,23 @@ nav.fixed.top-0 {
   background-color: rgba(255, 255, 255, 0.09);
   border-color: rgba(255, 0, 204, 0.35);
 }
+
+/* ============ Hero floating metric cards ============ */
+@keyframes hero-card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.hero-metric-card {
+  background: rgba(255, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px 20px;
+  animation: hero-card-float 3s ease-in-out infinite;
+}
+@media (max-width: 1023px) {
+  .hero-metrics-desktop {
+    display: none !important;
+  }
+}
