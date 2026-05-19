@@ -5,6 +5,7 @@ import CtaScarcityNote from "@/components/CtaScarcityNote";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import KPIDashboard from "@/components/KPIDashboard";
+import MethodTimeline from "@/components/MethodTimeline";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
@@ -211,20 +212,7 @@ const Index = () => {
             <p className="mt-2 text-muted-foreground">{t(H.method.subtitle)}</p>
             <p className="mt-6 max-w-2xl text-base text-muted-foreground">{t(H.method.intro)}</p>
           </ScrollReveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {steps.map((s, i) => (
-              <ScrollReveal key={i} delay={i * 120}>
-                <div className="card-surface relative overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,0,170,0.08)]">
-                  <span className="absolute -right-2 -top-4 text-8xl font-extrabold text-primary/10">{s.num}</span>
-                  <div className="relative z-10">
-                    <span className="text-sm font-bold text-primary">{s.num}</span>
-                    <h3 className="mt-2 text-xl font-bold">{s.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <MethodTimeline steps={steps} />
         </div>
       </section>
 
