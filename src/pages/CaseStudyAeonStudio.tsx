@@ -150,8 +150,14 @@ const CaseStudyAeonStudio = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
+      <section
+        className="section-padding relative overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, rgba(13,0,16,0.85) 0%, rgba(26,0,48,0.90) 50%, rgba(13,0,16,0.85) 100%)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
+      >
         <div className="relative mx-auto max-w-3xl text-center">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(C.cta_h2)}</h2>

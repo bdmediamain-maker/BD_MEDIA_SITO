@@ -7,7 +7,14 @@ const Footer = () => {
   const T = translations.footer;
 
   return (
-    <footer className="border-t border-white/[0.06] bg-background px-6 py-12 md:px-12 lg:px-20">
+    <footer
+      className="border-t border-white/[0.06] px-6 py-12 md:px-12 lg:px-20"
+      style={{
+        background: "linear-gradient(135deg, rgba(13,0,16,0.85) 0%, rgba(26,0,48,0.90) 50%, rgba(13,0,16,0.85) 100%)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
+    >
       <div className="mx-auto max-w-7xl">
         {/* Mobile: flex-col stack pulito. Desktop: logo sx | center assoluto | social dx */}
         <div className="flex flex-col items-center gap-8 md:relative md:flex-row md:items-center md:justify-between">
