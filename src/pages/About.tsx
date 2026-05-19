@@ -29,7 +29,7 @@ const About = () => {
   ];
 
   return (
-    <div>
+    <div style={{ background: "linear-gradient(135deg, #0d0010 0%, #1a0030 50%, #0d0010 100%)" }}>
       <SEO
         title={t(translations.seo.about_title)}
         description={t(translations.seo.about_desc)}
@@ -66,7 +66,10 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-surface-1">
+      <section
+        className="section-padding"
+        style={{ background: "linear-gradient(135deg, #0d0010 0%, #1a0030 50%, #0d0010 100%)" }}
+      >
         <div className="mx-auto max-w-7xl">
           <ScrollReveal>
             <h2 className="text-3xl font-extrabold tracking-tight">{t(A.team.title)}</h2>
