@@ -25,6 +25,7 @@ import { CalendlyModalProvider } from "@/components/CalendlyModal";
 import FloatingCalendlyWidget from "@/components/FloatingCalendlyWidget";
 import SplashScreen from "@/components/SplashScreen";
 import CustomCursor from "@/components/CustomCursor";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollProgressBar />
           <ScrollToTop />
           <NoiseOverlay />
           <Navbar />
