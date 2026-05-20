@@ -172,6 +172,17 @@ const Navbar = () => {
             animation: "none",
           }}
         >
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="absolute right-4 top-4 z-[60] flex min-h-[44px] min-w-[44px] items-center justify-center text-white"
+            style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
+            aria-label="Chiudi menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
           <nav className="flex flex-col gap-2">
             {navLinks.map((l) => (
               <Link
