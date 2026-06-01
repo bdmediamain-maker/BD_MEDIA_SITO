@@ -9,6 +9,10 @@ const DEFAULT_OG_IMAGE =
 interface SEOProps {
   title: string;
   description: string;
+  keywords?: string;
+  robots?: string;
+  geoRegion?: string;
+  geoPlacename?: string;
   ogImage?: string;
   /** URL assoluto della pagina corrente — usato per og:url e canonical */
   ogUrl?: string;
@@ -20,6 +24,10 @@ interface SEOProps {
 const SEO = ({
   title,
   description,
+  keywords,
+  robots = "index, follow",
+  geoRegion = "IT",
+  geoPlacename = "Italia",
   ogImage = DEFAULT_OG_IMAGE,
   ogUrl,
   canonicalUrl,
@@ -33,6 +41,10 @@ const SEO = ({
       {/* Base */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content={robots} />
+      <meta name="geo.region" content={geoRegion} />
+      <meta name="geo.placename" content={geoPlacename} />
       <link rel="canonical" href={canonical} />
 
       {/* Open Graph */}
