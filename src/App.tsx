@@ -53,6 +53,31 @@ const ORG_SCHEMA = {
   ]
 };
 
+// ── LocalBusiness / MarketingAgency JSON-LD — presente su tutte le pagine ──
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  "name": "BD Media",
+  "alternateName": "BD Media Growth Partner",
+  "url": "https://bdmedia.it",
+  "logo": "https://bdmedia.it/logo.png",
+  "description": "Agenzia di marketing digitale italiana specializzata in sistemi di acquisizione clienti misurabili e scalabili.",
+  "telephone": "+39 338 286 2017",
+  "email": "info@bdmedia.it",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IT"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italia"
+  },
+  "serviceType": ["Marketing Digitale", "Lead Generation", "Campagne ADS", "Funnel Marketing", "Siti Web", "Social Media Marketing"],
+  "sameAs": [
+    "https://www.instagram.com/bdmedia.it"
+  ]
+};
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
@@ -68,10 +93,13 @@ const App = () => (
         <CalendlyModalProvider>
         <SplashScreen />
         <CustomCursor />
-        {/* Organization JSON-LD — iniettato su ogni pagina */}
+        {/* Organization + LocalBusiness JSON-LD — iniettati su ogni pagina */}
         <Helmet>
           <script type="application/ld+json">
             {JSON.stringify(ORG_SCHEMA)}
+          </script>
+          <script type="application/ld+json">
+            {JSON.stringify(LOCAL_BUSINESS_SCHEMA)}
           </script>
         </Helmet>
         <Toaster />
