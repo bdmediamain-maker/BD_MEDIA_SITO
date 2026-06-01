@@ -31,6 +31,9 @@ export const Privacy = () => {
         title="Privacy Policy | BD Media"
         description="Informativa sul trattamento dei dati personali di BD Media, ai sensi del GDPR (Reg. UE 2016/679) e del D.Lgs. 196/2003."
         ogUrl="https://bdmedia.it/privacy"
+        robots="index, follow"
+        geoRegion="IT"
+        geoPlacename="Italia"
       />
       <LegalPage title={t(T.h1)} updated={t(T.updated)}>
       <h2>{t(T.s1_title)}</h2>
@@ -61,6 +64,9 @@ export const Rimborsi = () => {
         title="Politica Rimborsi | BD Media"
         description="Politica rimborsi e recesso di BD Media. Condizioni e procedure per richieste di rimborso sui servizi acquistati."
         ogUrl="https://bdmedia.it/rimborsi"
+        robots="index, follow"
+        geoRegion="IT"
+        geoPlacename="Italia"
       />
       <LegalPage title={t(T.h1)} updated={t(T.updated)}>
       <h2>{t(T.s1_title)}</h2>
@@ -87,6 +93,9 @@ export const Termini = () => {
         title="Termini e Condizioni | BD Media"
         description="Termini e condizioni di servizio di BD Media. Regolamentazione dei rapporti contrattuali tra BD Media e i propri clienti."
         ogUrl="https://bdmedia.it/termini"
+        robots="index, follow"
+        geoRegion="IT"
+        geoPlacename="Italia"
       />
       <LegalPage title={t(T.h1)} updated={t(T.updated)}>
       <h2>{t(T.s1_title)}</h2>

@@ -111,6 +111,9 @@ const Blog = () => {
         title={t(SE.blog_title)}
         description={t(SE.blog_desc)}
         ogUrl="https://bdmedia.it/blog"
+        robots="index, follow"
+        geoRegion="IT"
+        geoPlacename="Italia"
       />
 
       <section className="section-padding pt-32">
