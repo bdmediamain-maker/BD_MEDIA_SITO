@@ -9,6 +9,10 @@ const DEFAULT_OG_IMAGE =
 interface SEOProps {
   title: string;
   description: string;
+  keywords?: string;
+  robots?: string;
+  geoRegion?: string;
+  geoPlacename?: string;
   ogImage?: string;
   /** URL assoluto della pagina corrente — usato per og:url e canonical */
   ogUrl?: string;
