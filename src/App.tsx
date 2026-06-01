@@ -95,7 +95,6 @@ const App = () => (
         <CustomCursor />
         {/* Organization + LocalBusiness JSON-LD — iniettati su ogni pagina */}
         <Helmet>
-          <meta name="google-site-verification" content="ClP6KpX-EGQSaE_Nd_YSBzGPVMzGDSaYvpntzMlF1dU" />
           <script type="application/ld+json">
             {JSON.stringify(ORG_SCHEMA)}
           </script>
