@@ -24,6 +24,10 @@ interface SEOProps {
 const SEO = ({
   title,
   description,
+  keywords,
+  robots = "index, follow",
+  geoRegion = "IT",
+  geoPlacename = "Italia",
   ogImage = DEFAULT_OG_IMAGE,
   ogUrl,
   canonicalUrl,
