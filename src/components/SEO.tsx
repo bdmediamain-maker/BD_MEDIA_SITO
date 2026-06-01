@@ -41,6 +41,10 @@ const SEO = ({
       {/* Base */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content={robots} />
+      <meta name="geo.region" content={geoRegion} />
+      <meta name="geo.placename" content={geoPlacename} />
       <link rel="canonical" href={canonical} />
 
       {/* Open Graph */}
