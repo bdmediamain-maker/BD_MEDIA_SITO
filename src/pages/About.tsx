@@ -60,8 +60,8 @@ const About = () => {
   return (
     <div style={{ background: "linear-gradient(135deg, #0d0010 0%, #1a0030 50%, #0d0010 100%)" }}>
       <SEO
-        title={t(translations.seo.about_title)}
-        description={t(translations.seo.about_desc)}
+        title="Chi Siamo | BD Media — Agenzia Marketing Digitale Italia"
+        description="Scopri il team di BD Media, la realtà più giovane e agile del marketing digitale italiano. Dati, trasparenza e risultati misurabili per aziende in tutta Italia."
         ogUrl="https://bdmedia.it/about"
       />
 
