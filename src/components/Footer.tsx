@@ -48,6 +48,7 @@ const Footer = () => {
             </div>
             {/* Link legali */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <Link to="/services" className="transition-colors hover:text-foreground">{t(translations.nav.services)}</Link>
               <Link to="/privacy" className="transition-colors hover:text-foreground">{t(T.privacy)}</Link>
               <Link to="/termini" className="transition-colors hover:text-foreground">{t(T.termini)}</Link>
               <Link to="/rimborsi" className="transition-colors hover:text-foreground">{t(T.rimborsi)}</Link>
