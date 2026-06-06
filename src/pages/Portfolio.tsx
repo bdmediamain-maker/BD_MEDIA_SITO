@@ -19,6 +19,7 @@ import logoTI from "@/assets/clients/tecia.png";
 import logoAS from "@/assets/clients/aeon-studio.png";
 import logoAE from "@/assets/clients/accademia-europea.png";
 import logoAL from "@/assets/clients/altalogik.png";
+import logoRN from "@/assets/clients/runniq.webp";
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
