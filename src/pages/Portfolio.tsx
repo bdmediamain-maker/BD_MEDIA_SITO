@@ -56,6 +56,7 @@ const Portfolio = () => {
     { sig: "AE",  cat: "altro",          client: "Accademia Europea",    headline: t(P.p9_headline), desc: t(P.p9_body), tags: ["Meta Ads", "Social Media", "Lead Gen"], logo: logoAE },
     { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"], logo: logoIC },
     { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"], logo: logoBF },
+    { sig: "SGMT",cat: "altro",          client: "Studio GMT",           headline: "Studio Professionale", desc: "Studio professionale per cui abbiamo gestito campagne di generazione lead.", tags: ["Lead Generation", "Meta Ads", "Funnel"], logo: logoSGMT.url },
   ];
 
   const statsStrip = [
