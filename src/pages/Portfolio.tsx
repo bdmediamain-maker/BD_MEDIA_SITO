@@ -47,6 +47,8 @@ const Portfolio = () => {
     { sig: "TI+", cat: "software",       client: "TecIA+",               headline: t(P.p7_headline), desc: t(P.p7_body), tags: ["AI", "Launch", "Digital"], logo: logoTI },
     { sig: "AL",  cat: "software",       client: "Altalogik",            headline: t(PX.p_alta_headline), desc: t(PX.p_alta_body), tags: ["Custom Software", t(PX.tag_automation), "AI"], logo: logoAL },
 
+    { sig: "RN",  cat: "ecommerce",      client: "Runniq",               headline: "E-commerce — Accessori Running", desc: "Brand italiano di gadget e accessori per runner. Gestione campagne ADS e mantenimento store Shopify.", tags: ["Meta Ads", "Google Ads", "Shopify", "E-commerce"], logo: logoRN },
+
     { sig: "LoS", cat: "altro",          client: "Lab On Sense",         headline: t(P.p3_headline), desc: t(P.p3_body), tags: [t(PX.tag_website), "Brand Identity", "UX"], logo: logoLoS },
     { sig: "AR",  cat: "altro",          client: "Arkes Roleplay",       headline: t(P.p4_headline), desc: t(P.p4_body), tags: ["Community Management", "Discord"], logo: logoAR },
     { sig: "KP",  cat: "altro",          client: "KP Management",        headline: t(P.p8_headline), desc: t(P.p8_body), tags: [t(PX.tag_strategy), t(PX.tag_communication), "B2B"], logo: logoKP },
