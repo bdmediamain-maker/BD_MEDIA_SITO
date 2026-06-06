@@ -140,8 +140,8 @@ const Portfolio = () => {
                               <img src={p.logo} alt={p.client} className="object-contain scale-[1.85]" />
                             </div>
                           ) : p.sig === "SGMT" ? (
-                            <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex items-center justify-center p-[6px]">
-                              <img src={p.logo} alt={p.client} className="h-full w-full object-contain" style={{ mixBlendMode: "multiply" }} />
+                            <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
+                              <span className="text-black font-bold text-[16px] leading-none">GMT</span>
                             </div>
                           ) : p.sig === "AL" ? (
                             <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#0a1628]" />
