@@ -135,7 +135,7 @@ const Portfolio = () => {
                         {p.logo ? (
                           p.sig === "RN" ? (
                             <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex items-center justify-center">
-                              <img src={p.logo} alt={p.client} className="object-contain scale-[2]" />
+                              <img src={p.logo} alt={p.client} className="object-contain scale-[1.85]" />
                             </div>
                           ) : p.sig === "AL" ? (
                             <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#0a1628]" />
