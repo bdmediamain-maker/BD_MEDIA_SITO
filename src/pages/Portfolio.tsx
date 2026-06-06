@@ -21,6 +21,7 @@ import logoAE from "@/assets/clients/accademia-europea.png";
 import logoAL from "@/assets/clients/altalogik.png";
 import logoRN from "@/assets/clients/runniq.webp";
 import logoSGMT from "@/assets/clients/studiogmt.png.asset.json";
+import logoTRV from "@/assets/clients/triviumholdings.png.asset.json";
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
@@ -57,6 +58,7 @@ const Portfolio = () => {
     { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"], logo: logoIC },
     { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"], logo: logoBF },
     { sig: "SGMT",cat: "altro",          client: "Studio GMT",           headline: "Studio Professionale", desc: "Studio professionale per cui abbiamo gestito campagne di generazione lead.", tags: ["Lead Generation", "Meta Ads", "Funnel"], logo: logoSGMT.url },
+    { sig: "TRV", cat: "altro",          client: "Trivium Holdings",     headline: "Holding", desc: "Holding per cui abbiamo curato brand identity e positioning, produzione video, fotografia e documentazione aziendale.", tags: ["Brand Identity", "Positioning", "Video Production", "Fotografia"], logo: logoTRV.url },
   ];
 
   const statsStrip = [
@@ -142,6 +144,10 @@ const Portfolio = () => {
                           ) : p.sig === "SGMT" ? (
                             <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
                               <span className="text-black font-bold text-[16px] leading-none">GMT</span>
+                            </div>
+                          ) : p.sig === "TRV" ? (
+                            <div className="h-10 w-10 rounded-full bg-white p-[6px] flex items-center justify-center overflow-hidden">
+                              <img src={p.logo} alt={p.client} className="h-full w-full object-contain" />
                             </div>
                           ) : p.sig === "AL" ? (
                             <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#0a1628]" />
