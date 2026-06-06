@@ -21,6 +21,7 @@ import logoAE from "@/assets/clients/accademia-europea.png";
 import logoAL from "@/assets/clients/altalogik.png";
 import logoRN from "@/assets/clients/runniq.webp";
 import logoSGMT from "@/assets/clients/studiogmt.png.asset.json";
+import logoTRV from "@/assets/clients/triviumholdings.png.asset.json";
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
@@ -57,6 +58,7 @@ const Portfolio = () => {
     { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"], logo: logoIC },
     { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"], logo: logoBF },
     { sig: "SGMT",cat: "altro",          client: "Studio GMT",           headline: "Studio Professionale", desc: "Studio professionale per cui abbiamo gestito campagne di generazione lead.", tags: ["Lead Generation", "Meta Ads", "Funnel"], logo: logoSGMT.url },
+    { sig: "TRV", cat: "altro",          client: "Trivium Holdings",     headline: "Holding", desc: "Holding per cui abbiamo curato brand identity e positioning, produzione video, fotografia e documentazione aziendale.", tags: ["Brand Identity", "Positioning", "Video Production", "Fotografia"], logo: logoTRV.url },
   ];
 
   const statsStrip = [
