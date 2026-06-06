@@ -20,6 +20,7 @@ import logoAS from "@/assets/clients/aeon-studio.png";
 import logoAE from "@/assets/clients/accademia-europea.png";
 import logoAL from "@/assets/clients/altalogik.png";
 import logoRN from "@/assets/clients/runniq.webp";
+import logoSGMT from "@/assets/clients/studiogmt.png.asset.json";
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
@@ -55,6 +56,7 @@ const Portfolio = () => {
     { sig: "AE",  cat: "altro",          client: "Accademia Europea",    headline: t(P.p9_headline), desc: t(P.p9_body), tags: ["Meta Ads", "Social Media", "Lead Gen"], logo: logoAE },
     { sig: "IC",  cat: "altro",          client: "Istituto Campanella",  headline: t(P.p10_headline), desc: t(P.p10_body), tags: ["Brand Identity", "Merchandising"], logo: logoIC },
     { sig: "BF",  cat: "altro",          client: "Barber Feb",           headline: t(P.p12_headline), desc: t(P.p12_body), tags: ["Brand Identity", "Barber"], logo: logoBF },
+    { sig: "SGMT",cat: "altro",          client: "Studio GMT",           headline: "Studio Professionale", desc: "Studio professionale per cui abbiamo gestito campagne di generazione lead.", tags: ["Lead Generation", "Meta Ads", "Funnel"], logo: logoSGMT.url },
   ];
 
   const statsStrip = [
@@ -136,6 +138,10 @@ const Portfolio = () => {
                           p.sig === "RN" ? (
                             <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex items-center justify-center">
                               <img src={p.logo} alt={p.client} className="object-contain scale-[1.85]" />
+                            </div>
+                          ) : p.sig === "SGMT" ? (
+                            <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex items-center justify-center">
+                              <img src={p.logo} alt={p.client} className="h-full w-full object-cover" style={{ mixBlendMode: "multiply" }} />
                             </div>
                           ) : p.sig === "AL" ? (
                             <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#0a1628]" />
