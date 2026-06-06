@@ -145,6 +145,10 @@ const Portfolio = () => {
                             <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
                               <span className="text-black font-bold text-[16px] leading-none">GMT</span>
                             </div>
+                          ) : p.sig === "TRV" ? (
+                            <div className="h-10 w-10 rounded-full bg-white p-[6px] flex items-center justify-center overflow-hidden">
+                              <img src={p.logo} alt={p.client} className="h-full w-full object-contain" />
+                            </div>
                           ) : p.sig === "AL" ? (
                             <img src={p.logo} alt={p.client} className="h-10 w-10 rounded-full object-cover bg-[#0a1628]" />
                           ) : p.sig === "TI+" ? (
