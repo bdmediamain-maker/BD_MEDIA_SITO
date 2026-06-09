@@ -63,6 +63,7 @@ const About = () => {
         title="Chi Siamo | BD Media — Agenzia Marketing Digitale Italia"
         description="Scopri il team di BD Media, la realtà più giovane e agile del marketing digitale italiano. Dati, trasparenza e risultati misurabili per aziende in tutta Italia."
         ogUrl="https://bdmedia.it/about"
+        canonicalUrl="https://bdmedia.it/about"
       />
 
       <section className="section-padding pt-32">

@@ -91,6 +91,7 @@ const Portfolio = () => {
         title="Portfolio | BD Media — Case Study e Risultati Reali"
         description="Scopri i risultati reali dei clienti BD Media: +811 lead qualificati, ROAS 16.2x, -56% costo per lead. Case study di aziende italiane che hanno scelto BD Media."
         ogUrl="https://bdmedia.it/portfolio"
+        canonicalUrl="https://bdmedia.it/portfolio"
       />
 
       <section className="section-padding pt-32">

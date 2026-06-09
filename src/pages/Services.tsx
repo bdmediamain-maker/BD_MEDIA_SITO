@@ -78,6 +78,7 @@ const Services = () => {
         title="Cosa Facciamo | BD Media — Servizi Marketing Digitale Italia"
         description="Campagne Meta e Google Ads, Funnel, Lead Generation, Siti Web, Social Media Marketing e Brand Identity. BD Media costruisce sistemi di crescita digitale per aziende italiane."
         ogUrl="https://bdmedia.it/services"
+        canonicalUrl="https://bdmedia.it/services"
       />
 
       {/* Hero */}
