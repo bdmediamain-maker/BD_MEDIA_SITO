@@ -138,6 +138,7 @@ const Index = () => {
         description="BD Media è l'agenzia di marketing digitale italiana che progetta sistemi di acquisizione clienti misurabili. Campagne ADS, Funnel, Siti Web e Lead Generation per aziende in tutta Italia."
         keywords="agenzia marketing digitale italia, growth partner italia, lead generation italia, campagne ads italia, funnel marketing, acquisizione clienti"
         ogUrl="https://bdmedia.it/"
+        canonicalUrl="https://bdmedia.it/"
         jsonLd={AEON_SCHEMA}
       />
 
