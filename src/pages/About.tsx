@@ -1,6 +1,6 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { BarChart3, Search, Zap, Target, FlaskConical, PenTool } from "lucide-react";
+import { BarChart3, Search, Zap, Target, FlaskConical, PenTool, Plus } from "lucide-react";
 import SEO from "@/components/SEO";
 import { useContactModal } from "@/components/ContactModalContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -116,6 +116,16 @@ const About = () => {
                 />
               </ScrollReveal>
             ))}
+            <ScrollReveal delay={team.length * 80}>
+              <div
+                className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[rgba(255,0,204,0.3)] bg-[rgba(255,255,255,0.04)]"
+                style={{ aspectRatio: "3/4" }}
+              >
+                <Plus className="h-8 w-8 text-primary" />
+                <p className="mt-3 text-sm font-bold text-white">Il prossimo sei tu?</p>
+                <p className="mt-1 text-xs text-muted-foreground">Stiamo crescendo.</p>
+              </div>
+            </ScrollReveal>
           </div>
           <ScrollReveal delay={400}>
             <p className="mt-8 text-center text-sm text-muted-foreground">{t(A.team.note)}</p>
